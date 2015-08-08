@@ -26,6 +26,8 @@ addTile("silver.png")
 addTile("gold.png")
 addTile("diamond.png")
 addTile("rail.png")
+for i in range(0,6):
+	addTile("block"+str(i)+".png")
 
 
 
