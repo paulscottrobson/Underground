@@ -15,7 +15,7 @@ for i in range(0,10):
 #
 #	Build the 48x48 and 16x16 tile maps
 #
-im = Image.new("RGBA",(48*8,48*5),(0,0,0,0))
+im = Image.new("RGBA",(48*8,48*6),(0,0,0,0))
 tileCount = 0
 
 def addTile(fileName):
@@ -39,6 +39,8 @@ addTile("diamond.png")
 addTile("rail.png")
 for i in range(0,6):
 	addTile("block"+str(i)+".png")
+addTile("granite.png")
+addTile("target.png")
 
 # write out at 48x48
 im.save("tiles.png")
