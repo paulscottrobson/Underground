@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Constants</name>
+    <events>
+        <event-group description="" sid="273374172890719" title="Constants" />
+        <comment>Size of game area</comment>
+        <variable comment="Width of map in units" constant="1" name="MAPWIDTH" sid="8459146280043049" static="0" type="number">40</variable>
+        <variable comment="Height of map in Units" constant="1" name="MAPHEIGHT" sid="2091957348147479" static="0" type="number">40</variable>
+        <variable comment="Area of map in square unit" constant="0" name="MAPAREA" sid="2199436077163512" static="0" type="number">0</variable>
+        <comment>Position and height of shaft</comment>
+        <variable comment="Position of shaft" constant="0" name="MAPXSHAFT" sid="3412019242900933" static="0" type="number">0</variable>
+        <variable comment="Depth of initial shaft" constant="1" name="MAPSHAFTDEPTH" sid="8973755303560124" static="0" type="number">12</variable>
+        <comment>Tiles</comment>
+        <variable comment="Earth tile (base)" constant="1" name="TILE_EARTH" sid="3050615867398257" static="0" type="number">0</variable>
+        <variable comment="Tile open (base for coal here)" constant="1" name="TILE_OPEN" sid="5607838563844449" static="0" type="number">16</variable>
+        <variable comment="Tile open (base for coal here)" constant="1" name="TILE_SHAFT" sid="3023737881244488" static="0" type="number">26</variable>
+        <variable comment="Grass on top tile" constant="1" name="TILE_TOP" sid="5956542398077775" static="0" type="number">27</variable>
+        <variable comment="Rock" constant="1" name="TILE_ROCK" sid="9711346975765147" static="0" type="number">28</variable>
+        <variable comment="Silver tile" constant="1" name="TILE_SILVER" sid="599155108425085" static="0" type="number">29</variable>
+        <variable comment="Gold tile" constant="1" name="TILE_GOLD" sid="1133847689277997" static="0" type="number">30</variable>
+        <variable comment="Diamond tile" constant="1" name="TILE_DIAMOND" sid="973985994842656" static="0" type="number">31</variable>
+        <variable comment="Railway track tile" constant="1" name="TILE_TRACK" sid="8937044653044898" static="0" type="number">32</variable>
+        <variable comment="Railway track tile" constant="1" name="TILE_GRANITE" sid="6022472535688801" static="0" type="number">39</variable>
+        <comment>Calculations for various map objects - percentages of area</comment>
+        <variable comment="% Coal Seams" constant="1" name="PC_COAL" sid="5823469909067593" static="0" type="number">2.5</variable>
+        <variable comment="% Rock slices" constant="1" name="PC_ROCKBAR" sid="6293846632974251" static="0" type="number">2.5</variable>
+        <variable comment="% Rock single bits" constant="1" name="PC_ROCKALONE" sid="8515675442317824" static="0" type="number">1.7</variable>
+        <variable comment="% Silver bits" constant="1" name="PC_SILVER" sid="5730562961051833" static="0" type="number">1</variable>
+        <variable comment="% Gold bits" constant="1" name="PC_GOLD" sid="6627828954552896" static="0" type="number">0.5</variable>
+        <variable comment="% Diamonds" constant="1" name="PC_DIAMOND" sid="1429871623195338" static="0" type="number">0.25</variable>
+        <comment>Set up calculated constants</comment>
+        <event-block sid="685173727322585">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4046660338915754" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="1841673861940386" type="System">
+                    <param id="0" name="Variable">MAPXSHAFT</param>
+                    <param id="1" name="Value">floor(MAPWIDTH/2)</param>
+                </action>
+                <action id="-9" name="Set value" sid="2186450338082797" type="System">
+                    <param id="0" name="Variable">MAPAREA</param>
+                    <param id="1" name="Value">MAPWIDTH*MAPHEIGHT</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
