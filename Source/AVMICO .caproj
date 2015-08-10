@@ -11,6 +11,8 @@
     <saved-with-version>20600</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
     </used-plugins>
     <used-behaviors />
@@ -54,6 +56,15 @@
             <texture original-source="C:\Construct2\Underground\Graphics\tiles16.png" />
             <tiles />
         </object-type>
+        <object-type name="Mouse" sid="7929783631345751">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="CursorPositionText" sid="153302839796021">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="RouteText" sid="6094645062975504">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Map" plugin-id="Tilemap" sid="964271431457324">
@@ -75,12 +86,14 @@
         <event-folder name="Functions">
             <event-sheet>Map Creation.xml</event-sheet>
             <event-sheet>Open View.xml</event-sheet>
+            <event-sheet>Route Finder.xml</event-sheet>
         </event-folder>
         <event-sheet>Test Layout Events.xml</event-sheet>
         <event-sheet>Constants.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="1" />
+        <global-instance type="Mouse" uid="3" />
     </global-instances>
     <sounds-folder />
     <music-folder />

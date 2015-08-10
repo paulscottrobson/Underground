@@ -12,9 +12,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <open-tabs>
         <layout order="0">Test Layout</layout>
         <event-sheet order="1">Test Layout Events</event-sheet>
-        <event-sheet active="1" order="2">Constants</event-sheet>
+        <event-sheet order="2">Constants</event-sheet>
         <event-sheet order="3">Map Creation</event-sheet>
         <event-sheet order="4">Open View</event-sheet>
+        <event-sheet active="1" order="5">Route Finder</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />

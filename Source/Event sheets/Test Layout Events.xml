@@ -7,6 +7,7 @@
         <include>Constants</include>
         <include>Map Creation</include>
         <include>Open View</include>
+        <include>Route Finder</include>
         <event-block sid="3491504968428704">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="9975546576605932" type="System" />
@@ -30,6 +31,72 @@
                     <param id="1" name="Parameter {n}">TestMineMap.UID{###}TestCover.UID</param>
                 </action>
             </actions>
+        </event-block>
+        <comment>Right Click Opens visibility</comment>
+        <event-block sid="8734425644902766">
+            <conditions>
+                <condition id="0" name="On click" sid="9022292872967669" type="Mouse">
+                    <param id="0" name="Mouse button">2</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="3034631993812082" type="Function">
+                    <param id="0" name="Name">&quot;OpenView&quot;</param>
+                    <param id="1" name="Parameter {n}">TestCover.UID{###}TestCover.PositionToTileX(Mouse.X){###}TestCover.PositionToTileY(Mouse.Y){###}1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Left Click Finds Route</comment>
+        <event-block sid="3197606477049342">
+            <conditions>
+                <condition id="0" name="On click" sid="3722264837468612" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="x" sid="7800196403682884" static="0" type="number">0</variable>
+                <variable constant="0" name="y" sid="4528821689735941" static="0" type="number">0</variable>
+                <event-block sid="7490312069767291">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="9561505900070326" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6713530181719465" type="System">
+                            <param id="0" name="Variable">x</param>
+                            <param id="1" name="Value">TestMineMap.PositionToTileX(Mouse.X)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4208988238643241" type="System">
+                            <param id="0" name="Variable">y</param>
+                            <param id="1" name="Value">TestMineMap.PositionToTileY(Mouse.Y)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4294501477013539" type="CursorPositionText">
+                            <param id="0" name="Text">&quot;Clicked &quot; &amp; x &amp; &quot;,&quot; &amp; y &amp; &quot; &quot; &amp; Function.Call(&quot;IsTunnel&quot;,TestMineMap.UID,x,y)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="5262115453861377" type="RouteText">
+                            <param id="0" name="Text">&quot;---&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="4277991520456598">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="3175373141495081" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;IsTunnel&quot;,TestMineMap.UID,x,y)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="5101529645678775" type="RouteText">
+                                    <param id="0" name="Text">Function.Call(&quot;GetRouteDown&quot;,TestMineMap.UID,x,y)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

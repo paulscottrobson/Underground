@@ -421,8 +421,8 @@
                         </action>
                         <action id="3" name="Set tile range" sid="7167122265355433" type="Map">
                             <param id="0" name="Tile X">2</param>
-                            <param id="1" name="Tile Y">15</param>
-                            <param id="2" name="Width">6</param>
+                            <param id="1" name="Tile Y">14</param>
+                            <param id="2" name="Width">5</param>
                             <param id="3" name="Height">1</param>
                             <param id="4" name="Tile">TILE_OPEN</param>
                             <param id="5" name="State">0</param>
