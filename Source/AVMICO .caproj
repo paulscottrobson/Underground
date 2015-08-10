@@ -49,11 +49,22 @@
         <object-type name="Function" sid="2471661111899119">
             <plugin id="Function" />
         </object-type>
+        <object-type name="TestCover" sid="9627315791488466">
+            <plugin id="Tilemap" />
+            <texture original-source="C:\Construct2\Underground\Graphics\tiles16.png" />
+            <tiles />
+        </object-type>
     </object-folder>
     <families>
         <family name="Map" plugin-id="Tilemap" sid="964271431457324">
             <members>
+                <member>TestCover</member>
                 <member>TestMineMap</member>
+            </members>
+        </family>
+        <family name="Covers" plugin-id="Tilemap" sid="7865993028827663">
+            <members>
+                <member>TestCover</member>
             </members>
         </family>
     </families>
@@ -61,9 +72,12 @@
         <layout>Test Layout.xml</layout>
     </layout-folder>
     <event-folder>
+        <event-folder name="Functions">
+            <event-sheet>Map Creation.xml</event-sheet>
+            <event-sheet>Open View.xml</event-sheet>
+        </event-folder>
         <event-sheet>Test Layout Events.xml</event-sheet>
         <event-sheet>Constants.xml</event-sheet>
-        <event-sheet>Map Creation.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="1" />

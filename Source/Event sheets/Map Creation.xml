@@ -12,6 +12,23 @@
             </conditions>
             <actions />
             <sub-events>
+                <event-block sid="4262698611899847">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="3481217957764961" type="Covers">
+                            <param id="0" name="Unique ID">Function.Param(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set tile range" sid="9964896577449958" type="Covers">
+                            <param id="0" name="Tile X">0</param>
+                            <param id="1" name="Tile Y">0</param>
+                            <param id="2" name="Width">MAPWIDTH</param>
+                            <param id="3" name="Height">MAPHEIGHT</param>
+                            <param id="4" name="Tile">TILEV_CLOSED</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <variable constant="0" name="n" sid="8261882031328767" static="0" type="number">0</variable>
                 <variable constant="0" name="x" sid="4348090872211142" static="0" type="number">0</variable>
                 <variable constant="0" name="y" sid="6836602967910831" static="0" type="number">0</variable>
@@ -317,6 +334,24 @@
                                     <param id="5" name="State">0</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <comment>Open up visibility around the shaft</comment>
+                                <event-block sid="5480383293777392">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="6401009564942643" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">MAPSHAFTDEPTH-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="7267394750079749" type="Function">
+                                            <param id="0" name="Name">&quot;OpenView&quot;</param>
+                                            <param id="1" name="Parameter {n}">Function.Param(1){###}MAPXSHAFT{###}loopindex{###}3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -334,6 +369,120 @@
                     <param id="0" name="Value">floor((random(1)^Function.Param(0))*MAPHEIGHT)</param>
                 </action>
             </actions>
+        </event-block>
+        <event-group description="Create a test map" sid="3050826925453861" title="Test Map" />
+        <comment>Create the demo map</comment>
+        <event-block sid="2638843136437325">
+            <conditions>
+                <condition id="0" name="On function" sid="1414995438948979" type="Function">
+                    <param id="0" name="Name">&quot;OpenDemoMap&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1358800576692091">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="4652668249170378" type="Map">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set tile range" sid="1635615334807132" type="Map">
+                            <param id="0" name="Tile X">6</param>
+                            <param id="1" name="Tile Y">4</param>
+                            <param id="2" name="Width">14</param>
+                            <param id="3" name="Height">1</param>
+                            <param id="4" name="Tile">TILE_OPEN</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                        <action id="3" name="Set tile range" sid="1841121238233438" type="Map">
+                            <param id="0" name="Tile X">11</param>
+                            <param id="1" name="Tile Y">10</param>
+                            <param id="2" name="Width">9</param>
+                            <param id="3" name="Height">1</param>
+                            <param id="4" name="Tile">TILE_OPEN</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                        <action id="3" name="Set tile range" sid="6646795714828577" type="Map">
+                            <param id="0" name="Tile X">21</param>
+                            <param id="1" name="Tile Y">8</param>
+                            <param id="2" name="Width">11</param>
+                            <param id="3" name="Height">1</param>
+                            <param id="4" name="Tile">TILE_OPEN</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                        <action id="3" name="Set tile range" sid="6432967628676743" type="Map">
+                            <param id="0" name="Tile X">21</param>
+                            <param id="1" name="Tile Y">11</param>
+                            <param id="2" name="Width">7</param>
+                            <param id="3" name="Height">1</param>
+                            <param id="4" name="Tile">TILE_OPEN</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                        <action id="3" name="Set tile range" sid="7167122265355433" type="Map">
+                            <param id="0" name="Tile X">2</param>
+                            <param id="1" name="Tile Y">15</param>
+                            <param id="2" name="Width">6</param>
+                            <param id="3" name="Height">1</param>
+                            <param id="4" name="Tile">TILE_OPEN</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                        <action id="3" name="Set tile range" sid="7684977234895146" type="Map">
+                            <param id="0" name="Tile X">26</param>
+                            <param id="1" name="Tile Y">22</param>
+                            <param id="2" name="Width">9</param>
+                            <param id="3" name="Height">1</param>
+                            <param id="4" name="Tile">TILE_OPEN</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                        <action id="3" name="Set tile range" sid="2954729073625868" type="Map">
+                            <param id="0" name="Tile X">26</param>
+                            <param id="1" name="Tile Y">12</param>
+                            <param id="2" name="Width">1</param>
+                            <param id="3" name="Height">11</param>
+                            <param id="4" name="Tile">TILE_SHAFT</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                        <action id="3" name="Set tile range" sid="7990562992867673" type="Map">
+                            <param id="0" name="Tile X">24</param>
+                            <param id="1" name="Tile Y">9</param>
+                            <param id="2" name="Width">1</param>
+                            <param id="3" name="Height">7</param>
+                            <param id="4" name="Tile">TILE_SHAFT</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                        <action id="3" name="Set tile range" sid="8104876375305682" type="Map">
+                            <param id="0" name="Tile X">14</param>
+                            <param id="1" name="Tile Y">11</param>
+                            <param id="2" name="Width">1</param>
+                            <param id="3" name="Height">9</param>
+                            <param id="4" name="Tile">TILE_SHAFT</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                        <action id="3" name="Set tile range" sid="6359312655937705" type="Map">
+                            <param id="0" name="Tile X">7</param>
+                            <param id="1" name="Tile Y">5</param>
+                            <param id="2" name="Width">1</param>
+                            <param id="3" name="Height">10</param>
+                            <param id="4" name="Tile">TILE_SHAFT</param>
+                            <param id="5" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>On the demo, make the cover opaque enough so you can see it and the map underneath</comment>
+                <event-block sid="8914121834329249">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="222718723118264" type="Covers">
+                            <param id="0" name="Unique ID">Function.Param(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="9835168224759223" type="Covers">
+                            <param id="0" name="Opacity">44</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

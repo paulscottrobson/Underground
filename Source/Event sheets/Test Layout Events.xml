@@ -6,18 +6,28 @@
         <event-group description="This is a test layout, whose purpose is to check the map creation code by displaying it on a 16x16 tile system." sid="4675447414960091" title="Test map creation" />
         <include>Constants</include>
         <include>Map Creation</include>
+        <include>Open View</include>
         <event-block sid="3491504968428704">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="9975546576605932" type="System" />
             </conditions>
             <actions>
-                <action id="-7" name="Set size" sid="4808110529783359" type="TestMineMap">
+                <action id="-7" name="Set size" sid="4808110529783359" type="TestCover">
                     <param id="0" name="Width">MAPWIDTH*16</param>
                     <param id="1" name="Height">MAPHEIGHT*16</param>
                 </action>
+                <action id="-7" name="Set size" sid="6340881082344643" type="TestMineMap">
+                    <param id="0" name="Width">MAPWIDTH*16</param>
+                    <param id="1" name="Height">MAPHEIGHT*16</param>
+                </action>
+                <action id="-24" name="Move to top" sid="888345682187401" type="TestCover" />
                 <action id="0" name="Call function" sid="1180124670985112" type="Function">
                     <param id="0" name="Name">&quot;SetupMap&quot;</param>
-                    <param id="1" name="Parameter {n}">TestMineMap.UID</param>
+                    <param id="1" name="Parameter {n}">TestMineMap.UID{###}TestCover.UID</param>
+                </action>
+                <action id="0" name="Call function" sid="1643680320405218" type="Function">
+                    <param id="0" name="Name">&quot;OpenDemoMap&quot;</param>
+                    <param id="1" name="Parameter {n}">TestMineMap.UID{###}TestCover.UID</param>
                 </action>
             </actions>
         </event-block>

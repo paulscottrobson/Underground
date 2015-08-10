@@ -22,6 +22,8 @@
         <variable comment="Diamond tile" constant="1" name="TILE_DIAMOND" sid="973985994842656" static="0" type="number">31</variable>
         <variable comment="Railway track tile" constant="1" name="TILE_TRACK" sid="8937044653044898" static="0" type="number">32</variable>
         <variable comment="Railway track tile" constant="1" name="TILE_GRANITE" sid="6022472535688801" static="0" type="number">39</variable>
+        <variable comment="Railway track tile" constant="1" name="TILEV_CLOSED" sid="4294628819594149" static="0" type="number">38</variable>
+        <variable comment="Open view" constant="1" name="TILEV_OPEN" sid="4163337818335031" static="0" type="number">33</variable>
         <comment>Calculations for various map objects - percentages of area</comment>
         <variable comment="% Coal Seams" constant="1" name="PC_COAL" sid="5823469909067593" static="0" type="number">2.5</variable>
         <variable comment="% Rock slices" constant="1" name="PC_ROCKBAR" sid="6293846632974251" static="0" type="number">2.5</variable>

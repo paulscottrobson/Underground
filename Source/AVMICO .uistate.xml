@@ -12,8 +12,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <open-tabs>
         <layout order="0">Test Layout</layout>
         <event-sheet order="1">Test Layout Events</event-sheet>
-        <event-sheet order="2">Constants</event-sheet>
-        <event-sheet active="1" order="3">Map Creation</event-sheet>
+        <event-sheet active="1" order="2">Constants</event-sheet>
+        <event-sheet order="3">Map Creation</event-sheet>
+        <event-sheet order="4">Open View</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -23,11 +24,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <families-expanded root="1">
         <family expanded="0" name="Map" />
+        <family expanded="0" name="Covers" />
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="event-folder/Functions/" />
         <folder expanded="1" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
