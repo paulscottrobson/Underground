@@ -8,21 +8,22 @@
         <variable comment="Width of map in units" constant="1" name="MAPWIDTH" sid="8459146280043049" static="0" type="number">40</variable>
         <variable comment="Height of map in Units" constant="1" name="MAPHEIGHT" sid="2091957348147479" static="0" type="number">40</variable>
         <variable comment="Area of map in square unit" constant="0" name="MAPAREA" sid="2199436077163512" static="0" type="number">0</variable>
+        <variable comment="Size of one tile in pixels" constant="1" name="MAPTILESIZE" sid="2289228836972751" static="0" type="number">48</variable>
         <comment>Position and height of shaft</comment>
         <variable comment="Position of shaft" constant="0" name="MAPXSHAFT" sid="3412019242900933" static="0" type="number">0</variable>
         <variable comment="Depth of initial shaft" constant="1" name="MAPSHAFTDEPTH" sid="8973755303560124" static="0" type="number">12</variable>
         <comment>Tiles</comment>
         <variable comment="Earth tile (base)" constant="1" name="TILE_EARTH" sid="3050615867398257" static="0" type="number">0</variable>
         <variable comment="Tile open (base for coal here)" constant="1" name="TILE_OPEN" sid="5607838563844449" static="0" type="number">16</variable>
-        <variable comment="Tile open (base for coal here)" constant="1" name="TILE_SHAFT" sid="3023737881244488" static="0" type="number">26</variable>
+        <variable comment="Shaft graphic" constant="1" name="TILE_SHAFT" sid="3023737881244488" static="0" type="number">26</variable>
         <variable comment="Grass on top tile" constant="1" name="TILE_TOP" sid="5956542398077775" static="0" type="number">27</variable>
         <variable comment="Rock" constant="1" name="TILE_ROCK" sid="9711346975765147" static="0" type="number">28</variable>
         <variable comment="Silver tile" constant="1" name="TILE_SILVER" sid="599155108425085" static="0" type="number">29</variable>
         <variable comment="Gold tile" constant="1" name="TILE_GOLD" sid="1133847689277997" static="0" type="number">30</variable>
         <variable comment="Diamond tile" constant="1" name="TILE_DIAMOND" sid="973985994842656" static="0" type="number">31</variable>
         <variable comment="Railway track tile" constant="1" name="TILE_TRACK" sid="8937044653044898" static="0" type="number">32</variable>
-        <variable comment="Railway track tile" constant="1" name="TILE_GRANITE" sid="6022472535688801" static="0" type="number">39</variable>
-        <variable comment="Railway track tile" constant="1" name="TILEV_CLOSED" sid="4294628819594149" static="0" type="number">38</variable>
+        <variable comment="Granite (border) tile" constant="1" name="TILE_GRANITE" sid="6022472535688801" static="0" type="number">39</variable>
+        <variable comment="Closed view" constant="1" name="TILEV_CLOSED" sid="4294628819594149" static="0" type="number">38</variable>
         <variable comment="Open view" constant="1" name="TILEV_OPEN" sid="4163337818335031" static="0" type="number">33</variable>
         <comment>Calculations for various map objects - percentages of area</comment>
         <variable comment="% Coal Seams" constant="1" name="PC_COAL" sid="5823469909067593" static="0" type="number">2.5</variable>
@@ -31,6 +32,12 @@
         <variable comment="% Silver bits" constant="1" name="PC_SILVER" sid="5730562961051833" static="0" type="number">1</variable>
         <variable comment="% Gold bits" constant="1" name="PC_GOLD" sid="6627828954552896" static="0" type="number">0.5</variable>
         <variable comment="% Diamonds" constant="1" name="PC_DIAMOND" sid="1429871623195338" static="0" type="number">0.25</variable>
+        <comment>Tiles scrolling per second when positioning</comment>
+        <variable comment="Tiles scrolling per second" constant="1" name="SCROLLTILEPERSECOND" sid="503544757958775" static="0" type="number">35</variable>
+        <comment>Scanner constants</comment>
+        <variable comment="Scanner size in pixels" constant="1" name="SCANNERSIZE" sid="1858841115936616" static="0" type="number">140</variable>
+        <variable comment="Edge of scanner frame" constant="1" name="SCANNEREDGE" sid="558450712995821" static="0" type="number">3</variable>
+        <variable comment="Margin to edges of scanner" constant="1" name="SCANNERMARGIN" sid="9270387359814699" static="0" type="number">48</variable>
         <comment>Set up calculated constants</comment>
         <event-block sid="685173727322585">
             <conditions>

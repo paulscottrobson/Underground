@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Interface</name>
+    <events>
+        <event-group description="" sid="2480056055314129" title="Interface Events" />
+        <comment>Move map using arrow keys - this is primarily for debugging, as it&apos;s touch controlled.</comment>
+        <event-block sid="8346556663088926">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="7019363942799766" type="System">
+                    <param id="0" name="Interval (seconds)">0.1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="850375846478013">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="9012944478678084" type="Keyboard">
+                            <param id="0" name="Key">39 (Right arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="2495383416686368" type="Function">
+                            <param id="0" name="Name">&quot;MoveMap&quot;</param>
+                            <param id="1" name="Parameter {n}">Map.X-48{###}Map.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2284616612681925">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="363405577790783" type="Keyboard">
+                            <param id="0" name="Key">37 (Left arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="4228544617787044" type="Function">
+                            <param id="0" name="Name">&quot;MoveMap&quot;</param>
+                            <param id="1" name="Parameter {n}">Map.X+48{###}Map.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8701749433678939">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="3648813568513826" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="8979742320076735" type="Function">
+                            <param id="0" name="Name">&quot;MoveMap&quot;</param>
+                            <param id="1" name="Parameter {n}">Map.X{###}Map.Y+48</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8104691882154608">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="1186838498521418" type="Keyboard">
+                            <param id="0" name="Key">40 (Down arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="3016303035729916" type="Function">
+                            <param id="0" name="Name">&quot;MoveMap&quot;</param>
+                            <param id="1" name="Parameter {n}">Map.X{###}Map.Y-48</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Touching map starts</comment>
+        <event-block sid="1969515323997103">
+            <conditions>
+                <condition id="0" name="On any touch start" sid="8869782072784293" type="Touch" />
+                <condition id="-8" name="Compare two values" sid="7318408351949155" type="System">
+                    <param id="0" name="First value">Touch.Y</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Second value">MAPTILESIZE</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="4399876126222951" type="Map">
+                    <param id="0" name="Instance variable">xStart</param>
+                    <param id="1" name="Value">Touch.X-Map.X</param>
+                </action>
+                <action id="-10" name="Set value" sid="8330195153846819" type="Map">
+                    <param id="0" name="Instance variable">yStart</param>
+                    <param id="1" name="Value">Touch.Y-Map.Y</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="1744581646173538" type="Map">
+                    <param id="0" name="Instance variable">isDragging</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>End of map drag - possible &quot;throw&quot;</comment>
+        <event-block sid="235210548105329">
+            <conditions>
+                <condition id="1" name="On any touch end" sid="6080714720007391" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="9562898887750814" type="Map">
+                    <param id="0" name="Instance variable">isDragging</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="dist" sid="9528115637750489" static="0" type="number">0</variable>
+                <variable constant="0" name="ang" sid="4357958529392659" static="0" type="number">0</variable>
+                <comment>If velocity sufficient , add a little bit of extra movement</comment>
+                <event-block sid="7674218802489285">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="1710783633276733" type="System">
+                            <param id="0" name="First value">Touch.SpeedForID(Touch.TouchID)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2404904198805405" type="System">
+                            <param id="0" name="Variable">dist</param>
+                            <param id="1" name="Value">Touch.SpeedForID(Touch.TouchID)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5990570643853483" type="System">
+                            <param id="0" name="Variable">dist</param>
+                            <param id="1" name="Value">dist*dist / 1500</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9855430897096135" type="System">
+                            <param id="0" name="Variable">ang</param>
+                            <param id="1" name="Value">Touch.AngleForID(Touch.TouchID)</param>
+                        </action>
+                        <action id="0" name="Call function" sid="2078094517330242" type="Function">
+                            <param id="0" name="Name">&quot;MoveMap&quot;</param>
+                            <param id="1" name="Parameter {n}">Touch.X-Map.xStart+dist*cos(ang){###}Touch.Y-Map.yStart+dist*sin(ang)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Dragging the map around</comment>
+        <event-block sid="8999844005422913">
+            <conditions>
+                <condition id="2" name="Is in touch" sid="6263958050396033" type="Touch" />
+                <condition id="-8" name="Is boolean instance variable set" sid="9003068764789201" type="Map">
+                    <param id="0" name="Instance variable">isDragging</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="5588865699427411" type="Function">
+                    <param id="0" name="Name">&quot;MoveMap&quot;</param>
+                    <param id="1" name="Parameter {n}">Touch.X-Map.xStart{###}Touch.Y-Map.yStart</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Move towards target position.</comment>
+        <event-block sid="2124704385240492">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="5506334786203039" type="System" />
+                <condition id="-8" name="Compare two values" sid="8102829896463388" type="System">
+                    <param id="0" name="First value">abs(Map.X-Map.xTarget)+abs(Map.Y-Map.yTarget)</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Second value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="dist" sid="1371254206793546" static="0" type="number">0</variable>
+                <event-block sid="3857189617876818">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="6693705394305958" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5012329648814504" type="System">
+                            <param id="0" name="Variable">dist</param>
+                            <param id="1" name="Value">min(distance(Map.X,Map.Y,Map.xTarget,Map.yTarget),SCROLLTILEPERSECOND*MAPTILESIZE*dt)</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="4932436623539355" type="Map">
+                            <param id="0" name="X">Map.X-dist*cos(Map.angle)</param>
+                            <param id="1" name="Y">Map.Y-dist*sin(Map.angle)</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="582613484918554" type="Visibility">
+                            <param id="0" name="X">Map.X</param>
+                            <param id="1" name="Y">Map.Y</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="2538528053099888" type="ViewMarker">
+                            <param id="0" name="Y">-Map.Y/(MAPTILESIZE*MAPHEIGHT)*SCANNERSIZE+Scanner.Y+SCANNEREDGE+ViewMarker.Height/2</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="5482928829305444" type="ViewMarker">
+                            <param id="0" name="X">-Map.X/(MAPTILESIZE*MAPWIDTH)*SCANNERSIZE+Scanner.X+SCANNEREDGE+ViewMarker.Width/2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Handle tap on scanner</comment>
+        <event-block sid="7416637542014731">
+            <conditions>
+                <condition id="17" name="On tap object" sid="4092632161077505" type="Touch">
+                    <param id="0" name="Object">Scanner</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="4527107021967031" type="Function">
+                    <param id="0" name="Name">&quot;MoveMap&quot;</param>
+                    <param id="1" name="Parameter {n}">((Touch.X-(Scanner.X+SCANNEREDGE))/SCANNERSIZE)*(-MAPWIDTH*MAPTILESIZE)+LayoutWidth/2{###}((Touch.Y-(Scanner.Y+SCANNEREDGE))/SCANNERSIZE)*(-MAPHEIGHT*MAPTILESIZE)+LayoutHeight/2</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Touching the top of screen goes home.</comment>
+        <event-block sid="9451941529840652">
+            <conditions>
+                <condition id="17" name="On tap object" sid="6773944060144549" type="Touch">
+                    <param id="0" name="Object">Visibility</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="6973204609784766" type="System">
+                    <param id="0" name="First value">Touch.Y</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Second value">MAPTILESIZE</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="6735314533113816" type="Function">
+                    <param id="0" name="Name">&quot;HomeMap&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Update the display from the map position - clamp it, update visibility, and position the view marker</comment>
+        <event-block sid="1072261785813681">
+            <conditions>
+                <condition id="0" name="On function" sid="4294532164831736" type="Function">
+                    <param id="0" name="Name">&quot;MoveMap&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="1367322184425252" type="Map">
+                    <param id="0" name="Instance variable">xTarget</param>
+                    <param id="1" name="Value">clamp(Function.Param(0),LayoutWidth-Map.Width,0)</param>
+                </action>
+                <action id="-10" name="Set value" sid="7732345704122768" type="Map">
+                    <param id="0" name="Instance variable">yTarget</param>
+                    <param id="1" name="Value">clamp(Function.Param(1),LayoutHeight-Map.Height,0)</param>
+                </action>
+                <action id="-10" name="Set value" sid="2290703668689321" type="Map">
+                    <param id="0" name="Instance variable">angle</param>
+                    <param id="1" name="Value">angle(Map.xTarget,Map.yTarget,Map.X,Map.Y)</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

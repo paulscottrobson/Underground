@@ -10,12 +10,15 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="0">Test Layout</layout>
-        <event-sheet order="1">Test Layout Events</event-sheet>
-        <event-sheet order="2">Constants</event-sheet>
-        <event-sheet order="3">Map Creation</event-sheet>
-        <event-sheet order="4">Open View</event-sheet>
-        <event-sheet active="1" order="5">Route Finder</event-sheet>
+        <layout active="1" order="4">Game</layout>
+        <event-sheet order="0">Constants</event-sheet>
+        <event-sheet order="1">Map Creation</event-sheet>
+        <event-sheet order="2">Open View</event-sheet>
+        <event-sheet order="3">Route Finder</event-sheet>
+        <event-sheet order="5">Game Main</event-sheet>
+        <event-sheet order="6">Initialisation</event-sheet>
+        <event-sheet order="7">Interface</event-sheet>
+        <event-sheet order="8">TODO</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -24,11 +27,12 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="1" name="Configuration Settings" />
     </properties>
     <families-expanded root="1">
-        <family expanded="0" name="Map" />
+        <family expanded="0" name="Maps" />
         <family expanded="0" name="Covers" />
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="object-folder/Miscellany/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="1" path="event-folder/Functions/" />
@@ -36,5 +40,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
         <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/Fade/" />
+        <folder expanded="1" path="animation-folder/ViewMarker/" />
+        <folder expanded="1" path="animation-folder/Marker/" />
     </folders-expanded>
 </c2uistate>

@@ -11,11 +11,18 @@
     <saved-with-version>20600</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
-    <used-behaviors />
+    <used-behaviors>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+    </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
@@ -43,44 +50,124 @@
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
-        <object-type name="TestMineMap" sid="1691596045963315">
-            <plugin id="Tilemap" />
-            <texture original-source="C:\Construct2\Underground\Graphics\tiles16.png" />
-            <tiles />
-        </object-type>
+        <object-folder name="Miscellany">
+            <object-type name="CursorPositionText" sid="153302839796021">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Keyboard" sid="7400354464294956">
+                <plugin id="Keyboard" />
+            </object-type>
+            <object-type name="RouteText" sid="6094645062975504">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Mouse" sid="7929783631345751">
+                <plugin id="Mouse" />
+            </object-type>
+            <object-type name="TestCover" sid="9627315791488466">
+                <plugin id="Tilemap" />
+                <texture original-source="C:\Construct2\Underground\Graphics\tiles16.png" />
+                <tiles />
+            </object-type>
+            <object-type name="TestMineMap" sid="1691596045963315">
+                <plugin id="Tilemap" />
+                <texture original-source="C:\Construct2\Underground\Graphics\tiles16.png" />
+                <tiles />
+            </object-type>
+            <object-type name="DebugText" sid="1449859766557765">
+                <plugin id="Text" />
+                <behaviors>
+                    <behavior-type name="DestroyOutsideLayout" sid="4974225882219843">
+                        <behavior id="destroy" />
+                    </behavior-type>
+                </behaviors>
+            </object-type>
+            <object-type name="Fade" sid="8545414406650183">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="9659918022893359">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8843076814678226" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
         <object-type name="Function" sid="2471661111899119">
             <plugin id="Function" />
         </object-type>
-        <object-type name="TestCover" sid="9627315791488466">
+        <object-type name="Map" sid="5959090538099283">
             <plugin id="Tilemap" />
-            <texture original-source="C:\Construct2\Underground\Graphics\tiles16.png" />
+            <instance-variables>
+                <instance-variable comment="target for x" name="xTarget" sid="8544204279807955" type="number" />
+                <instance-variable comment="Target for Y" name="yTarget" sid="3859600730023668" type="number" />
+                <instance-variable comment="Angle to target position" name="angle" sid="8998267310194674" type="number" />
+                <instance-variable comment="X start touch" name="xStart" sid="1310634382257403" type="number" />
+                <instance-variable comment="y start touch" name="yStart" sid="2991885203244125" type="number" />
+                <instance-variable comment="True when dragging" name="isDragging" sid="6447313012623484" type="boolean" />
+            </instance-variables>
+            <texture original-source="C:\Construct2\Underground\Graphics\tiles.png" />
             <tiles />
         </object-type>
-        <object-type name="Mouse" sid="7929783631345751">
-            <plugin id="Mouse" />
+        <object-type name="Visibility" sid="5803938909244484">
+            <plugin id="Tilemap" />
+            <texture original-source="C:\Construct2\Underground\Graphics\tiles.png" />
+            <tiles />
         </object-type>
-        <object-type name="CursorPositionText" sid="153302839796021">
-            <plugin id="Text" />
+        <object-type name="Scanner" sid="3908640310835385">
+            <plugin id="NinePatch" />
+            <texture />
         </object-type>
-        <object-type name="RouteText" sid="6094645062975504">
-            <plugin id="Text" />
+        <object-type name="ViewMarker" sid="4646286692723867">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2871619071663636" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Touch" sid="2130410356740054">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Marker" sid="6970199031761931">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="264410313167269" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\target.png">
+                        <collision-poly>
+                            <point x="0.125" y="0.125" />
+                            <point x="0.5" y="0.333333" />
+                            <point x="0.854167" y="0.145833" />
+                            <point x="0.645833" y="0.5" />
+                            <point x="0.854167" y="0.854167" />
+                            <point x="0.5" y="0.645833" />
+                            <point x="0.145833" y="0.854167" />
+                            <point x="0.333333" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families>
-        <family name="Map" plugin-id="Tilemap" sid="964271431457324">
+        <family name="Maps" plugin-id="Tilemap" sid="964271431457324">
             <members>
-                <member>TestCover</member>
+                <member>Map</member>
                 <member>TestMineMap</member>
             </members>
         </family>
         <family name="Covers" plugin-id="Tilemap" sid="7865993028827663">
             <members>
                 <member>TestCover</member>
+                <member>Visibility</member>
             </members>
         </family>
     </families>
     <layout-folder>
         <layout>Test Layout.xml</layout>
+        <layout>Game.xml</layout>
     </layout-folder>
     <event-folder>
         <event-folder name="Functions">
@@ -90,10 +177,20 @@
         </event-folder>
         <event-sheet>Test Layout Events.xml</event-sheet>
         <event-sheet>Constants.xml</event-sheet>
+        <event-sheet>Game Main.xml</event-sheet>
+        <event-sheet>Initialisation.xml</event-sheet>
+        <event-sheet>Interface.xml</event-sheet>
+        <event-sheet>TODO.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="1" />
         <global-instance type="Mouse" uid="3" />
+        <global-instance type="Keyboard" uid="10" />
+        <global-instance type="Touch" uid="11">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder />
     <music-folder />

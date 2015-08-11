@@ -18,7 +18,7 @@
                 <variable constant="0" name="isMovingVertical" sid="6043249268335873" static="0" type="number">0</variable>
                 <event-block sid="5965737324471686">
                     <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="8105439969519528" type="Map">
+                        <condition id="-14" name="Pick by unique ID" sid="8105439969519528" type="Maps">
                             <param id="0" name="Unique ID">Function.Param(0)</param>
                         </condition>
                     </conditions>
@@ -33,7 +33,7 @@
                         </action>
                         <action id="-9" name="Set value" sid="1411982409694332" type="System">
                             <param id="0" name="Variable">isMovingVertical</param>
-                            <param id="1" name="Value">Map.TileAt(x,y) = TILE_SHAFT</param>
+                            <param id="1" name="Value">Maps.TileAt(x,y) = TILE_SHAFT</param>
                         </action>
                         <action id="-9" name="Set value" sid="9449053813926028" type="System">
                             <param id="0" name="Variable">route</param>
@@ -66,7 +66,7 @@
                                     <sub-events>
                                         <event-block sid="4284738518685077">
                                             <conditions>
-                                                <condition id="0" name="Compare tile at" sid="1186766823856108" type="Map">
+                                                <condition id="0" name="Compare tile at" sid="1186766823856108" type="Maps">
                                                     <param id="0" name="Tile X">x</param>
                                                     <param id="1" name="Tile Y">y</param>
                                                     <param id="2" name="Comparison">0</param>
@@ -106,7 +106,7 @@
                                     <sub-events>
                                         <event-block sid="5085683748022058">
                                             <conditions>
-                                                <condition id="0" name="Compare tile at" sid="3917635669786582" type="Map">
+                                                <condition id="0" name="Compare tile at" sid="3917635669786582" type="Maps">
                                                     <param id="0" name="Tile X">x</param>
                                                     <param id="1" name="Tile Y">y</param>
                                                     <param id="2" name="Comparison">0</param>
@@ -223,7 +223,7 @@
             <sub-events>
                 <event-block sid="1478984431265541">
                     <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="3992549196014777" type="Map">
+                        <condition id="-14" name="Pick by unique ID" sid="3992549196014777" type="Maps">
                             <param id="0" name="Unique ID">Function.Param(0)</param>
                         </condition>
                     </conditions>
@@ -260,7 +260,7 @@
                             <actions>
                                 <action id="-9" name="Set value" sid="5459300672879016" type="System">
                                     <param id="0" name="Variable">t</param>
-                                    <param id="1" name="Value">Map.TileAt(Function.Param(1),Function.Param(2))</param>
+                                    <param id="1" name="Value">Maps.TileAt(Function.Param(1),Function.Param(2))</param>
                                 </action>
                             </actions>
                             <sub-events>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Game Main</name>
+    <events>
+        <include>Constants</include>
+        <include>Map Creation</include>
+        <include>Open View</include>
+        <include>Route Finder</include>
+        <include>Initialisation</include>
+        <include>Interface</include>
+    </events>
+</c2eventsheet>
