@@ -133,6 +133,11 @@
         </object-type>
         <object-type name="Marker" sid="6970199031761931">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Marker X position" name="xTile" sid="6151138481902275" type="number" />
+                <instance-variable comment="Marker Y position" name="yTile" sid="1523682528630553" type="number" />
+                <instance-variable comment="Marker visible" name="isVisible" sid="4232240122617776" type="boolean" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="264410313167269" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\target.png">

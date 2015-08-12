@@ -223,8 +223,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-36</x>
-                        <y>-57</y>
+                        <x>-4</x>
+                        <y>-59</y>
                         <z>0</z>
                         <width>496</width>
                         <height>42</height>
@@ -242,6 +242,11 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <xTile>0</xTile>
+                        <yTile>0</yTile>
+                        <isVisible>false</isVisible>
+                    </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>

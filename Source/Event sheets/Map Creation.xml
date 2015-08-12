@@ -341,6 +341,14 @@
                                     <param id="4" name="Tile">TILE_SHAFT</param>
                                     <param id="5" name="State">0</param>
                                 </action>
+                                <action id="3" name="Set tile range" sid="7266961682689372" type="Maps">
+                                    <param id="0" name="Tile X">MAPXSHAFT+1</param>
+                                    <param id="1" name="Tile Y">0</param>
+                                    <param id="2" name="Width">1</param>
+                                    <param id="3" name="Height">MAPSHAFTDEPTH</param>
+                                    <param id="4" name="Tile">TILE_SHAFT</param>
+                                    <param id="5" name="State">0</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <comment>Open up visibility around the shaft</comment>
@@ -356,6 +364,10 @@
                                         <action id="0" name="Call function" sid="7267394750079749" type="Function">
                                             <param id="0" name="Name">&quot;OpenView&quot;</param>
                                             <param id="1" name="Parameter {n}">Function.Param(1){###}MAPXSHAFT{###}loopindex{###}3</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="5018491961166402" type="Function">
+                                            <param id="0" name="Name">&quot;OpenView&quot;</param>
+                                            <param id="1" name="Parameter {n}">Function.Param(1){###}MAPXSHAFT+1{###}loopindex{###}3</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -412,7 +424,7 @@
                             <param id="5" name="State">0</param>
                         </action>
                         <action id="3" name="Set tile range" sid="6646795714828577" type="Maps">
-                            <param id="0" name="Tile X">21</param>
+                            <param id="0" name="Tile X">22</param>
                             <param id="1" name="Tile Y">8</param>
                             <param id="2" name="Width">11</param>
                             <param id="3" name="Height">1</param>
@@ -420,7 +432,7 @@
                             <param id="5" name="State">0</param>
                         </action>
                         <action id="3" name="Set tile range" sid="6432967628676743" type="Maps">
-                            <param id="0" name="Tile X">21</param>
+                            <param id="0" name="Tile X">22</param>
                             <param id="1" name="Tile Y">11</param>
                             <param id="2" name="Width">7</param>
                             <param id="3" name="Height">1</param>

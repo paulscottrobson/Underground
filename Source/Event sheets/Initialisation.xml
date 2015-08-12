@@ -21,14 +21,6 @@
                     <param id="0" name="X">LayoutWidth/2-MAPTILESIZE*MAPXSHAFT</param>
                     <param id="1" name="Y">-2</param>
                 </action>
-                <action id="0" name="Call function" sid="7933204298933345" type="Function">
-                    <param id="0" name="Name">&quot;SetupMap&quot;</param>
-                    <param id="1" name="Parameter {n}">Map.UID{###}Visibility.UID</param>
-                </action>
-                <action id="0" name="Call function" sid="8577465935578816" type="Function">
-                    <param id="0" name="Name">&quot;OpenDemoMap&quot;</param>
-                    <param id="1" name="Parameter {n}">Map.UID{###}Visibility.UID</param>
-                </action>
                 <action id="-7" name="Set size" sid="3106452148494389" type="Scanner">
                     <param id="0" name="Width">SCANNERSIZE+SCANNEREDGE*2</param>
                     <param id="1" name="Height">SCANNERSIZE+SCANNEREDGE*2</param>
@@ -42,10 +34,6 @@
                     <param id="0" name="X">LayoutWidth-Scanner.Width-SCANNERMARGIN</param>
                     <param id="1" name="Y">SCANNERMARGIN</param>
                 </action>
-                <action id="0" name="Call function" sid="6766052860064406" type="Function">
-                    <param id="0" name="Name">&quot;HomeMap&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
                 <action id="-3" name="Set position" sid="2938568535093471" type="Fade">
                     <param id="0" name="X">LayoutWidth/2</param>
                     <param id="1" name="Y">LayoutHeight/2</param>
@@ -54,9 +42,32 @@
                     <param id="0" name="Width">LayoutWidth</param>
                     <param id="1" name="Height">LayoutHeight</param>
                 </action>
+                <action id="-13" name="Set boolean" sid="5011879899961847" type="Marker">
+                    <param id="0" name="Instance variable">isVisible</param>
+                    <param id="1" name="Value">0</param>
+                </action>
             </actions>
         </event-block>
-        <comment>Home map position to top left &amp; centre</comment>
+        <event-block sid="290159252015343">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="471003743936956" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="7933204298933345" type="Function">
+                    <param id="0" name="Name">&quot;SetupMap&quot;</param>
+                    <param id="1" name="Parameter {n}">Map.UID{###}Visibility.UID</param>
+                </action>
+                <action id="0" name="Call function" sid="8577465935578816" type="Function">
+                    <param id="0" name="Name">&quot;OpenDemoMap&quot;</param>
+                    <param id="1" name="Parameter {n}">Map.UID{###}Visibility.UID</param>
+                </action>
+                <action id="0" name="Call function" sid="6766052860064406" type="Function">
+                    <param id="0" name="Name">&quot;HomeMap&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="2051826710541181" title="Home map position to top left &amp; centre" />
         <event-block sid="4941712919314744">
             <conditions>
                 <condition id="0" name="On function" sid="7202992163314798" type="Function">

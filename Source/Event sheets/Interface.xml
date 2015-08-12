@@ -187,6 +187,10 @@
                         <action id="-1" name="Set X" sid="5482928829305444" type="ViewMarker">
                             <param id="0" name="X">-Map.X/(MAPTILESIZE*MAPWIDTH)*SCANNERSIZE+Scanner.X+SCANNEREDGE+ViewMarker.Width/2</param>
                         </action>
+                        <action id="0" name="Call function" sid="6660732502984245" type="Function">
+                            <param id="0" name="Name">&quot;UpdateMarker&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -205,26 +209,71 @@
                 </action>
             </actions>
         </event-block>
-        <comment>Touching the top of screen goes home.</comment>
+        <comment>Touching the screen</comment>
         <event-block sid="9451941529840652">
             <conditions>
                 <condition id="17" name="On tap object" sid="6773944060144549" type="Touch">
                     <param id="0" name="Object">Visibility</param>
                 </condition>
-                <condition id="-8" name="Compare two values" sid="6973204609784766" type="System">
-                    <param id="0" name="First value">Touch.Y</param>
-                    <param id="1" name="Comparison">2</param>
-                    <param id="2" name="Second value">MAPTILESIZE</param>
-                </condition>
             </conditions>
-            <actions>
-                <action id="0" name="Call function" sid="6735314533113816" type="Function">
-                    <param id="0" name="Name">&quot;HomeMap&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <comment>Top of screen is home cursor</comment>
+                <event-block sid="7672415982529009">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="4590803283494319" type="System">
+                            <param id="0" name="First value">Touch.Y</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">MAPTILESIZE</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="6735314533113816" type="Function">
+                            <param id="0" name="Name">&quot;HomeMap&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Everywhere else, set marker position and visibility if an open space (e.g. a legitimate target position)</comment>
+                <event-block sid="7343179630871951">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="9013139303736996" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="6116653584356861" type="Marker">
+                            <param id="0" name="Instance variable">xTile</param>
+                            <param id="1" name="Value">Visibility.PositionToTileX(Touch.X)</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="2154930592318442" type="Marker">
+                            <param id="0" name="Instance variable">yTile</param>
+                            <param id="1" name="Value">Visibility.PositionToTileY(Touch.Y)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="8750016738467745">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="8693830816229496" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;IsTunnel&quot;,Map.UID,Marker.xTile,Marker.yTile)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="2037360537865206" type="Marker">
+                                    <param id="0" name="Instance variable">isVisible</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="9374122987389613" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateMarker&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
-        <comment>Update the display from the map position - clamp it, update visibility, and position the view marker</comment>
+        <event-group description="" sid="8895325122250072" title="Update the display from the map position - clamp it, update visibility, and position the view marker" />
         <event-block sid="1072261785813681">
             <conditions>
                 <condition id="0" name="On function" sid="4294532164831736" type="Function">
@@ -243,6 +292,63 @@
                 <action id="-10" name="Set value" sid="2290703668689321" type="Map">
                     <param id="0" name="Instance variable">angle</param>
                     <param id="1" name="Value">angle(Map.xTarget,Map.yTarget,Map.X,Map.Y)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="8536700686888097" title="Update the marker position" />
+        <event-block sid="1389332477897728">
+            <conditions>
+                <condition id="0" name="On function" sid="8903151418015615" type="Function">
+                    <param id="0" name="Name">&quot;UpdateMarker&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="84329903404815">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="3176138328906377" type="Marker">
+                            <param id="0" name="Instance variable">isVisible</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="6298006669028868" type="Marker">
+                            <param id="0" name="X">Marker.xTile*MAPTILESIZE+Map.X+MAPTILESIZE/2</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="3111071263949559" type="Marker">
+                            <param id="0" name="Y">Marker.yTile*MAPTILESIZE+Map.Y+MAPTILESIZE/2</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="7778139481759004" type="Marker">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5644586428479387">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="6619580328365969" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="2105964828597009" type="Marker">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="2437290567477031" title="Clear the Marker" />
+        <event-block sid="2256190116296581">
+            <conditions>
+                <condition id="0" name="On function" sid="6366060970049857" type="Function">
+                    <param id="0" name="Name">&quot;ClearMarker&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="4694093050642425" type="Marker">
+                    <param id="0" name="Instance variable">isVisible</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Call function" sid="1111206359137569" type="Function">
+                    <param id="0" name="Name">&quot;UpdateMarker&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
         </event-block>
