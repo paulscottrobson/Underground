@@ -155,6 +155,92 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Wagon" sid="6479762037597863">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Explorer" pingpong="0" repeatcount="1" repeatto="0" sid="6179412200275946" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\explorer.png">
+                        <collision-poly>
+                            <point x="0.270833" y="0.270833" />
+                            <point x="0.729167" y="0.270833" />
+                            <point x="0.916667" y="0.5" />
+                            <point x="0.854167" y="0.854167" />
+                            <point x="0.5" y="0.895833" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.0833333" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Miner" pingpong="0" repeatcount="1" repeatto="0" sid="2344746705869356" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\digger.png">
+                        <collision-poly>
+                            <point x="0.166667" y="0.166667" />
+                            <point x="0.5" y="0.0833333" />
+                            <point x="0.645833" y="0.354167" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.854167" y="0.854167" />
+                            <point x="0.5" y="0.895833" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Driller" pingpong="0" repeatcount="1" repeatto="0" sid="1378371030769461" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\driller.png">
+                        <collision-poly>
+                            <point x="0.166667" y="0.166667" />
+                            <point x="0.5" y="0.0208333" />
+                            <point x="0.791667" y="0.208333" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.854167" y="0.854167" />
+                            <point x="0.5" y="0.895833" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="10" loop="0" name="Collector" pingpong="0" repeatcount="1" repeatto="0" sid="7173036304588747" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect0.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect1.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect4.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect5.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect6.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect7.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect8.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\collect9.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="Layer" pingpong="0" repeatcount="1" repeatto="0" sid="6842265286312968" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\layer.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0.0416667" />
+                            <point x="0.75" y="0.25" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.854167" y="0.854167" />
+                            <point x="0.5" y="0.895833" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Exploder" pingpong="0" repeatcount="1" repeatto="0" sid="231895834648929" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\bomber.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0" />
+                            <point x="0.708333" y="0.291667" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.854167" y="0.854167" />
+                            <point x="0.5" y="0.895833" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Maps" plugin-id="Tilemap" sid="964271431457324">
@@ -183,6 +269,9 @@
         <event-folder name="Miscellany">
             <event-sheet>Test Layout Events.xml</event-sheet>
             <event-sheet>TODO.xml</event-sheet>
+        </event-folder>
+        <event-folder name="Wagons">
+            <event-sheet>Creator.xml</event-sheet>
         </event-folder>
         <event-sheet>Constants.xml</event-sheet>
         <event-sheet>Game Main.xml</event-sheet>

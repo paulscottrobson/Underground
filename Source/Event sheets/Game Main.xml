@@ -9,5 +9,6 @@
         <include>Route Finder</include>
         <include>Initialisation</include>
         <include>Interface</include>
+        <include>Creator</include>
     </events>
 </c2eventsheet>

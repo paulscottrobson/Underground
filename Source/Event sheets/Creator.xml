@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Creator</name>
+    <events>
+        <event-group description="Parameter 1 : type, Parameter 2 : x Tile position, Parameter 3 : y Tile Position" sid="3139351956544858" title="Create a wagon" />
+        <event-block sid="9660881974117175">
+            <conditions>
+                <condition id="0" name="On function" sid="9954449602308285" type="Function">
+                    <param id="0" name="Name">&quot;CreateWagon&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>

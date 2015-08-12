@@ -38,6 +38,15 @@
         <variable comment="Scanner size in pixels" constant="1" name="SCANNERSIZE" sid="1858841115936616" static="0" type="number">140</variable>
         <variable comment="Edge of scanner frame" constant="1" name="SCANNEREDGE" sid="558450712995821" static="0" type="number">3</variable>
         <variable comment="Margin to edges of scanner" constant="1" name="SCANNERMARGIN" sid="9270387359814699" static="0" type="number">48</variable>
+        <comment>Wagon states</comment>
+        <variable comment="In Queue" constant="1" name="WST_QUEUED" sid="1576808866107216" static="0" type="number">0</variable>
+        <variable comment="Heading to target position" constant="1" name="WST_OUTBOUND" sid="7542389612816795" static="0" type="number">1</variable>
+        <variable comment="Figure out what to do" constant="1" name="WST_EXAMINE" sid="5945879021750274" static="0" type="number">2</variable>
+        <variable comment="Wait while it is done (not in reality obviously)" constant="1" name="WST_WAIT" sid="9437920890537626" static="0" type="number">3</variable>
+        <variable comment="Do whatever" constant="1" name="WST_EXECUTE" sid="4976856698556827" static="0" type="number">4</variable>
+        <variable comment="Move to square targeted" constant="1" name="WST_MOVE" sid="1172881683298616" static="0" type="number">5</variable>
+        <variable comment="Completed actions" constant="1" name="WST_DONE" sid="8860186377497569" static="0" type="number">6</variable>
+        <variable comment="Return to top" constant="1" name="WST_RETURN" sid="9432838279169009" static="0" type="number">7</variable>
         <comment>Set up calculated constants</comment>
         <event-block sid="685173727322585">
             <conditions>

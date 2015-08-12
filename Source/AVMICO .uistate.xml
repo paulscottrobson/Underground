@@ -12,13 +12,14 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <open-tabs>
         <layout order="4">Game</layout>
         <event-sheet order="0">Constants</event-sheet>
-        <event-sheet active="1" order="1">Map Creation</event-sheet>
+        <event-sheet order="1">Map Creation</event-sheet>
         <event-sheet order="2">Open View</event-sheet>
         <event-sheet order="3">Route Finder</event-sheet>
         <event-sheet order="5">Game Main</event-sheet>
         <event-sheet order="6">Initialisation</event-sheet>
         <event-sheet order="7">Interface</event-sheet>
         <event-sheet order="8">TODO</event-sheet>
+        <event-sheet active="1" order="9">Creator</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -37,6 +38,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="event-folder/" />
         <folder expanded="0" path="event-folder/Functions/" />
         <folder expanded="0" path="event-folder/Miscellany/" />
+        <folder expanded="1" path="event-folder/Wagons/" />
         <folder expanded="1" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
@@ -44,5 +46,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Fade/" />
         <folder expanded="1" path="animation-folder/ViewMarker/" />
         <folder expanded="1" path="animation-folder/Marker/" />
+        <folder expanded="1" path="animation-folder/Wagon/" />
     </folders-expanded>
 </c2uistate>
