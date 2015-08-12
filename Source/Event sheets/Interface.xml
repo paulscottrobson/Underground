@@ -257,6 +257,12 @@
                                     <param id="1" name="Comparison">1</param>
                                     <param id="2" name="Second value">0</param>
                                 </condition>
+                                <condition id="0" name="Compare tile at" sid="1631521214456759" type="Visibility">
+                                    <param id="0" name="Tile X">Marker.xTile</param>
+                                    <param id="1" name="Tile Y">Marker.yTile</param>
+                                    <param id="2" name="Comparison">1</param>
+                                    <param id="3" name="Tile">TILEV_CLOSED</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-13" name="Set boolean" sid="2037360537865206" type="Marker">
@@ -264,6 +270,29 @@
                                     <param id="1" name="Value">1</param>
                                 </action>
                                 <action id="0" name="Call function" sid="9374122987389613" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateMarker&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6606675153510325">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6076691611485862" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="1239068795568617" type="Marker">
+                                    <param id="0" name="Instance variable">isVisible</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="9347932919077622" type="Marker">
+                                    <param id="0" name="Instance variable">xTile</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="1487989252583243" type="Marker">
+                                    <param id="0" name="Instance variable">yTile</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="41024148650623" type="Function">
                                     <param id="0" name="Name">&quot;UpdateMarker&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>

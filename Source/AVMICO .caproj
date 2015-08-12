@@ -180,12 +180,14 @@
             <event-sheet>Open View.xml</event-sheet>
             <event-sheet>Route Finder.xml</event-sheet>
         </event-folder>
-        <event-sheet>Test Layout Events.xml</event-sheet>
+        <event-folder name="Miscellany">
+            <event-sheet>Test Layout Events.xml</event-sheet>
+            <event-sheet>TODO.xml</event-sheet>
+        </event-folder>
         <event-sheet>Constants.xml</event-sheet>
         <event-sheet>Game Main.xml</event-sheet>
         <event-sheet>Initialisation.xml</event-sheet>
         <event-sheet>Interface.xml</event-sheet>
-        <event-sheet>TODO.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="1" />
