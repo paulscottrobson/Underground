@@ -49,7 +49,7 @@
                         </action>
                         <action id="-9" name="Set value" sid="5998073867830636" type="System">
                             <param id="0" name="Variable">id</param>
-                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,&quot;Exploder&quot;)</param>
+                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,&quot;Driller&quot;)</param>
                         </action>
                         <action id="0" name="Call function" sid="747220143751265" type="Function">
                             <param id="0" name="Name">&quot;WagonStart&quot;</param>
@@ -69,7 +69,11 @@
                 </action>
                 <action id="-10" name="Set value" sid="4925866643863584" type="Wagon">
                     <param id="0" name="Instance variable">velocity</param>
-                    <param id="1" name="Value">1</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="-10" name="Set value" sid="5258525676943335" type="Wagon">
+                    <param id="0" name="Instance variable">name</param>
+                    <param id="1" name="Value">&quot;Demo&quot;</param>
                 </action>
             </actions>
         </event-block>

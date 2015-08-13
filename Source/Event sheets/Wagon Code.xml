@@ -14,7 +14,7 @@
             <actions />
             <sub-events>
                 <comment>Once started to operate, go to done state as may be one shot</comment>
-                <event-block sid="1061775460672907">
+                <event-block any="1" sid="1061775460672907">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="5095388721238406" type="Wagon">
                             <param id="0" name="Instance variable">state</param>
@@ -296,7 +296,6 @@
                                     </sub-events>
                                 </event-block>
                                 <event-group description="Decides what to do" sid="7839480245332561" title="Examine State" />
-                                <comment>FUDGE: Make it return straight away.</comment>
                                 <event-block sid="3244837472881876">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="702678904731347" type="System">
@@ -307,10 +306,211 @@
                                     </conditions>
                                     <actions>
                                         <action id="-10" name="Set value" sid="1487886069587986" type="Wagon">
-                                            <param id="0" name="Instance variable">state</param>
-                                            <param id="1" name="Value">WST_DONE</param>
+                                            <param id="0" name="Instance variable">waitTime</param>
+                                            <param id="1" name="Value">Function.Call(&quot;WagonCheck&quot; &amp; Wagon.name,Wagon.UID)</param>
                                         </action>
                                     </actions>
+                                    <sub-events>
+                                        <comment>Failed to do whatever it is we are doing.</comment>
+                                        <event-block sid="50384397974999">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="2751766919009441" type="Wagon">
+                                                    <param id="0" name="Instance variable">waitTime</param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="8454489587970767" type="Wagon">
+                                                    <param id="0" name="Instance variable">state</param>
+                                                    <param id="1" name="Value">WST_DONE</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment>Done it, add the current time to the wait time to give a time to end waiting, and switch to waiting</comment>
+                                        <event-block sid="4561450839705015">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="7690381366735366" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="8543543613743488" type="Wagon">
+                                                    <param id="0" name="Instance variable">waitTime</param>
+                                                    <param id="1" name="Value">Wagon.waitTime+time</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="1779858419444925" type="Wagon">
+                                                    <param id="0" name="Instance variable">state</param>
+                                                    <param id="1" name="Value">WST_WAIT</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-group description="Waiting for processing" sid="3604640062521944" title="Wait State" />
+                                <event-block sid="795076228938176">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="3325185680762444" type="System">
+                                            <param id="0" name="Variable">state</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">WST_WAIT</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <comment>When wait over, switch to execute</comment>
+                                        <event-block sid="6783194442526278">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="2278171563401002" type="Wagon">
+                                                    <param id="0" name="Instance variable">waitTime</param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Value">time</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="9650261972430994" type="Wagon">
+                                                    <param id="0" name="Instance variable">state</param>
+                                                    <param id="1" name="Value">WST_EXECUTE</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-group description="Do the actual action" sid="878928637020283" title="Execute State" />
+                                <event-block sid="3152894791384424">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="1556690868316774" type="System">
+                                            <param id="0" name="Variable">state</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">WST_EXECUTE</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="5549815660728572" type="Wagon">
+                                            <param id="0" name="Instance variable">state</param>
+                                            <param id="1" name="Value">WST_MOVE</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <comment>Do the execution, and adjust x or y depending on return value</comment>
+                                        <event-block sid="2386871749793255">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="3895873983310507" type="System">
+                                                    <param id="0" name="First value">Function.Call(&quot;WagonExecute&quot; &amp; Wagon.name,Wagon.UID)</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Add to" sid="557978308303726" type="Wagon">
+                                                    <param id="0" name="Instance variable">xTarget</param>
+                                                    <param id="1" name="Value">Wagon.direction</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="4113100515514388">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="1773603279830578" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Add to" sid="9662527571667265" type="Wagon">
+                                                    <param id="0" name="Instance variable">yTarget</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment>If actionMaxCount is non zero, the number of actions is limited</comment>
+                                        <event-block sid="221651819755897">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="2528359881130946" type="Wagon">
+                                                    <param id="0" name="Instance variable">actionMaxCount</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-12" name="Subtract from" sid="4301453296706479" type="Wagon">
+                                                    <param id="0" name="Instance variable">actionMaxCount</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <comment>Done them all, so go to done state</comment>
+                                                <event-block sid="7072472162737857">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="2092180461872777" type="Wagon">
+                                                            <param id="0" name="Instance variable">actionMaxCount</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="5244359602987491" type="Wagon">
+                                                            <param id="0" name="Instance variable">state</param>
+                                                            <param id="1" name="Value">WST_DONE</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-group description="Move to next square " sid="8881802803315421" title="Move state" />
+                                <event-block sid="7684114523250413">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="9368140496903037" type="System">
+                                            <param id="0" name="Variable">state</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">WST_MOVE</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <variable constant="0" name="velocity" sid="6429687875943865" static="0" type="number">1</variable>
+                                        <comment>Reached target, open view and go back to see if we can do the action again</comment>
+                                        <event-block sid="1698454241375083">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="9078647528484165" type="Wagon">
+                                                    <param id="0" name="Instance variable">xPos</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">Wagon.xTarget</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="2657812043694916" type="Wagon">
+                                                    <param id="0" name="Instance variable">yPos</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">Wagon.yTarget</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="6872028493827721" type="Wagon">
+                                                    <param id="0" name="Instance variable">state</param>
+                                                    <param id="1" name="Value">WST_EXAMINE</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="3848606814604555" type="Function">
+                                                    <param id="0" name="Name">&quot;OpenView&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Visibility.UID{###}Wagon.xPos{###}Wagon.yPos{###}Wagon.viewDistance</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment>Othewise move towards target position</comment>
+                                        <event-block sid="7143040119363081">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="7260993914727036" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="3406977255778347" type="System">
+                                                    <param id="0" name="Variable">velocity</param>
+                                                    <param id="1" name="Value">ADVANCESPEED</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="6672900778500053" type="Wagon">
+                                                    <param id="0" name="Instance variable">xPos</param>
+                                                    <param id="1" name="Value">min(abs(Wagon.xPos-Wagon.xTarget),velocity*dt) * ((Wagon.xPos &lt; Wagon.xTarget) ? 1 : -1) + Wagon.xPos</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="7999416327063847" type="Wagon">
+                                                    <param id="0" name="Instance variable">yPos</param>
+                                                    <param id="1" name="Value">min(abs(Wagon.yPos-Wagon.yTarget),velocity*dt) * ((Wagon.yPos &lt; Wagon.yTarget) ? 1 : -1) + Wagon.yPos</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                                 <event-group description="Goes here when done - decide whether to destroy the wagon (one shots) or return it" sid="280447223438237" title="Done state" />
                                 <event-block sid="6107901904918612">
@@ -394,6 +594,20 @@
                                                 </action>
                                                 <action id="-15" name="Set visible" sid="8251991732449305" type="WagonMarker">
                                                     <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="9020065345445667">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="966690551925706" type="Wagon">
+                                                    <param id="0" name="Instance variable">state</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">WST_WAIT</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-1" name="Set X" sid="4722868630578089" type="Wagon">
+                                                    <param id="0" name="X">Wagon.X + sin(time * 2500) *2</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -500,5 +714,74 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="These are for testing only" sid="1205912135634202" title="Demo Wagon Handlers" />
+        <event-block sid="7748018364019297">
+            <conditions>
+                <condition id="0" name="On function" sid="2514950991955981" type="Function">
+                    <param id="0" name="Name">&quot;WagonCheckDemo&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="6198096248442833">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="4466049966057656" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set return value" sid="5099767790766967" type="Function">
+                            <param id="0" name="Value">2</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="6105233016715087">
+                            <conditions>
+                                <condition id="0" name="Compare tile at" sid="7728231254562951" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Tile">TILE_GRANITE</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="9788455829445169" type="Function">
+                                    <param id="0" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9991835358961472">
+            <conditions>
+                <condition id="0" name="On function" sid="2213283801962163" type="Function">
+                    <param id="0" name="Name">&quot;WagonExecuteDemo&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="9600558935905996" type="Function">
+                    <param id="0" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="8583688356518918">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="1067959540697657" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set tile" sid="3862973985460358" type="Maps">
+                            <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                            <param id="1" name="Tile Y">Wagon.yPos</param>
+                            <param id="2" name="Tile">TILE_TRACK</param>
+                            <param id="3" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>

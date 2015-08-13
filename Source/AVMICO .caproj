@@ -21,7 +21,6 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
-        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
     <used-effects />
@@ -179,9 +178,6 @@
                 <instance-variable name="markerUID" sid="477060529975164" type="number" />
             </instance-variables>
             <behaviors>
-                <behavior-type name="Sine" sid="1056033044392073">
-                    <behavior id="Sin" />
-                </behavior-type>
                 <behavior-type name="Fade" sid="8121128834412644">
                     <behavior id="Fade" />
                 </behavior-type>

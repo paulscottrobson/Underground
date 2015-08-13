@@ -56,6 +56,8 @@
         <variable comment="Change in speed when passing" constant="1" name="PASSINGPENALTY" sid="4072192788749443" static="0" type="number">0.25</variable>
         <comment>Speed bonus on track</comment>
         <variable comment="Change in speed on track" constant="1" name="TRACKBONUS" sid="7338684574166433" static="0" type="number">4</variable>
+        <comment>Speed wagon moves to next slot after execution</comment>
+        <variable comment="Speed at which wagon moves to next slot after execution" constant="1" name="ADVANCESPEED" sid="3704851845007033" static="0" type="number">2</variable>
         <comment>Set up calculated constants</comment>
         <event-block sid="685173727322585">
             <conditions>
