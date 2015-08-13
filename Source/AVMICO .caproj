@@ -182,6 +182,9 @@
                 <behavior-type name="Sine" sid="1056033044392073">
                     <behavior id="Sin" />
                 </behavior-type>
+                <behavior-type name="Fade" sid="8121128834412644">
+                    <behavior id="Fade" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Explorer" pingpong="0" repeatcount="1" repeatto="0" sid="6179412200275946" speed="5">

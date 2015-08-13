@@ -9,9 +9,9 @@
         <include>Open View</include>
         <include>Route Finder</include>
         <include>Initialisation</include>
-        <include>Interface</include>
         <include>Creator</include>
         <include>Wagon Code</include>
+        <include>Interface</include>
         <include>Test Code</include>
     </events>
 </c2eventsheet>
