@@ -11,7 +11,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="4">Game</layout>
-        <event-sheet order="0">Constants</event-sheet>
+        <event-sheet active="1" order="0">Constants</event-sheet>
         <event-sheet order="1">Map Creation</event-sheet>
         <event-sheet order="2">Open View</event-sheet>
         <event-sheet order="3">Route Finder</event-sheet>
@@ -22,7 +22,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="9">Creator</event-sheet>
         <event-sheet order="10">Test Code</event-sheet>
         <event-sheet order="11">Globals</event-sheet>
-        <event-sheet active="1" order="12">Wagon Code</event-sheet>
+        <event-sheet order="12">Wagon Code</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />

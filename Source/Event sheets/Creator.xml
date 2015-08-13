@@ -113,12 +113,12 @@
                         <condition id="-7" name="Compare instance variable" sid="654116551102227" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Exploder&quot;</param>
+                            <param id="2" name="Value">CLASS_EXPLODER</param>
                         </condition>
                         <condition id="-7" name="Compare instance variable" sid="1024514768336508" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Driller&quot;</param>
+                            <param id="2" name="Value">CLASS_DRILLER</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -134,7 +134,7 @@
                         <condition id="-7" name="Compare instance variable" sid="7566132960232192" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Explorer&quot;</param>
+                            <param id="2" name="Value">CLASS_EXPLORER</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -150,7 +150,7 @@
                         <condition id="-7" name="Compare instance variable" sid="1707502154517542" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Exploder&quot;</param>
+                            <param id="2" name="Value">CLASS_EXPLODER</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -166,7 +166,7 @@
                         <condition id="-7" name="Compare instance variable" sid="9632100158342168" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Driller&quot;</param>
+                            <param id="2" name="Value">CLASS_DRILLER</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -182,7 +182,7 @@
                         <condition id="-7" name="Compare instance variable" sid="3683687397068067" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Explorer&quot;</param>
+                            <param id="2" name="Value">CLASS_EXPLORER</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -197,7 +197,7 @@
                         <condition id="-7" name="Compare instance variable" sid="3226864723844935" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Miner&quot;</param>
+                            <param id="2" name="Value">CLASS_MINER</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -212,7 +212,7 @@
                         <condition id="-7" name="Compare instance variable" sid="1551422773614506" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Driller&quot;</param>
+                            <param id="2" name="Value">CLASS_DRILLER</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -227,7 +227,7 @@
                         <condition id="-7" name="Compare instance variable" sid="4744848024107261" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Collector&quot;</param>
+                            <param id="2" name="Value">CLASS_COLLECTOR</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -242,7 +242,7 @@
                         <condition id="-7" name="Compare instance variable" sid="8799310995801492" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Layer&quot;</param>
+                            <param id="2" name="Value">CLASS_LAYER</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -257,7 +257,7 @@
                         <condition id="-7" name="Compare instance variable" sid="7279280420935501" type="Wagon">
                             <param id="0" name="Instance variable">name</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Exploder&quot;</param>
+                            <param id="2" name="Value">CLASS_EXPLODER</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -279,6 +279,17 @@
                     <actions>
                         <action id="8" name="Set flipped" sid="4504803364741225" type="Wagon">
                             <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3403729450537722">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="9634663469833674" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="2062426908729237" type="Wagon">
+                            <param id="0" name="Instance variable">velocity</param>
+                            <param id="1" name="Value">Wagon.velocity*random(95,105)/100</param>
                         </action>
                     </actions>
                 </event-block>

@@ -3,7 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Constants</name>
     <events>
-        <event-group description="" sid="273374172890719" title="Constants" />
+        <event-group description="These constants control the way the game plays or looks" sid="273374172890719" title="Constants" />
         <comment>Size of game area</comment>
         <variable comment="Width of map in units" constant="1" name="MAPWIDTH" sid="8459146280043049" static="0" type="number">40</variable>
         <variable comment="Height of map in Units" constant="1" name="MAPHEIGHT" sid="2091957348147479" static="0" type="number">40</variable>
@@ -12,19 +12,16 @@
         <comment>Position and height of shaft</comment>
         <variable comment="Position of shaft" constant="0" name="MAPXSHAFT" sid="3412019242900933" static="0" type="number">0</variable>
         <variable comment="Depth of initial shaft" constant="1" name="MAPSHAFTDEPTH" sid="8973755303560124" static="0" type="number">12</variable>
-        <comment>Tiles</comment>
-        <variable comment="Earth tile (base)" constant="1" name="TILE_EARTH" sid="3050615867398257" static="0" type="number">0</variable>
-        <variable comment="Tile open (base for coal here)" constant="1" name="TILE_OPEN" sid="5607838563844449" static="0" type="number">16</variable>
-        <variable comment="Shaft graphic" constant="1" name="TILE_SHAFT" sid="3023737881244488" static="0" type="number">26</variable>
-        <variable comment="Grass on top tile" constant="1" name="TILE_TOP" sid="5956542398077775" static="0" type="number">27</variable>
-        <variable comment="Rock" constant="1" name="TILE_ROCK" sid="9711346975765147" static="0" type="number">28</variable>
-        <variable comment="Silver tile" constant="1" name="TILE_SILVER" sid="599155108425085" static="0" type="number">29</variable>
-        <variable comment="Gold tile" constant="1" name="TILE_GOLD" sid="1133847689277997" static="0" type="number">30</variable>
-        <variable comment="Diamond tile" constant="1" name="TILE_DIAMOND" sid="973985994842656" static="0" type="number">31</variable>
-        <variable comment="Railway track tile" constant="1" name="TILE_TRACK" sid="8937044653044898" static="0" type="number">32</variable>
-        <variable comment="Granite (border) tile" constant="1" name="TILE_GRANITE" sid="6022472535688801" static="0" type="number">39</variable>
-        <variable comment="Closed view" constant="1" name="TILEV_CLOSED" sid="4294628819594149" static="0" type="number">38</variable>
-        <variable comment="Open view" constant="1" name="TILEV_OPEN" sid="4163337818335031" static="0" type="number">33</variable>
+        <comment>Drilling depth</comment>
+        <variable comment="How far a driller can drill" constant="1" name="DRILLDEPTH" sid="957320447374709" static="0" type="number">6</variable>
+        <comment>How fast the wagons move up and down in a shaft</comment>
+        <variable comment="Speed in shafts" constant="1" name="SHAFTVELOCITY" sid="9334156213891619" static="0" type="number">5</variable>
+        <comment>Change in speed when passing horizontally</comment>
+        <variable comment="Change in speed when passing" constant="1" name="PASSINGPENALTY" sid="4072192788749443" static="0" type="number">0.25</variable>
+        <comment>Speed bonus on track</comment>
+        <variable comment="Change in speed on track" constant="1" name="TRACKBONUS" sid="7338684574166433" static="0" type="number">4</variable>
+        <comment>Speed wagon moves to next slot after execution</comment>
+        <variable comment="Speed at which wagon moves to next slot after execution" constant="1" name="ADVANCESPEED" sid="3704851845007033" static="0" type="number">2</variable>
         <comment>Calculations for various map objects - percentages of area</comment>
         <variable comment="% Coal Seams" constant="1" name="PC_COAL" sid="5823469909067593" static="0" type="number">2.5</variable>
         <variable comment="% Rock slices" constant="1" name="PC_ROCKBAR" sid="6293846632974251" static="0" type="number">2.5</variable>
@@ -38,6 +35,27 @@
         <variable comment="Scanner size in pixels" constant="1" name="SCANNERSIZE" sid="1858841115936616" static="0" type="number">140</variable>
         <variable comment="Edge of scanner frame" constant="1" name="SCANNEREDGE" sid="558450712995821" static="0" type="number">3</variable>
         <variable comment="Margin to edges of scanner" constant="1" name="SCANNERMARGIN" sid="9270387359814699" static="0" type="number">48</variable>
+        <event-group description="These refer to things in the code" sid="6072579222464355" title="Program Constants" />
+        <comment>Class Names</comment>
+        <variable constant="1" name="CLASS_EXPLORER" sid="6562619556947548" static="0" type="text">Explorer</variable>
+        <variable constant="1" name="CLASS_MINER" sid="2660734241570411" static="0" type="text">Miner</variable>
+        <variable constant="1" name="CLASS_DRILLER" sid="7829738830189044" static="0" type="text">Driller</variable>
+        <variable constant="1" name="CLASS_COLLECTOR" sid="4315749984084819" static="0" type="text">Collector</variable>
+        <variable constant="1" name="CLASS_LAYER" sid="6093473774128005" static="0" type="text">Layer</variable>
+        <variable constant="1" name="CLASS_EXPLODER" sid="787789745869798" static="0" type="text">Exploder</variable>
+        <comment>Tiles</comment>
+        <variable comment="Earth tile (base)" constant="1" name="TILE_EARTH" sid="3050615867398257" static="0" type="number">0</variable>
+        <variable comment="Tile open (base for coal here)" constant="1" name="TILE_OPEN" sid="5607838563844449" static="0" type="number">16</variable>
+        <variable comment="Shaft graphic" constant="1" name="TILE_SHAFT" sid="3023737881244488" static="0" type="number">26</variable>
+        <variable comment="Grass on top tile" constant="1" name="TILE_TOP" sid="5956542398077775" static="0" type="number">27</variable>
+        <variable comment="Rock" constant="1" name="TILE_ROCK" sid="9711346975765147" static="0" type="number">28</variable>
+        <variable comment="Silver tile" constant="1" name="TILE_SILVER" sid="599155108425085" static="0" type="number">29</variable>
+        <variable comment="Gold tile" constant="1" name="TILE_GOLD" sid="1133847689277997" static="0" type="number">30</variable>
+        <variable comment="Diamond tile" constant="1" name="TILE_DIAMOND" sid="973985994842656" static="0" type="number">31</variable>
+        <variable comment="Railway track tile" constant="1" name="TILE_TRACK" sid="8937044653044898" static="0" type="number">32</variable>
+        <variable comment="Granite (border) tile" constant="1" name="TILE_GRANITE" sid="6022472535688801" static="0" type="number">39</variable>
+        <variable comment="Closed view" constant="1" name="TILEV_CLOSED" sid="4294628819594149" static="0" type="number">38</variable>
+        <variable comment="Open view" constant="1" name="TILEV_OPEN" sid="4163337818335031" static="0" type="number">33</variable>
         <comment>Wagon states</comment>
         <variable comment="In Queue" constant="1" name="WST_QUEUED" sid="1576808866107216" static="0" type="number">0</variable>
         <variable comment="Heading to target position" constant="1" name="WST_OUTBOUND" sid="7542389612816795" static="0" type="number">1</variable>
@@ -48,16 +66,6 @@
         <variable comment="Completed actions" constant="1" name="WST_DONE" sid="8860186377497569" static="0" type="number">6</variable>
         <variable comment="Return to top" constant="1" name="WST_RETURN" sid="9432838279169009" static="0" type="number">7</variable>
         <variable comment="Wagon has been destroyed" constant="1" name="WST_DESTROYED" sid="803153078415725" static="0" type="number">8</variable>
-        <comment>Drilling depth</comment>
-        <variable comment="How far a driller can drill" constant="1" name="DRILLDEPTH" sid="957320447374709" static="0" type="number">6</variable>
-        <comment>How fast the wagons move up and down in a shaft</comment>
-        <variable comment="Speed in shafts" constant="1" name="SHAFTVELOCITY" sid="9334156213891619" static="0" type="number">5</variable>
-        <comment>Change in speed when passing horizontally</comment>
-        <variable comment="Change in speed when passing" constant="1" name="PASSINGPENALTY" sid="4072192788749443" static="0" type="number">0.25</variable>
-        <comment>Speed bonus on track</comment>
-        <variable comment="Change in speed on track" constant="1" name="TRACKBONUS" sid="7338684574166433" static="0" type="number">4</variable>
-        <comment>Speed wagon moves to next slot after execution</comment>
-        <variable comment="Speed at which wagon moves to next slot after execution" constant="1" name="ADVANCESPEED" sid="3704851845007033" static="0" type="number">2</variable>
         <comment>Set up calculated constants</comment>
         <event-block sid="685173727322585">
             <conditions>

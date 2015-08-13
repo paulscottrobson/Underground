@@ -76,6 +76,11 @@
                     <param id="1" name="Comparison">4</param>
                     <param id="2" name="Second value">MAPTILESIZE</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="1476118312904593" type="System">
+                    <param id="0" name="Variable">wagonsOperating</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-10" name="Set value" sid="4399876126222951" type="Map">
@@ -96,6 +101,11 @@
         <event-block sid="235210548105329">
             <conditions>
                 <condition id="1" name="On any touch end" sid="6080714720007391" type="Touch" />
+                <condition id="-14" name="Compare variable" sid="450880544897187" type="System">
+                    <param id="0" name="Variable">wagonsOperating</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-13" name="Set boolean" sid="9562898887750814" type="Map">
@@ -143,6 +153,11 @@
                 <condition id="-8" name="Is boolean instance variable set" sid="9003068764789201" type="Map">
                     <param id="0" name="Instance variable">isDragging</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="5550146348640663" type="System">
+                    <param id="0" name="Variable">wagonsOperating</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="5588865699427411" type="Function">
@@ -159,6 +174,11 @@
                     <param id="0" name="First value">abs(Map.X-Map.xTarget)+abs(Map.Y-Map.yTarget)</param>
                     <param id="1" name="Comparison">4</param>
                     <param id="2" name="Second value">1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="3544066982059341" type="System">
+                    <param id="0" name="Variable">wagonsOperating</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions />
@@ -201,6 +221,11 @@
                 <condition id="17" name="On tap object" sid="4092632161077505" type="Touch">
                     <param id="0" name="Object">Scanner</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="4163349932219074" type="System">
+                    <param id="0" name="Variable">wagonsOperating</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="4527107021967031" type="Function">
@@ -214,6 +239,11 @@
             <conditions>
                 <condition id="17" name="On tap object" sid="6773944060144549" type="Touch">
                     <param id="0" name="Object">Visibility</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4827622606994408" type="System">
+                    <param id="0" name="Variable">wagonsOperating</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions />
