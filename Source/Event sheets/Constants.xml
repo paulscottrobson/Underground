@@ -82,5 +82,15 @@
                 </action>
             </actions>
         </event-block>
+        <comment>Clear all protype objects</comment>
+        <event-block sid="7698608501314573">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3604361858776682" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4835280072826112" type="Wagon" />
+                <action id="-9" name="Destroy" sid="9425339538646706" type="WagonMarker" />
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

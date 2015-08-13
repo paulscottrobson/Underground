@@ -46,6 +46,10 @@
                     <param id="0" name="Instance variable">isVisible</param>
                     <param id="1" name="Value">0</param>
                 </action>
+                <action id="0" name="Call function" sid="7770000086655746" type="Function">
+                    <param id="0" name="Name">&quot;UpdateMoney&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="290159252015343">

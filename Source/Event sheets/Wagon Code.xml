@@ -4,69 +4,6 @@
     <name>Wagon Code</name>
     <events>
         <event-group description="" sid="5537061534551105" title="Wagon General Code and Events" />
-        <comment>Clicking on wagon returns in some states</comment>
-        <event-block sid="131726742814162">
-            <conditions>
-                <condition id="17" name="On tap object" sid="8260305487942738" type="Touch">
-                    <param id="0" name="Object">Wagon</param>
-                </condition>
-                <condition id="-14" name="Compare variable" sid="8508754123500329" type="System">
-                    <param id="0" name="Variable">wagonsOperating</param>
-                    <param id="1" name="Comparison">1</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <comment>Once started to operate, go to done state as may be one shot</comment>
-                <event-block any="1" sid="1061775460672907">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="5095388721238406" type="Wagon">
-                            <param id="0" name="Instance variable">state</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">WST_EXAMINE</param>
-                        </condition>
-                        <condition id="-7" name="Compare instance variable" sid="7609462937012253" type="Wagon">
-                            <param id="0" name="Instance variable">state</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">WST_WAIT</param>
-                        </condition>
-                        <condition id="-7" name="Compare instance variable" sid="7573113215334354" type="Wagon">
-                            <param id="0" name="Instance variable">state</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">WST_EXECUTE</param>
-                        </condition>
-                        <condition id="-7" name="Compare instance variable" sid="3100478215803344" type="Wagon">
-                            <param id="0" name="Instance variable">state</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">WST_MOVE</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-10" name="Set value" sid="2348022432224359" type="Wagon">
-                            <param id="0" name="Instance variable">state</param>
-                            <param id="1" name="Value">WST_DONE</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <comment>On outbound trip can always return.</comment>
-                <event-block sid="242052636783563">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="1098723345205425" type="Wagon">
-                            <param id="0" name="Instance variable">state</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">WST_OUTBOUND</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="462918679976662" type="Function">
-                            <param id="0" name="Name">&quot;WagonReturn&quot;</param>
-                            <param id="1" name="Parameter {n}">Wagon.UID</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
         <event-group description="Called every tick to update the game status" sid="9272042552955547" title="Wagon Tick Processing">
             <sub-events>
                 <event-block sid="1317636913131503">
@@ -719,6 +656,75 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="Parameter UID" sid="6971175659246037" title="Handle click on wagon" />
+        <comment>Clicking on wagon returns in some states</comment>
+        <event-block sid="3095290396226369">
+            <conditions>
+                <condition id="0" name="On function" sid="4431927880818149" type="Function">
+                    <param id="0" name="Name">&quot;WagonClicked&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="990286185213673">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="7660200044276911" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Once started to operate, go to done state as may be one shot</comment>
+                        <event-block any="1" sid="1061775460672907">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="5095388721238406" type="Wagon">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">WST_EXAMINE</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="7609462937012253" type="Wagon">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">WST_WAIT</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="7573113215334354" type="Wagon">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">WST_EXECUTE</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="3100478215803344" type="Wagon">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">WST_MOVE</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="2348022432224359" type="Wagon">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Value">WST_DONE</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>On outbound trip can always return.</comment>
+                        <event-block sid="242052636783563">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="1098723345205425" type="Wagon">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">WST_OUTBOUND</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="462918679976662" type="Function">
+                                    <param id="0" name="Name">&quot;WagonReturn&quot;</param>
+                                    <param id="1" name="Parameter {n}">Wagon.UID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-group description="These are for testing only" sid="1205912135634202" title="Demo Wagon Handlers" />
         <event-block sid="7748018364019297">
             <conditions>

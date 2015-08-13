@@ -9,8 +9,6 @@
                 <condition id="-2" name="On start of layout" sid="3204710564411308" type="System" />
             </conditions>
             <actions>
-                <action id="-9" name="Destroy" sid="9668051902067043" type="Wagon" />
-                <action id="-9" name="Destroy" sid="4538206842882129" type="WagonMarker" />
                 <action id="-9" name="Set value" sid="68628154341229" type="System">
                     <param id="0" name="Variable">wagonsOperating</param>
                     <param id="1" name="Value">1</param>

@@ -15,6 +15,7 @@
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
@@ -274,6 +275,29 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="MoneyText" sid="350404195160497">
+            <plugin id="Spritefont2" />
+            <texture original-source="C:\Construct2\Underground\Graphics\font.png" />
+        </object-type>
+        <object-type name="Coin" sid="9745151358095071">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5984948066881169" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\coin.png">
+                        <collision-poly>
+                            <point x="0.1375" y="0.1375" />
+                            <point x="0.5" y="0" />
+                            <point x="0.85" y="0.15" />
+                            <point x="1" y="0.5" />
+                            <point x="0.85" y="0.85" />
+                            <point x="0.5" y="1" />
+                            <point x="0.15" y="0.85" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Maps" plugin-id="Tilemap" sid="964271431457324">
@@ -303,6 +327,7 @@
             <event-sheet>Map Creation.xml</event-sheet>
             <event-sheet>Open View.xml</event-sheet>
             <event-sheet>Route Finder.xml</event-sheet>
+            <event-sheet>Assorted.xml</event-sheet>
         </event-folder>
         <event-folder name="Miscellany">
             <event-sheet>Test Layout Events.xml</event-sheet>

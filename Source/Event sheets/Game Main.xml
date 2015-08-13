@@ -8,6 +8,7 @@
         <include>Map Creation</include>
         <include>Open View</include>
         <include>Route Finder</include>
+        <include>Assorted</include>
         <include>Initialisation</include>
         <include>Creator</include>
         <include>Wagon Code</include>

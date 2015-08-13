@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Assorted</name>
+    <events>
+        <event-group description="" sid="7852340561596759" title="Update the money display" />
+        <event-block sid="6974208852870277">
+            <conditions>
+                <condition id="0" name="On function" sid="3319034109823047" type="Function">
+                    <param id="0" name="Name">&quot;UpdateMoney&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5237650741635389">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8845323375905917" type="System">
+                            <param id="0" name="Variable">money</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">1000</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="6809863866271894" type="MoneyText">
+                            <param id="0" name="Text">money</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4506577463075253">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="103661709567405" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="5257808706160396" type="MoneyText">
+                            <param id="0" name="Text">int(money/1000) &amp; &quot;,&quot; &amp; right(&quot;000&quot; &amp;(money % 1000),3) </param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

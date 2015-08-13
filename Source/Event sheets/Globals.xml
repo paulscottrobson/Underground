@@ -6,5 +6,7 @@
         <event-group description="" sid="2379333252778361" title="Global variables" />
         <comment>Control movement of wagons</comment>
         <variable comment="Non zero when wagons moving" constant="0" name="wagonsOperating" sid="2631595452320521" static="0" type="number">0</variable>
+        <comment>Amount of money</comment>
+        <variable comment="Amount of money held" constant="0" name="money" sid="4308221904963265" static="0" type="number">12050</variable>
     </events>
 </c2eventsheet>
