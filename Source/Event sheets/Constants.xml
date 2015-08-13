@@ -47,6 +47,7 @@
         <variable comment="Move to square targeted" constant="1" name="WST_MOVE" sid="1172881683298616" static="0" type="number">5</variable>
         <variable comment="Completed actions" constant="1" name="WST_DONE" sid="8860186377497569" static="0" type="number">6</variable>
         <variable comment="Return to top" constant="1" name="WST_RETURN" sid="9432838279169009" static="0" type="number">7</variable>
+        <variable comment="Wagon has been destroyed" constant="1" name="WST_DESTROYED" sid="803153078415725" static="0" type="number">8</variable>
         <comment>Set up calculated constants</comment>
         <event-block sid="685173727322585">
             <conditions>

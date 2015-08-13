@@ -3,14 +3,273 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Creator</name>
     <events>
-        <event-group description="Parameter 1 : type, Parameter 2 : x Tile position, Parameter 3 : y Tile Position" sid="3139351956544858" title="Create a wagon" />
+        <event-group description="Parameter 0 : type returns UID" sid="3139351956544858" title="Create a wagon" />
         <event-block sid="9660881974117175">
             <conditions>
                 <condition id="0" name="On function" sid="9954449602308285" type="Function">
                     <param id="0" name="Name">&quot;CreateWagon&quot;</param>
                 </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action id="-3" name="Create object" sid="7743127627643512" type="System">
+                    <param id="0" name="Object to create">Wagon</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">-100</param>
+                    <param id="3" name="Y">-100</param>
+                </action>
+                <action id="1" name="Set return value" sid="7829290931923643" type="Function">
+                    <param id="0" name="Value">Wagon.UID</param>
+                </action>
+                <action id="-10" name="Set value" sid="518249620273044" type="Wagon">
+                    <param id="0" name="Instance variable">name</param>
+                    <param id="1" name="Value">Function.Param(0)</param>
+                </action>
+                <action id="-10" name="Set value" sid="1335986498737699" type="Wagon">
+                    <param id="0" name="Instance variable">name</param>
+                    <param id="1" name="Value">uppercase(left(Wagon.name,1)) &amp; lowercase(mid(Wagon.name,1,999))</param>
+                </action>
+                <action id="4" name="Set animation" sid="6457837677170773" type="Wagon">
+                    <param id="0" name="Animation">Wagon.name</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="2" name="Stop" sid="6386646918996856" type="Wagon" />
+                <action id="-15" name="Set visible" sid="9762840781216245" type="Wagon">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="2243366918350362" type="Wagon">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">WST_QUEUED</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="8350018609457038" type="Wagon">
+                    <param id="0" name="Instance variable">isOneShot</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="9695823515916277" type="Wagon">
+                    <param id="0" name="Instance variable">viewDistance</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="3847502861484667" type="Wagon">
+                    <param id="0" name="Instance variable">actionMaxCount</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="6962255632577506" type="Wagon">
+                    <param id="0" name="Instance variable">xPos</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="3028377959681087" type="Wagon">
+                    <param id="0" name="Instance variable">yPos</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="8504320950931294" type="Wagon">
+                    <param id="0" name="Instance variable">xTarget</param>
+                    <param id="1" name="Value">Wagon.xPos</param>
+                </action>
+                <action id="-10" name="Set value" sid="6604866569010649" type="Wagon">
+                    <param id="0" name="Instance variable">yTarget</param>
+                    <param id="1" name="Value">Wagon.yPos</param>
+                </action>
+                <action id="-10" name="Set value" sid="4605845717460138" type="Wagon">
+                    <param id="0" name="Instance variable">velocity</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="8937517270664087" type="Wagon">
+                    <param id="0" name="Instance variable">routeList</param>
+                    <param id="1" name="Value">&quot;&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="8847717586759896" type="Wagon">
+                    <param id="0" name="Instance variable">coalCount</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="6875167756852779" type="Wagon">
+                    <param id="0" name="Instance variable">goldCount</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="1606624003503056" type="Wagon">
+                    <param id="0" name="Instance variable">silverCount</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="2077475791077946" type="Wagon">
+                    <param id="0" name="Instance variable">diamondCount</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Set Exploder and Driller to one-shot</comment>
+                <event-block any="1" sid="9814127903248928">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="654116551102227" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Exploder&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="1024514768336508" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Driller&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="5155210673467005" type="Wagon">
+                            <param id="0" name="Instance variable">isOneShot</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Explorer can see radius 2</comment>
+                <event-block sid="8709254940298411">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7566132960232192" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Explorer&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="9607432089644747" type="Wagon">
+                            <param id="0" name="Instance variable">viewDistance</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Exploder only actions once</comment>
+                <event-block sid="7341450846185736">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1707502154517542" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Exploder&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="7479369751397458" type="Wagon">
+                            <param id="0" name="Instance variable">actionMaxCount</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Driller only actions six times</comment>
+                <event-block sid="8734504685941471">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="9632100158342168" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Driller&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="3871433376763041" type="Wagon">
+                            <param id="0" name="Instance variable">actionMaxCount</param>
+                            <param id="1" name="Value">6</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Set velocities</comment>
+                <event-block sid="3992793364617104">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="3683687397068067" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Explorer&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="4159568034076802" type="Wagon">
+                            <param id="0" name="Instance variable">velocity</param>
+                            <param id="1" name="Value">0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7951654056798018">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="3226864723844935" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Miner&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="1262481370238867" type="Wagon">
+                            <param id="0" name="Instance variable">velocity</param>
+                            <param id="1" name="Value">0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3381055687000301">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1551422773614506" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Driller&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="6469116718510401" type="Wagon">
+                            <param id="0" name="Instance variable">velocity</param>
+                            <param id="1" name="Value">0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2476942071300849">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="4744848024107261" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Collector&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="1752743860936707" type="Wagon">
+                            <param id="0" name="Instance variable">velocity</param>
+                            <param id="1" name="Value">0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="843183067489026">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8799310995801492" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Layer&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="1548630401224276" type="Wagon">
+                            <param id="0" name="Instance variable">velocity</param>
+                            <param id="1" name="Value">0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6364974021121191">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7279280420935501" type="Wagon">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Exploder&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="8508044171042096" type="Wagon">
+                            <param id="0" name="Instance variable">velocity</param>
+                            <param id="1" name="Value">0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>If wagon error, show it upside down !</comment>
+                <event-block sid="1428955862914634">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="9854394261125664" type="Wagon">
+                            <param id="0" name="Instance variable">velocity</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Set flipped" sid="4504803364741225" type="Wagon">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

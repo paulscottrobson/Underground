@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Globals</name>
+    <events>
+        <event-group description="" sid="2379333252778361" title="Global variables" />
+        <comment>Control movement of wagons</comment>
+        <variable comment="Non zero when wagons moving" constant="0" name="wagonsOperating" sid="2631595452320521" static="0" type="number">0</variable>
+    </events>
+</c2eventsheet>

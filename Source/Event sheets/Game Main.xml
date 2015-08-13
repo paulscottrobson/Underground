@@ -4,11 +4,13 @@
     <name>Game Main</name>
     <events>
         <include>Constants</include>
+        <include>Globals</include>
         <include>Map Creation</include>
         <include>Open View</include>
         <include>Route Finder</include>
         <include>Initialisation</include>
         <include>Interface</include>
         <include>Creator</include>
+        <include>Test Code</include>
     </events>
 </c2eventsheet>

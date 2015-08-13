@@ -19,7 +19,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="6">Initialisation</event-sheet>
         <event-sheet order="7">Interface</event-sheet>
         <event-sheet order="8">TODO</event-sheet>
-        <event-sheet active="1" order="9">Creator</event-sheet>
+        <event-sheet order="9">Creator</event-sheet>
+        <event-sheet active="1" order="10">Test Code</event-sheet>
+        <event-sheet order="11">Globals</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />

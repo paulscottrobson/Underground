@@ -321,17 +321,51 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <name></name>
+                        <state>0</state>
+                        <isOneShot>false</isOneShot>
+                        <direction>0</direction>
+                        <viewDistance>0</viewDistance>
+                        <actionMaxCount>0</actionMaxCount>
+                        <xPos>0</xPos>
+                        <yPos>0</yPos>
+                        <xTarget>0</xTarget>
+                        <yTarget>0</yTarget>
+                        <velocity>0</velocity>
+                        <routeList></routeList>
+                        <coalCount>0</coalCount>
+                        <silverCount>0</silverCount>
+                        <goldCount>0</goldCount>
+                        <diamondCount>0</diamondCount>
+                        <waitTime>0</waitTime>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Triangle</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>2</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-102</x>
-                        <y>150</y>
+                        <x>-77</x>
+                        <y>130</y>
                         <z>0</z>
                         <width>48</width>
                         <height>48</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
