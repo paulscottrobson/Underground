@@ -282,7 +282,7 @@
                             <actions>
                                 <action id="-13" name="Set boolean" sid="1239068795568617" type="Marker">
                                     <param id="0" name="Instance variable">isVisible</param>
-                                    <param id="1" name="Value">1</param>
+                                    <param id="1" name="Value">0</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="9347932919077622" type="Marker">
                                     <param id="0" name="Instance variable">xTile</param>

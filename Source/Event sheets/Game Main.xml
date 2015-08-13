@@ -11,6 +11,7 @@
         <include>Initialisation</include>
         <include>Interface</include>
         <include>Creator</include>
+        <include>Wagon Code</include>
         <include>Test Code</include>
     </events>
 </c2eventsheet>

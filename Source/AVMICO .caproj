@@ -176,6 +176,7 @@
                 <instance-variable comment="Amount of gold" name="goldCount" sid="7291124184604904" type="number" />
                 <instance-variable comment="Amount of diamond" name="diamondCount" sid="5321086963826262" type="number" />
                 <instance-variable comment="Wait time when &apos;actioning&apos;" name="waitTime" sid="4358576442487681" type="number" />
+                <instance-variable name="markerUID" sid="477060529975164" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Sine" sid="1056033044392073">
@@ -266,6 +267,14 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="WagonMarker" sid="6025180208099209">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1926355023792774" speed="5">
+                    <frame duration="1" hotspotX="0.6" hotspotY="0.6" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Maps" plugin-id="Tilemap" sid="964271431457324">
@@ -297,6 +306,7 @@
         </event-folder>
         <event-folder name="Wagons">
             <event-sheet>Creator.xml</event-sheet>
+            <event-sheet>Wagon Code.xml</event-sheet>
         </event-folder>
         <event-sheet>Constants.xml</event-sheet>
         <event-sheet>Game Main.xml</event-sheet>

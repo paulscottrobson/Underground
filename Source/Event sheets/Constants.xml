@@ -48,6 +48,8 @@
         <variable comment="Completed actions" constant="1" name="WST_DONE" sid="8860186377497569" static="0" type="number">6</variable>
         <variable comment="Return to top" constant="1" name="WST_RETURN" sid="9432838279169009" static="0" type="number">7</variable>
         <variable comment="Wagon has been destroyed" constant="1" name="WST_DESTROYED" sid="803153078415725" static="0" type="number">8</variable>
+        <comment>Drilling depth</comment>
+        <variable comment="How far a driller can drill" constant="1" name="DRILLDEPTH" sid="957320447374709" static="0" type="number">6</variable>
         <comment>Set up calculated constants</comment>
         <event-block sid="685173727322585">
             <conditions>

@@ -10,13 +10,38 @@
             </conditions>
             <actions>
                 <action id="-9" name="Destroy" sid="9668051902067043" type="Wagon" />
+                <action id="-9" name="Destroy" sid="4538206842882129" type="WagonMarker" />
                 <action id="-9" name="Set value" sid="68628154341229" type="System">
                     <param id="0" name="Variable">wagonsOperating</param>
                     <param id="1" name="Value">1</param>
                 </action>
-                <action id="0" name="Call function" sid="2391997554361262" type="Function">
-                    <param id="0" name="Name">&quot;CreateWagon&quot;</param>
-                    <param id="1" name="Parameter {n}">&quot;explorer&quot;</param>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="id" sid="4774493993015134" static="0" type="number">0</variable>
+                <event-block sid="731178032397189">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="375532022937246" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2320665740959303" type="System">
+                            <param id="0" name="Variable">id</param>
+                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,&quot;Explorer&quot;)</param>
+                        </action>
+                        <action id="0" name="Call function" sid="884982117443314" type="Function">
+                            <param id="0" name="Name">&quot;WagonStart&quot;</param>
+                            <param id="1" name="Parameter {n}">id{###}29{###}22</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2154845878061213">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="5414007182721712" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="1911652624910188" type="DebugText">
+                    <param id="0" name="Text">Marker.isVisible &amp; &quot; &quot; &amp; Marker.xTile &amp; &quot; &quot; &amp; Marker.yTile</param>
                 </action>
             </actions>
         </event-block>

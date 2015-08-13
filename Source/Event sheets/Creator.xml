@@ -92,6 +92,19 @@
                     <param id="0" name="Instance variable">diamondCount</param>
                     <param id="1" name="Value">0</param>
                 </action>
+                <action id="-3" name="Create object" sid="1674727530545106" type="System">
+                    <param id="0" name="Object to create">WagonMarker</param>
+                    <param id="1" name="Layer">3</param>
+                    <param id="2" name="X">-100</param>
+                    <param id="3" name="Y">-100</param>
+                </action>
+                <action id="-10" name="Set value" sid="727935684772571" type="Wagon">
+                    <param id="0" name="Instance variable">markerUID</param>
+                    <param id="1" name="Value">WagonMarker.UID</param>
+                </action>
+                <action id="-15" name="Set visible" sid="8195922146750627" type="WagonMarker">
+                    <param id="0" name="Visibility">0</param>
+                </action>
             </actions>
             <sub-events>
                 <comment>Set Exploder and Driller to one-shot</comment>
@@ -147,7 +160,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <comment>Driller only actions six times</comment>
+                <comment>Driller only actions (e.g. digs a hole) a limited number of times</comment>
                 <event-block sid="8734504685941471">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="9632100158342168" type="Wagon">
@@ -159,7 +172,7 @@
                     <actions>
                         <action id="-10" name="Set value" sid="3871433376763041" type="Wagon">
                             <param id="0" name="Instance variable">actionMaxCount</param>
-                            <param id="1" name="Value">6</param>
+                            <param id="1" name="Value">DRILLDEPTH</param>
                         </action>
                     </actions>
                 </event-block>

@@ -2,5 +2,9 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>TODO</name>
-    <events />
+    <events>
+        <comment>Set initial position and visibility</comment>
+        <comment>Calculate route and check</comment>
+        <comment>Create outline and code OUTBOUND/RETURN code for routing. Go straight from WST_EXAMINE to WST_DONE</comment>
+    </events>
 </c2eventsheet>
