@@ -487,6 +487,14 @@
                             <param id="4" name="Tile">TILE_SHAFT</param>
                             <param id="5" name="State">0</param>
                         </action>
+                        <action id="3" name="Set tile range" sid="9412704869382683" type="Maps">
+                            <param id="0" name="Tile X">13</param>
+                            <param id="1" name="Tile Y">10</param>
+                            <param id="2" name="Width">7</param>
+                            <param id="3" name="Height">1</param>
+                            <param id="4" name="Tile">TILE_TRACK</param>
+                            <param id="5" name="State">0</param>
+                        </action>
                     </actions>
                 </event-block>
                 <comment>On the demo, make the cover opaque enough so you can see it and the map underneath</comment>

@@ -50,6 +50,12 @@
         <variable comment="Wagon has been destroyed" constant="1" name="WST_DESTROYED" sid="803153078415725" static="0" type="number">8</variable>
         <comment>Drilling depth</comment>
         <variable comment="How far a driller can drill" constant="1" name="DRILLDEPTH" sid="957320447374709" static="0" type="number">6</variable>
+        <comment>How fast the wagons move up and down in a shaft</comment>
+        <variable comment="Speed in shafts" constant="1" name="SHAFTVELOCITY" sid="9334156213891619" static="0" type="number">5</variable>
+        <comment>Change in speed when passing horizontally</comment>
+        <variable comment="Change in speed when passing" constant="1" name="PASSINGPENALTY" sid="4072192788749443" static="0" type="number">0.25</variable>
+        <comment>Speed bonus on track</comment>
+        <variable comment="Change in speed on track" constant="1" name="TRACKBONUS" sid="7338684574166433" static="0" type="number">4</variable>
         <comment>Set up calculated constants</comment>
         <event-block sid="685173727322585">
             <conditions>

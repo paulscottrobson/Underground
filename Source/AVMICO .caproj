@@ -289,6 +289,11 @@
                 <member>Visibility</member>
             </members>
         </family>
+        <family name="WagonFamily" plugin-id="Sprite" sid="6777347378207391">
+            <members>
+                <member>Wagon</member>
+            </members>
+        </family>
     </families>
     <layout-folder>
         <layout>Test Layout.xml</layout>
