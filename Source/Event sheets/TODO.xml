@@ -7,5 +7,11 @@
         <comment>Set different wagons default velocities</comment>
         <comment>Extend return to requeue object</comment>
         <event-group description="" sid="2471969235798241" title="Forwards" />
+        <comment>Exploder</comment>
+        <comment>Layer</comment>
+        <comment>Collector</comment>
+        <comment>Driller</comment>
+        <comment>Miner</comment>
+        <comment>Explorer</comment>
     </events>
 </c2eventsheet>

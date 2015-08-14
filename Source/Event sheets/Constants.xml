@@ -35,6 +35,13 @@
         <variable comment="Scanner size in pixels" constant="1" name="SCANNERSIZE" sid="1858841115936616" static="0" type="number">140</variable>
         <variable comment="Edge of scanner frame" constant="1" name="SCANNEREDGE" sid="558450712995821" static="0" type="number">3</variable>
         <variable comment="Margin to edges of scanner" constant="1" name="SCANNERMARGIN" sid="9270387359814699" static="0" type="number">48</variable>
+        <comment>Velocity of different wagons in tiles / second.</comment>
+        <variable constant="1" name="SPEED_EXPLORER" sid="2557836657153157" static="0" type="number">0.5</variable>
+        <variable constant="1" name="SPEED_MINER" sid="2080616196859356" static="0" type="number">0.5</variable>
+        <variable constant="1" name="SPEED_DRILLER" sid="3770401544099554" static="0" type="number">0.5</variable>
+        <variable constant="1" name="SPEED_COLLECTOR" sid="8854725308273691" static="0" type="number">0.5</variable>
+        <variable constant="1" name="SPEED_LAYER" sid="1220072748682177" static="0" type="number">0.5</variable>
+        <variable constant="1" name="SPEED_EXPLODER" sid="6477945144098845" static="0" type="number">0.5</variable>
         <event-group description="These refer to things in the code" sid="6072579222464355" title="Program Constants" />
         <comment>Class Names</comment>
         <variable constant="1" name="CLASS_EXPLORER" sid="6562619556947548" static="0" type="text">Explorer</variable>
@@ -53,6 +60,7 @@
         <variable comment="Gold tile" constant="1" name="TILE_GOLD" sid="1133847689277997" static="0" type="number">30</variable>
         <variable comment="Diamond tile" constant="1" name="TILE_DIAMOND" sid="973985994842656" static="0" type="number">31</variable>
         <variable comment="Railway track tile" constant="1" name="TILE_TRACK" sid="8937044653044898" static="0" type="number">32</variable>
+        <variable comment="Cavern left by explosion" constant="1" name="TILE_EXPLODEDSPACE" sid="9691264375887396" static="0" type="number">33</variable>
         <variable comment="Granite (border) tile" constant="1" name="TILE_GRANITE" sid="6022472535688801" static="0" type="number">39</variable>
         <variable comment="Closed view" constant="1" name="TILEV_CLOSED" sid="4294628819594149" static="0" type="number">38</variable>
         <variable comment="Open view" constant="1" name="TILEV_OPEN" sid="4163337818335031" static="0" type="number">33</variable>

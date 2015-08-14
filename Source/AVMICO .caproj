@@ -354,7 +354,20 @@
             </properties>
         </global-instance>
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="alert.m4a" />
+        <file name="alert.ogg" />
+        <file name="bomb.m4a" />
+        <file name="bomb.ogg" />
+        <file name="drilldown.m4a" />
+        <file name="drilldown.ogg" />
+        <file name="explore.m4a" />
+        <file name="explore.ogg" />
+        <file name="laying.m4a" />
+        <file name="laying.ogg" />
+        <file name="mine.m4a" />
+        <file name="mine.ogg" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">

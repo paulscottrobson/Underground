@@ -188,7 +188,7 @@
                     <actions>
                         <action id="-10" name="Set value" sid="4159568034076802" type="Wagon">
                             <param id="0" name="Instance variable">velocity</param>
-                            <param id="1" name="Value">0.5</param>
+                            <param id="1" name="Value">SPEED_EXPLORER</param>
                         </action>
                     </actions>
                 </event-block>
@@ -203,7 +203,7 @@
                     <actions>
                         <action id="-10" name="Set value" sid="1262481370238867" type="Wagon">
                             <param id="0" name="Instance variable">velocity</param>
-                            <param id="1" name="Value">0.5</param>
+                            <param id="1" name="Value">SPEED_MINER</param>
                         </action>
                     </actions>
                 </event-block>
@@ -218,7 +218,7 @@
                     <actions>
                         <action id="-10" name="Set value" sid="6469116718510401" type="Wagon">
                             <param id="0" name="Instance variable">velocity</param>
-                            <param id="1" name="Value">0.5</param>
+                            <param id="1" name="Value">SPEED_DRILLER</param>
                         </action>
                     </actions>
                 </event-block>
@@ -233,7 +233,7 @@
                     <actions>
                         <action id="-10" name="Set value" sid="1752743860936707" type="Wagon">
                             <param id="0" name="Instance variable">velocity</param>
-                            <param id="1" name="Value">0.5</param>
+                            <param id="1" name="Value">SPEED_COLLECTOR</param>
                         </action>
                     </actions>
                 </event-block>
@@ -248,7 +248,7 @@
                     <actions>
                         <action id="-10" name="Set value" sid="1548630401224276" type="Wagon">
                             <param id="0" name="Instance variable">velocity</param>
-                            <param id="1" name="Value">0.5</param>
+                            <param id="1" name="Value">SPEED_LAYER</param>
                         </action>
                     </actions>
                 </event-block>
@@ -263,7 +263,7 @@
                     <actions>
                         <action id="-10" name="Set value" sid="8508044171042096" type="Wagon">
                             <param id="0" name="Instance variable">velocity</param>
-                            <param id="1" name="Value">0.5</param>
+                            <param id="1" name="Value">SPEED_EXPLODER</param>
                         </action>
                     </actions>
                 </event-block>
@@ -282,6 +282,7 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>Otherwise use 5% variance on speed.</comment>
                 <event-block sid="3403729450537722">
                     <conditions>
                         <condition id="-22" name="Else" sid="9634663469833674" type="System" />
