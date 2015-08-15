@@ -10,6 +10,6 @@
         <comment>Collector</comment>
         <comment>Exploder</comment>
         <comment>Consider changing opening to 7 x 5 rather than 5 x 5 ?</comment>
-        <comment>Add sound effects for various operations</comment>
+        <comment>Add sound effects for collector / exploder</comment>
     </events>
 </c2eventsheet>

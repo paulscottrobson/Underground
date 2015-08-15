@@ -10,6 +10,7 @@
     <unique-id>26z9p3iu9dapl</unique-id>
     <saved-with-version>20600</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
@@ -305,6 +306,9 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Audio" sid="5373462422087792">
+            <plugin id="Audio" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Maps" plugin-id="Tilemap" sid="964271431457324">
@@ -364,6 +368,20 @@
                 <use-mouse-input>Yes</use-mouse-input>
             </properties>
         </global-instance>
+        <global-instance type="Audio" uid="19">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder>
         <file name="alert.m4a" />
@@ -378,6 +396,8 @@
         <file name="laying.ogg" />
         <file name="mine.m4a" />
         <file name="mine.ogg" />
+        <file name="kerching.m4a" />
+        <file name="kerching.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

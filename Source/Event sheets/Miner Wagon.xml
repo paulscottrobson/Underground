@@ -146,6 +146,12 @@
                                     <param id="2" name="Tile">TILE_OPEN</param>
                                     <param id="3" name="State">0</param>
                                 </action>
+                                <action id="0" name="Play" sid="6547176914723979" type="Audio">
+                                    <param id="0" name="Audio file">kerching</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="3465882521502501">
@@ -166,6 +172,12 @@
                                     <param id="1" name="Tile Y">Wagon.yPos</param>
                                     <param id="2" name="Tile">TILE_OPEN</param>
                                     <param id="3" name="State">0</param>
+                                </action>
+                                <action id="0" name="Play" sid="2508518898622959" type="Audio">
+                                    <param id="0" name="Audio file">kerching</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -188,6 +200,12 @@
                                     <param id="2" name="Tile">TILE_OPEN</param>
                                     <param id="3" name="State">0</param>
                                 </action>
+                                <action id="0" name="Play" sid="3251578327109824" type="Audio">
+                                    <param id="0" name="Audio file">kerching</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                         <comment>Handle mineable coal</comment>
@@ -205,6 +223,12 @@
                                     <param id="1" name="Tile Y">Wagon.yPos</param>
                                     <param id="2" name="Tile">TILE_OPEN+round((tile-TILE_EARTH)*9/15)</param>
                                     <param id="3" name="State">0</param>
+                                </action>
+                                <action id="0" name="Play" sid="2898581564236066" type="Audio">
+                                    <param id="0" name="Audio file">mine</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
