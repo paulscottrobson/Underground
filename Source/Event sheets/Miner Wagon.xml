@@ -75,6 +75,12 @@
                                 <action id="1" name="Set return value" sid="3054047819805421" type="Function">
                                     <param id="0" name="Value">ATIME_MINER_PRECIOUS</param>
                                 </action>
+                                <action id="0" name="Play" sid="1303447524684456" type="Audio">
+                                    <param id="0" name="Audio file">mine</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                         <comment>If mineable tile, then set a value which relates to the amount of coal in the tile</comment>
@@ -89,6 +95,12 @@
                             <actions>
                                 <action id="1" name="Set return value" sid="8825777790502938" type="Function">
                                     <param id="0" name="Value">ATIME_MINER_COAL+(tile-TILE_EARTH)/4</param>
+                                </action>
+                                <action id="0" name="Play" sid="2898581564236066" type="Audio">
+                                    <param id="0" name="Audio file">mine</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -223,12 +235,6 @@
                                     <param id="1" name="Tile Y">Wagon.yPos</param>
                                     <param id="2" name="Tile">TILE_OPEN+round((tile-TILE_EARTH)*9/15)</param>
                                     <param id="3" name="State">0</param>
-                                </action>
-                                <action id="0" name="Play" sid="2898581564236066" type="Audio">
-                                    <param id="0" name="Audio file">mine</param>
-                                    <param id="2" name="Loop">0</param>
-                                    <param id="3" name="Volume">0</param>
-                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
                             </actions>
                         </event-block>

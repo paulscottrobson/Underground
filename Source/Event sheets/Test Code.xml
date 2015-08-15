@@ -61,6 +61,24 @@
                         <action id="1" name="Set tile" sid="2064966482643256" type="Map">
                             <param id="0" name="Tile X">14</param>
                             <param id="1" name="Tile Y">4</param>
+                            <param id="2" name="Tile">TILE_OPEN+4</param>
+                            <param id="3" name="State">0</param>
+                        </action>
+                        <action id="1" name="Set tile" sid="5465680532213703" type="Map">
+                            <param id="0" name="Tile X">13</param>
+                            <param id="1" name="Tile Y">4</param>
+                            <param id="2" name="Tile">TILE_OPEN+6</param>
+                            <param id="3" name="State">0</param>
+                        </action>
+                        <action id="1" name="Set tile" sid="9091540819350165" type="Map">
+                            <param id="0" name="Tile X">15</param>
+                            <param id="1" name="Tile Y">4</param>
+                            <param id="2" name="Tile">TILE_OPEN+8</param>
+                            <param id="3" name="State">0</param>
+                        </action>
+                        <action id="1" name="Set tile" sid="1308438847557005" type="Map">
+                            <param id="0" name="Tile X">13</param>
+                            <param id="1" name="Tile Y">19</param>
                             <param id="2" name="Tile">TILE_DIAMOND</param>
                             <param id="3" name="State">0</param>
                         </action>

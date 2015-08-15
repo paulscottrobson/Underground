@@ -13,7 +13,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <layout order="1">Game</layout>
         <event-sheet order="0">Constants</event-sheet>
         <event-sheet order="2">Game Main</event-sheet>
-        <event-sheet active="1" order="3">TODO</event-sheet>
+        <event-sheet order="3">TODO</event-sheet>
         <event-sheet order="4">Wagon Creator</event-sheet>
         <event-sheet order="5">Test Code</event-sheet>
         <event-sheet order="6">Globals</event-sheet>
@@ -21,7 +21,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="8">Explorer Wagon</event-sheet>
         <event-sheet order="9">Layer Wagon</event-sheet>
         <event-sheet order="10">Driller Wagon</event-sheet>
-        <event-sheet order="11">Miner Wagon</event-sheet>
+        <event-sheet active="1" order="11">Miner Wagon</event-sheet>
         <event-sheet order="12">Route Finder</event-sheet>
     </open-tabs>
     <properties>
