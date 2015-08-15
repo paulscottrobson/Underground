@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Assorted</name>
+    <name>Miscellaneous Functions</name>
     <events>
         <event-group description="" sid="7852340561596759" title="Update the money display" />
         <event-block sid="6974208852870277">

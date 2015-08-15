@@ -19,11 +19,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="6">Initialisation</event-sheet>
         <event-sheet order="7">Interface</event-sheet>
         <event-sheet active="1" order="8">TODO</event-sheet>
-        <event-sheet order="9">Creator</event-sheet>
+        <event-sheet order="9">Wagon Creator</event-sheet>
         <event-sheet order="10">Test Code</event-sheet>
         <event-sheet order="11">Globals</event-sheet>
-        <event-sheet order="12">Wagon Code</event-sheet>
-        <event-sheet order="13">Assorted</event-sheet>
+        <event-sheet order="12">Wagon Common Code</event-sheet>
+        <event-sheet order="13">Miscellaneous Functions</event-sheet>
+        <event-sheet order="14">Explorer Wagon</event-sheet>
+        <event-sheet order="15">Layer Wagon</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />

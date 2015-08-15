@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Layer Wagon</name>
+    <events>
+        <event-group description="Layers can only pas through open spaces, but they lay track in open tunnels as they go." sid="4561367911554396" title="Layer Wagon" />
+        <event-block sid="2112395674555934">
+            <conditions>
+                <condition id="0" name="On function" sid="4857515562791074" type="Function">
+                    <param id="0" name="Name">&quot;WagonCheckLayer&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="3278825470782665" type="Function">
+                    <param id="0" name="Value">-1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="1056593542358418">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="914226577895563" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8640768235251734">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="3530513631239018" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;IsTunnel&quot;,Map.UID,Wagon.xPos+Wagon.direction,Wagon.yPos)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="3978986064510929" type="Function">
+                                    <param id="0" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2597561287292315">
+                            <conditions>
+                                <condition id="0" name="Compare tile at" sid="548140146643099" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Tile">TILE_OPEN</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="8534786350169982" type="Function">
+                                    <param id="0" name="Value">ATIME_LAYER</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7241243380312432">
+            <conditions>
+                <condition id="0" name="On function" sid="4358077046708011" type="Function">
+                    <param id="0" name="Name">&quot;WagonExecuteLayer&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="5964571536169708" type="Function">
+                    <param id="0" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="7142001639731586">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="3251740447733999" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7113608632382924">
+                            <conditions>
+                                <condition id="0" name="Compare tile at" sid="140160227608208" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Tile">TILE_OPEN</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set tile" sid="8493520157080937" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Tile">TILE_TRACK</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

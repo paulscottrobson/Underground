@@ -24,7 +24,9 @@
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
-    <used-effects />
+    <used-effects>
+        <effect author="Scirra" id="emboss">Emboss</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -183,6 +185,11 @@
                     <behavior id="Fade" />
                 </behavior-type>
             </behaviors>
+            <effects>
+                <effect-type name="Emboss">
+                    <effect id="emboss" />
+                </effect-type>
+            </effects>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Explorer" pingpong="0" repeatcount="1" repeatto="0" sid="6179412200275946" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Construct2\Underground\Graphics\explorer.png">
@@ -327,15 +334,17 @@
             <event-sheet>Map Creation.xml</event-sheet>
             <event-sheet>Open View.xml</event-sheet>
             <event-sheet>Route Finder.xml</event-sheet>
-            <event-sheet>Assorted.xml</event-sheet>
+            <event-sheet>Miscellaneous Functions.xml</event-sheet>
         </event-folder>
         <event-folder name="Miscellany">
             <event-sheet>Test Layout Events.xml</event-sheet>
             <event-sheet>TODO.xml</event-sheet>
         </event-folder>
         <event-folder name="Wagons">
-            <event-sheet>Creator.xml</event-sheet>
-            <event-sheet>Wagon Code.xml</event-sheet>
+            <event-sheet>Wagon Creator.xml</event-sheet>
+            <event-sheet>Wagon Common Code.xml</event-sheet>
+            <event-sheet>Explorer Wagon.xml</event-sheet>
+            <event-sheet>Layer Wagon.xml</event-sheet>
         </event-folder>
         <event-sheet>Constants.xml</event-sheet>
         <event-sheet>Game Main.xml</event-sheet>

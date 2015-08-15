@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Creator</name>
+    <name>Wagon Creator</name>
     <events>
         <event-group description="Parameter 0 : type returns UID" sid="3139351956544858" title="Create a wagon" />
         <event-block sid="9660881974117175">
@@ -104,6 +104,10 @@
                 </action>
                 <action id="-15" name="Set visible" sid="8195922146750627" type="WagonMarker">
                     <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-27" name="Set effect enabled" sid="7076479845289234" type="Wagon">
+                    <param id="0" name="Mode">0</param>
+                    <param id="1" name="Effect">&quot;Emboss&quot;</param>
                 </action>
             </actions>
             <sub-events>

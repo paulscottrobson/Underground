@@ -3,16 +3,23 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game Main</name>
     <events>
+        <event-group description="" sid="4711578671914793" title="Constants and Globals" />
         <include>Constants</include>
         <include>Globals</include>
+        <event-group description="" sid="5176079425161773" title="Functions" />
         <include>Map Creation</include>
         <include>Open View</include>
         <include>Route Finder</include>
-        <include>Assorted</include>
+        <include>Miscellaneous Functions</include>
+        <event-group description="" sid="301999407816765" title="Main Code" />
         <include>Initialisation</include>
-        <include>Creator</include>
-        <include>Wagon Code</include>
+        <include>Wagon Creator</include>
+        <include>Wagon Common Code</include>
         <include>Interface</include>
+        <event-group description="" sid="6755322213865293" title="Wagon Handlers" />
+        <include>Explorer Wagon</include>
+        <include>Layer Wagon</include>
+        <event-group description="" sid="4751348150326133" title="Testing Code (if any)" />
         <include>Test Code</include>
     </events>
 </c2eventsheet>

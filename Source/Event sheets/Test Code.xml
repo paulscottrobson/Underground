@@ -16,38 +16,43 @@
             </actions>
             <sub-events>
                 <variable constant="0" name="id" sid="4774493993015134" static="0" type="number">0</variable>
+                <variable constant="0" name="type" sid="2940246396526411" static="0" type="text"></variable>
                 <event-block sid="731178032397189">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="375532022937246" type="System" />
                     </conditions>
                     <actions>
+                        <action id="-9" name="Set value" sid="8758474719054905" type="System">
+                            <param id="0" name="Variable">type</param>
+                            <param id="1" name="Value">CLASS_LAYER</param>
+                        </action>
                         <action id="-9" name="Set value" sid="2320665740959303" type="System">
                             <param id="0" name="Variable">id</param>
-                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,CLASS_EXPLORER)</param>
+                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,type)</param>
                         </action>
                         <action id="0" name="Call function" sid="884982117443314" type="Function">
                             <param id="0" name="Name">&quot;WagonStart&quot;</param>
-                            <param id="1" name="Parameter {n}">id{###}34{###}22</param>
+                            <param id="1" name="Parameter {n}">id{###}29{###}22</param>
                         </action>
-                        <action id="-9" name="Set value" sid="532394559837034" type="System">
+                        <action id="-9" name="Set value" sid="947701602650571" type="System">
                             <param id="0" name="Variable">id</param>
-                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,CLASS_EXPLORER)</param>
+                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,type)</param>
                         </action>
                         <action id="0" name="Call function" sid="7196139231999518" type="Function">
                             <param id="0" name="Name">&quot;WagonStart&quot;</param>
                             <param id="1" name="Parameter {n}">id{###}14{###}19</param>
                         </action>
-                        <action id="-9" name="Set value" sid="1160259770174337" type="System">
+                        <action id="-9" name="Set value" sid="6919501037898132" type="System">
                             <param id="0" name="Variable">id</param>
-                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,CLASS_EXPLORER)</param>
+                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,type)</param>
                         </action>
                         <action id="0" name="Call function" sid="6166652147778623" type="Function">
                             <param id="0" name="Name">&quot;WagonStart&quot;</param>
                             <param id="1" name="Parameter {n}">id{###}24{###}15</param>
                         </action>
-                        <action id="-9" name="Set value" sid="5998073867830636" type="System">
+                        <action id="-9" name="Set value" sid="2476566637279591" type="System">
                             <param id="0" name="Variable">id</param>
-                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,CLASS_DRILLER)</param>
+                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,type)</param>
                         </action>
                         <action id="0" name="Call function" sid="747220143751265" type="Function">
                             <param id="0" name="Name">&quot;WagonStart&quot;</param>
@@ -65,11 +70,11 @@
                 <action id="0" name="Set text" sid="1911652624910188" type="DebugText">
                     <param id="0" name="Text">Marker.isVisible &amp; &quot; &quot; &amp; Marker.xTile &amp; &quot; &quot; &amp; Marker.yTile</param>
                 </action>
-                <action id="-10" name="Set value" sid="4925866643863584" type="Wagon">
+                <action disabled="1" id="-10" name="Set value" sid="4925866643863584" type="Wagon">
                     <param id="0" name="Instance variable">velocity</param>
                     <param id="1" name="Value">3</param>
                 </action>
-                <action id="-10" name="Set value" sid="5258525676943335" type="Wagon">
+                <action disabled="1" id="-10" name="Set value" sid="5258525676943335" type="Wagon">
                     <param id="0" name="Instance variable">name</param>
                     <param id="1" name="Value">&quot;Demo&quot;</param>
                 </action>

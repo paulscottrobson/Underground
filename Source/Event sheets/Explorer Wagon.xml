@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Explorer Wagon</name>
+    <events>
+        <event-group description="Explorers can only pass through normal earth and already open spaces." sid="808528461741638" title="Explorer Wagon" />
+        <event-block sid="4064072421007868">
+            <conditions>
+                <condition id="0" name="On function" sid="8018707394757274" type="Function">
+                    <param id="0" name="Name">&quot;WagonCheckExplorer&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="4221451740552325" type="Function">
+                    <param id="0" name="Value">-1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="1758541688239763">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="5806588406235035" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3579630523345544">
+                            <conditions>
+                                <condition id="0" name="Compare tile at" sid="2649653506118844" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Tile">TILE_EARTH</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="4466953679875536" type="Function">
+                                    <param id="0" name="Value">ATIME_EXPLORER</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2943937992282227">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="9078122708379865" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;IsTunnel&quot;,Map.UID,Wagon.xPos+Wagon.direction,Wagon.yPos)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="8429066708762053" type="Function">
+                                    <param id="0" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="1125582732540947">
+            <conditions>
+                <condition id="0" name="On function" sid="6685111378178889" type="Function">
+                    <param id="0" name="Name">&quot;WagonExecuteExplorer&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="9952071388004847" type="Function">
+                    <param id="0" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="5254222318906909">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="9198135946711833" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5353337607048804">
+                            <conditions>
+                                <condition id="0" name="Compare tile at" sid="5443588598253284" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Tile">TILE_EARTH</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set tile" sid="1482032267884772" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Tile">TILE_OPEN</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
