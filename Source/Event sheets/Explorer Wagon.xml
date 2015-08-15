@@ -16,6 +16,7 @@
                 </action>
             </actions>
             <sub-events>
+                <comment>Find the Wagon</comment>
                 <event-block sid="1758541688239763">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="5806588406235035" type="Wagon">
@@ -24,6 +25,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <comment>If it is earth you can explore through that</comment>
                         <event-block sid="3579630523345544">
                             <conditions>
                                 <condition id="0" name="Compare tile at" sid="2649653506118844" type="Maps">
@@ -39,6 +41,7 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <comment>If it is a tunnel move straight through no work</comment>
                         <event-block sid="2943937992282227">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="9078122708379865" type="System">
@@ -69,6 +72,7 @@
                 </action>
             </actions>
             <sub-events>
+                <comment>Find the wagon</comment>
                 <event-block sid="5254222318906909">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="9198135946711833" type="Wagon">
@@ -77,6 +81,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <comment>If it is earth, replace it with the tunnelled tile.</comment>
                         <event-block sid="5353337607048804">
                             <conditions>
                                 <condition id="0" name="Compare tile at" sid="5443588598253284" type="Maps">

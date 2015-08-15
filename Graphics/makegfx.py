@@ -8,8 +8,8 @@ for i in range(0,10):
 
 	cart = Image.open("collect"+str(i)+".png")
 	cart = cart.crop((0,0,48,12))
-
-	im.paste(cart,(0,32))
+	cart = cart.resize((48,30),resample=Image.BICUBIC)
+	im.paste(cart,(0,44-30))
 	im.save("empty"+str(i)+".png")
 
 #

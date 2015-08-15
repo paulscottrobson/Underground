@@ -17,6 +17,7 @@
             </actions>
             <sub-events>
                 <variable constant="0" name="tile" sid="416974319642779" static="0" type="number">0</variable>
+                <comment>Find the wagon and get the tile number</comment>
                 <event-block sid="1855393280634097">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="382548358940934" type="Wagon">
@@ -30,6 +31,7 @@
                         </action>
                     </actions>
                     <sub-events>
+                        <comment>Stop drilling if rock, granite, or space</comment>
                         <event-block any="1" sid="6122054413684332">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="1591584048198155" type="System">
@@ -70,6 +72,7 @@
                 </action>
             </actions>
             <sub-events>
+                <comment>Find the wagon and put the shaft in.</comment>
                 <event-block sid="6944546222856821">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="5404432989196505" type="Wagon">

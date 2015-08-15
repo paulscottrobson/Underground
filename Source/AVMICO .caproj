@@ -346,6 +346,7 @@
             <event-sheet>Explorer Wagon.xml</event-sheet>
             <event-sheet>Layer Wagon.xml</event-sheet>
             <event-sheet>Driller Wagon.xml</event-sheet>
+            <event-sheet>Miner Wagon.xml</event-sheet>
         </event-folder>
         <event-sheet>Constants.xml</event-sheet>
         <event-sheet>Game Main.xml</event-sheet>

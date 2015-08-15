@@ -16,6 +16,7 @@
                 </action>
             </actions>
             <sub-events>
+                <comment>Find the wagon</comment>
                 <event-block sid="1056593542358418">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="914226577895563" type="Wagon">
@@ -24,6 +25,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <comment>If it&apos;s a tunnel, just move through</comment>
                         <event-block sid="8640768235251734">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="3530513631239018" type="System">
@@ -38,6 +40,7 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <comment>If it is a tunnelled tile, return the time it takes to lay</comment>
                         <event-block sid="2597561287292315">
                             <conditions>
                                 <condition id="0" name="Compare tile at" sid="548140146643099" type="Maps">
@@ -69,6 +72,7 @@
                 </action>
             </actions>
             <sub-events>
+                <comment>Find the wagon</comment>
                 <event-block sid="7142001639731586">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="3251740447733999" type="Wagon">
@@ -77,6 +81,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <comment>If tile is tunnelled, convert to track</comment>
                         <event-block sid="7113608632382924">
                             <conditions>
                                 <condition id="0" name="Compare tile at" sid="140160227608208" type="Maps">

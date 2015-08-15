@@ -20,6 +20,7 @@
         <include>Driller Wagon</include>
         <include>Explorer Wagon</include>
         <include>Layer Wagon</include>
+        <include>Miner Wagon</include>
         <event-group description="" sid="4751348150326133" title="Testing Code (if any)" />
         <include>Test Code</include>
     </events>

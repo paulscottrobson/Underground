@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Miner Wagon</name>
+    <events>
+        <event-group description="Drills horizontally, mining coal and picking up gold, diamond and silver as it goes, cannot penetrate rock/granite/open space" sid="4135497474501619" title="Miner Wagon" />
+        <event-block sid="9082803550442613">
+            <conditions>
+                <condition id="0" name="On function" sid="1006176400983366" type="Function">
+                    <param id="0" name="Name">&quot;WagonCheckMiner&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="tile" sid="6036489000389576" static="0" type="number">0</variable>
+                <comment>Find the wagon and identify the tile you can mine</comment>
+                <event-block sid="488132427860208">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="7237926404097057" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9121605106914981" type="System">
+                            <param id="0" name="Variable">tile</param>
+                            <param id="1" name="Value">Map.TileAt(Wagon.xPos+Wagon.direction,Wagon.yPos)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Set the return value to 0 (pass through) if empty, else make it -1</comment>
+                        <event-block sid="1636571578961764">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="1437580525857101" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;IsTunnel&quot;,Map.UID,Wagon.xPos+Wagon.direction,Wagon.yPos)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="9076245240628379" type="Function">
+                                    <param id="0" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7810222352983481">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="2805784567059011" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="8223429212859187" type="Function">
+                                    <param id="0" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>If precious metal, return that time</comment>
+                        <event-block any="1" sid="5868773361904654">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8112741314452171" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TILE_DIAMOND</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="7339677164079703" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TILE_SILVER</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="4810376380251143" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TILE_GOLD</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="3054047819805421" type="Function">
+                                    <param id="0" name="Value">ATIME_MINER_PRECIOUS</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>If mineable tile, then set a value which relates to the amount of coal in the tile</comment>
+                        <event-block sid="6585269803159184">
+                            <conditions>
+                                <condition id="-21" name="Is between values" sid="2782909974787314" type="System">
+                                    <param id="0" name="Value">tile</param>
+                                    <param id="1" name="Lower bound">TILE_EARTH</param>
+                                    <param id="2" name="Upper bound">TILE_EARTH+15</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="8825777790502938" type="Function">
+                                    <param id="0" name="Value">ATIME_MINER_COAL+(tile-TILE_EARTH)/4</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3919211042617002">
+            <conditions>
+                <condition id="0" name="On function" sid="3664195533901979" type="Function">
+                    <param id="0" name="Name">&quot;WagonExecuteMiner&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="8981690765247541" type="Function">
+                    <param id="0" name="Value">-1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Find the wagon and identify the tile you can mine</comment>
+                <variable constant="0" name="tile" sid="7172089319826101" static="0" type="number">0</variable>
+                <event-block sid="5422424410306307">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="3697451345696499" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set return value" sid="9119170194263748" type="Function">
+                            <param id="0" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3414919387894531" type="System">
+                            <param id="0" name="Variable">tile</param>
+                            <param id="1" name="Value">Map.TileAt(Wagon.xPos+Wagon.direction,Wagon.yPos)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Handle precious metals.</comment>
+                        <event-block sid="3125268938714628">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3809507549805144" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TILE_DIAMOND</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="6669077483133354" type="Wagon">
+                                    <param id="0" name="Instance variable">diamondCount</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="1" name="Set tile" sid="2461147267156332" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Tile">TILE_OPEN</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3465882521502501">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9799565453354364" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TILE_SILVER</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="5642681227301153" type="Wagon">
+                                    <param id="0" name="Instance variable">silverCount</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="1" name="Set tile" sid="597332153577079" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Tile">TILE_OPEN</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4707162407434448">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6104373487869926" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TILE_GOLD</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="3573740085503468" type="Wagon">
+                                    <param id="0" name="Instance variable">goldCount</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="1" name="Set tile" sid="562568014416767" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Tile">TILE_OPEN</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Handle mineable coal</comment>
+                        <event-block sid="5587238516682983">
+                            <conditions>
+                                <condition id="-21" name="Is between values" sid="8089827280504299" type="System">
+                                    <param id="0" name="Value">tile</param>
+                                    <param id="1" name="Lower bound">TILE_EARTH</param>
+                                    <param id="2" name="Upper bound">TILE_EARTH+15</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set tile" sid="4944271840697668" type="Maps">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Tile">TILE_OPEN+round((tile-TILE_EARTH)*9/15)</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
