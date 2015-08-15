@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Driller Wagon</name>
+    <events>
+        <event-group description="Drills down through anything except Rock, Granite and Cavern, replacing it with Shaft" sid="2274219693635842" title="Driller Wagon" />
+        <event-block sid="8547415429114372">
+            <conditions>
+                <condition id="0" name="On function" sid="196667150652995" type="Function">
+                    <param id="0" name="Name">&quot;WagonCheckDriller&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="5948680650153385" type="Function">
+                    <param id="0" name="Value">ATIME_DRILLER</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="tile" sid="416974319642779" static="0" type="number">0</variable>
+                <event-block sid="1855393280634097">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="382548358940934" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2272656066889589" type="System">
+                            <param id="0" name="Variable">tile</param>
+                            <param id="1" name="Value">Map.TileAt(Wagon.xPos,Wagon.yPos+1)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block any="1" sid="6122054413684332">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="1591584048198155" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TILE_ROCK</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="4554599510698944" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TILE_GRANITE</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="9483463213924531" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TILE_EXPLODEDSPACE</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="9721716752211084" type="Function">
+                                    <param id="0" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="1862117993719399">
+            <conditions>
+                <condition id="0" name="On function" sid="7558717978050408" type="Function">
+                    <param id="0" name="Name">&quot;WagonExecuteDriller&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="5490212537950778" type="Function">
+                    <param id="0" name="Value">-1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="6944546222856821">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="5404432989196505" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set tile" sid="8128935736688448" type="Maps">
+                            <param id="0" name="Tile X">Wagon.xPos</param>
+                            <param id="1" name="Tile Y">Wagon.yPos+1</param>
+                            <param id="2" name="Tile">TILE_SHAFT</param>
+                            <param id="3" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

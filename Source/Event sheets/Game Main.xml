@@ -17,6 +17,7 @@
         <include>Wagon Common Code</include>
         <include>Interface</include>
         <event-group description="" sid="6755322213865293" title="Wagon Handlers" />
+        <include>Driller Wagon</include>
         <include>Explorer Wagon</include>
         <include>Layer Wagon</include>
         <event-group description="" sid="4751348150326133" title="Testing Code (if any)" />

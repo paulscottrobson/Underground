@@ -24,7 +24,7 @@
                     <actions>
                         <action id="-9" name="Set value" sid="8758474719054905" type="System">
                             <param id="0" name="Variable">type</param>
-                            <param id="1" name="Value">CLASS_LAYER</param>
+                            <param id="1" name="Value">CLASS_DRILLER</param>
                         </action>
                         <action id="-9" name="Set value" sid="2320665740959303" type="System">
                             <param id="0" name="Variable">id</param>
