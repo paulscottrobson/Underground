@@ -41,7 +41,7 @@
         <variable constant="1" name="SPEED_DRILLER" sid="3770401544099554" static="0" type="number">0.8</variable>
         <variable constant="1" name="SPEED_COLLECTOR" sid="8854725308273691" static="0" type="number">1.2</variable>
         <variable constant="1" name="SPEED_LAYER" sid="1220072748682177" static="0" type="number">0.5</variable>
-        <variable constant="1" name="SPEED_EXPLODER" sid="6477945144098845" static="0" type="number">1</variable>
+        <variable constant="1" name="SPEED_EXPLODER" sid="6477945144098845" static="0" type="number">8</variable>
         <comment>Action times for different wagons, in seconds</comment>
         <variable constant="1" name="ATIME_EXPLORER" sid="4210469517269063" static="0" type="number">1.5</variable>
         <variable constant="1" name="ATIME_LAYER" sid="8406476225002218" static="0" type="number">7</variable>
@@ -52,6 +52,8 @@
         <variable constant="1" name="ATIME_EXPLODER" sid="631376177003002" static="0" type="number">1</variable>
         <comment>How much coal can a wagon carry ?</comment>
         <variable constant="1" name="WAGON_COAL_CAPACITY" sid="2251462661176934" static="0" type="number">15</variable>
+        <comment>How far down does a shaft explosion go ?</comment>
+        <variable constant="1" name="EXPLODE_SHAFT_DISTANCE" sid="3133926960995155" static="0" type="number">3</variable>
         <event-group description="These refer to things in the code" sid="6072579222464355" title="Program Constants" />
         <comment>Class Names - note if you change the names you must also change the Wagon Handler Function names, and also you should change the names of the Wagon event files to match the new names.</comment>
         <variable constant="1" name="CLASS_EXPLORER" sid="6562619556947548" static="0" type="text">Explorer</variable>

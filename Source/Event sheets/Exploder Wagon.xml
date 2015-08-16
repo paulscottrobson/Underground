@@ -33,7 +33,7 @@
                         <event-block sid="9181654655273224">
                             <conditions>
                                 <condition id="0" name="Compare tile at" sid="2758662203982745" type="Map">
-                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.xDirection</param>
+                                    <param id="0" name="Tile X">Wagon.xPos</param>
                                     <param id="1" name="Tile Y">Wagon.yPos</param>
                                     <param id="2" name="Comparison">0</param>
                                     <param id="3" name="Tile">TILE_SHAFT</param>
@@ -50,6 +50,7 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <comment>The execution handler delegates the results to the functions below.</comment>
         <event-block sid="6041214597050304">
             <conditions>
                 <condition id="0" name="On function" sid="9126105045340748" type="Function">
@@ -68,6 +69,54 @@
                             <param id="0" name="Unique ID">Function.Param(0)</param>
                         </condition>
                     </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2703797654428064">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="9214196513987878" type="Wagon">
+                                    <param id="0" name="Instance variable">handler1</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="5426107331564554" type="Function">
+                                    <param id="0" name="Name">&quot;ExploderMineCave&quot;</param>
+                                    <param id="1" name="Parameter {n}">Wagon.UID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1924561780793115">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="192802903651523" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="134043838915346" type="Function">
+                                    <param id="0" name="Name">&quot;ExploderMineShaft&quot;</param>
+                                    <param id="1" name="Parameter {n}">Wagon.UID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="1927338632104485" title="Handle the vertical mining explosion" />
+        <event-block sid="464332304907256">
+            <conditions>
+                <condition id="0" name="On function" sid="7243110129460496" type="Function">
+                    <param id="0" name="Name">&quot;ExploderMineShaft&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="isBlocked" sid="7028628765521145" static="0" type="number">0</variable>
+                <event-block sid="2119759388459109">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="682882886238501" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
                     <actions>
                         <action id="0" name="Play" sid="643541191331814" type="Audio">
                             <param id="0" name="Audio file">bomb</param>
@@ -75,11 +124,87 @@
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
-                        <action id="-3" name="Create object" sid="5660665428719303" type="System">
-                            <param id="0" name="Object to create">Explosion</param>
-                            <param id="1" name="Layer">2</param>
-                            <param id="2" name="X">Wagon.X+Wagon.Width/2</param>
-                            <param id="3" name="Y">Wagon.Y+Wagon.Height/2</param>
+                    </actions>
+                    <sub-events>
+                        <comment>Try each depth</comment>
+                        <event-block sid="3874379184433022">
+                            <conditions>
+                                <condition id="-10" name="For" sid="6870988826994468" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">EXPLODE_SHAFT_DISTANCE</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>Blocked if we have encountered granite</comment>
+                                <event-block sid="9749625655083503">
+                                    <conditions>
+                                        <condition id="0" name="Compare tile at" sid="7545356452565624" type="Map">
+                                            <param id="0" name="Tile X">Wagon.xPos</param>
+                                            <param id="1" name="Tile Y">Wagon.yPos+loopindex</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Tile">TILE_GRANITE</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="5460305800633265" type="System">
+                                            <param id="0" name="Variable">isBlocked</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>If not blocked overwrite by a shaft.</comment>
+                                <event-block sid="9072627900473026">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="9655393403326106" type="System">
+                                            <param id="0" name="Variable">isBlocked</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set tile" sid="4405943914621327" type="Map">
+                                            <param id="0" name="Tile X">Wagon.xPos</param>
+                                            <param id="1" name="Tile Y">Wagon.yPos+loopindex</param>
+                                            <param id="2" name="Tile">TILE_SHAFT</param>
+                                            <param id="3" name="State">0</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="5660665428719303" type="System">
+                                            <param id="0" name="Object to create">Explosion</param>
+                                            <param id="1" name="Layer">2</param>
+                                            <param id="2" name="X">Wagon.X+Wagon.Width/2</param>
+                                            <param id="3" name="Y">Wagon.Y+Wagon.Height/2+loopindex*MAPTILESIZE</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="7698625324892054" title="Handle the cave extraction explosion" />
+        <event-block sid="1436621283671016">
+            <conditions>
+                <condition id="0" name="On function" sid="8392706424089207" type="Function">
+                    <param id="0" name="Name">&quot;ExploderMineCave&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="6190012156373237">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="2710717949259674" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="9713610381476766" type="Audio">
+                            <param id="0" name="Audio file">bomb</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                 </event-block>

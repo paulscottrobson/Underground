@@ -82,6 +82,12 @@
                             <param id="2" name="Tile">TILE_DIAMOND</param>
                             <param id="3" name="State">0</param>
                         </action>
+                        <action id="1" name="Set tile" sid="9539310047421971" type="Map">
+                            <param id="0" name="Tile X">14</param>
+                            <param id="1" name="Tile Y">21</param>
+                            <param id="2" name="Tile">TILE_GRANITE</param>
+                            <param id="3" name="State">0</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
