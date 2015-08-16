@@ -485,7 +485,7 @@
                                                     <param id="0" name="Instance variable">state</param>
                                                     <param id="1" name="Value">WST_DESTROYED</param>
                                                 </action>
-                                                <action behavior="Fade" id="1" name="Start fade" sid="2865958887585273" type="Wagon" />
+                                                <action behavior="DestroyFade" id="1" name="Start fade" sid="2865958887585273" type="Wagon" />
                                             </actions>
                                             <sub-events>
                                                 <event-block sid="1302415079068497">
@@ -633,6 +633,9 @@
                                 <action id="-10" name="Set value" sid="2693339971986275" type="Wagon">
                                     <param id="0" name="Instance variable">goldCount</param>
                                     <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-26" name="Move to layer" sid="8080108062716754" type="Wagon">
+                                    <param id="0" name="Layer">2</param>
                                 </action>
                             </actions>
                         </event-block>

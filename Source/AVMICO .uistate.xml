@@ -20,6 +20,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="7">Wagon Common Code</event-sheet>
         <event-sheet order="8">Queuing</event-sheet>
         <event-sheet order="9">Wagon Returner</event-sheet>
+        <event-sheet order="10">Interface</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -51,5 +52,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/WagonMarker/" />
         <folder expanded="1" path="animation-folder/Coin/" />
         <folder expanded="1" path="animation-folder/DispatchFrame/" />
+        <folder expanded="1" path="animation-folder/BackOfQueue/" />
     </folders-expanded>
 </c2uistate>

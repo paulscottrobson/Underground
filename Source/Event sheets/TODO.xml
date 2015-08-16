@@ -8,7 +8,6 @@
         <comment>Consider the &apos;initial&apos; map having some pre-dug passages left and right from the main shaft ?</comment>
         <comment>Consider changing opening to 7 x 5 rather than 5 x 5 ?</comment>
         <event-group description="" sid="2471969235798241" title="Forwards" />
-        <comment>Return to back of queue code (now done via swipe !)</comment>
         <comment>Dispatching object</comment>
         <comment>Test the game works :)</comment>
     </events>

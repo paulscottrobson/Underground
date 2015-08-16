@@ -197,7 +197,10 @@
                 <instance-variable comment="Variable for handler" name="handler1" sid="3396343150226803" type="number" />
             </instance-variables>
             <behaviors>
-                <behavior-type name="Fade" sid="8121128834412644">
+                <behavior-type name="DestroyFade" sid="8121128834412644">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="InterfaceFade" sid="2589974614664163">
                     <behavior id="Fade" />
                 </behavior-type>
             </behaviors>
@@ -356,6 +359,25 @@
         <object-type name="WagonQueue" sid="3153587966499852">
             <plugin id="Arr" />
         </object-type>
+        <object-type name="BackOfQueue" sid="6332511175207631">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="565711419082223" speed="5">
+                    <frame duration="1" hotspotX="0.506849" hotspotY="0.505495" original-source="C:\Construct2\Underground\Graphics\backqueue.png">
+                        <collision-poly>
+                            <point x="0.232877" y="0.186813" />
+                            <point x="0.493151" y="0.0659341" />
+                            <point x="0.767123" y="0.186813" />
+                            <point x="1" y="0.494505" />
+                            <point x="0.767123" y="0.813187" />
+                            <point x="0.493151" y="0.934066" />
+                            <point x="0.232877" y="0.813187" />
+                            <point x="0" y="0.494505" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Maps" plugin-id="Tilemap" sid="964271431457324">
@@ -457,6 +479,10 @@
         <file name="return.ogg" />
         <file name="bell.m4a" />
         <file name="bell.ogg" />
+        <file name="woosh.m4a" />
+        <file name="woosh.ogg" />
+        <file name="accept.m4a" />
+        <file name="accept.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

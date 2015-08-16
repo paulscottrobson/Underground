@@ -47,7 +47,7 @@
                                     <param id="0" name="Variable">id</param>
                                     <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,tokenat(descr,0,&quot;=&quot;))</param>
                                 </action>
-                                <action id="1" name="Append text" sid="3914259860514489" type="DebugText">
+                                <action disabled="1" id="1" name="Append text" sid="3914259860514489" type="DebugText">
                                     <param id="0" name="Text">id &amp; &quot; &quot;</param>
                                 </action>
                                 <action id="0" name="Call function" sid="2275022393139945" type="Function">
@@ -104,6 +104,7 @@
                             <param id="0" name="X">DispatchFrame.X+DispatchFrame.Height/2-Wagon.Width/2</param>
                             <param id="1" name="Y">DispatchFrame.Y+DispatchFrame.Height/2-Wagon.Height/2</param>
                         </action>
+                        <action behavior="InterfaceFade" id="0" name="Restart fade" sid="8022097434429457" type="Wagon" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -160,6 +161,60 @@
                             <param id="0" name="Visibility">1</param>
                         </action>
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="5265612708321292" title="Push the wagon at the front of the queue to the back" />
+        <event-block sid="2724370416756094">
+            <conditions>
+                <condition id="0" name="On function" sid="9636811737479305" type="Function">
+                    <param id="0" name="Name">&quot;QueueRecycle&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Is there something to recycle ?</comment>
+                <event-block sid="393861628345945">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="8223417450236917" type="DispatchFrame">
+                            <param id="0" name="Instance variable">isWagonVisible</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Hide the wagon currently at the head of the queue, and mark it as invisible. Push that wagon onto the back of the queue, then drop the front of the queue</comment>
+                        <event-block sid="5140027515463602">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="467397400728425" type="Wagon">
+                                    <param id="0" name="Unique ID">DispatchFrame.currentUID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="9899654668817067" type="Wagon">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="8218086060828199" type="DispatchFrame">
+                                    <param id="0" name="Instance variable">isWagonVisible</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="5" name="Push" sid="3715156194979635" type="WagonQueue">
+                                    <param id="0" name="Where">1</param>
+                                    <param id="1" name="Value">DispatchFrame.currentUID</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                                <action id="6" name="Pop" sid="8026016681891834" type="WagonQueue">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Axis">0</param>
+                                </action>
+                                <action id="0" name="Play" sid="4160754156564277" type="Audio">
+                                    <param id="0" name="Audio file">woosh</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
