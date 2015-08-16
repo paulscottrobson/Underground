@@ -4,12 +4,12 @@
     <name>TODO</name>
     <events>
         <event-group description="" sid="8190978599001988" title="Outstanding stuff" />
-        <comment>Extend return to requeue object</comment>
+        <comment>Extend return to requeue object not tested</comment>
+        <comment>Consider the &apos;initial&apos; map having some pre-dug passages left and right from the main shaft ?</comment>
         <comment>Consider changing opening to 7 x 5 rather than 5 x 5 ?</comment>
         <event-group description="" sid="2471969235798241" title="Forwards" />
-        <comment>Create initial queue by hand and queuing system</comment>
-        <comment>Put re-queing in return code - alert when queue goes from 0-1</comment>
-        <comment>Create dispatching and return to back of queue code (now done via swipe !)</comment>
+        <comment>Return to back of queue code (now done via swipe !)</comment>
+        <comment>Dispatching object</comment>
         <comment>Test the game works :)</comment>
     </events>
 </c2eventsheet>

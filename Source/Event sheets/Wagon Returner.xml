@@ -40,6 +40,10 @@
                             <param id="0" name="Name">&quot;AddToMoney&quot;</param>
                             <param id="1" name="Parameter {n}">total</param>
                         </action>
+                        <action id="0" name="Call function" sid="9497715747980218" type="Function">
+                            <param id="0" name="Name">&quot;QueueInsert&quot;</param>
+                            <param id="1" name="Parameter {n}">Wagon.UID</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Queuing</name>
+    <events>
+        <event-group description="" sid="8619835434042885" title="Queue Management Code" />
+        <comment>At the layout start, empty the queue and load it with the default list which is in constants</comment>
+        <event-block sid="2305610632635203">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7343404156519866" type="System" />
+            </conditions>
+            <actions>
+                <action id="1" name="Set size" sid="5100035375188424" type="WagonQueue">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="descr" sid="5352609505545354" static="0" type="text"></variable>
+                <variable constant="0" name="id" sid="4124596985363387" static="0" type="number">0</variable>
+                <event-block sid="9009480133756868">
+                    <conditions>
+                        <condition id="-10" name="For" sid="4139037094169914" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">tokencount(STARTLIST,&quot;;&quot;)-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3894991382835935" type="System">
+                            <param id="0" name="Variable">descr</param>
+                            <param id="1" name="Value">tokenat(STARTLIST,loopindex,&quot;;&quot;)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="7479567661901384">
+                            <conditions>
+                                <condition id="-10" name="For" sid="3062302705295303" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">int(tokenat(descr,1,&quot;=&quot;))</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="7762626723935915" type="System">
+                                    <param id="0" name="Variable">id</param>
+                                    <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,tokenat(descr,0,&quot;=&quot;))</param>
+                                </action>
+                                <action id="1" name="Append text" sid="3914259860514489" type="DebugText">
+                                    <param id="0" name="Text">id &amp; &quot; &quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="2275022393139945" type="Function">
+                                    <param id="0" name="Name">&quot;QueueInsert&quot;</param>
+                                    <param id="1" name="Parameter {n}">id{###}0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Is no wagon displayed, and there is one in the queue, then put the current head of queue in the window.</comment>
+        <event-block sid="6952867190892579">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="666495884860239" type="DispatchFrame">
+                    <param id="0" name="Instance variable">isWagonVisible</param>
+                </condition>
+                <condition id="7" name="Compare size" sid="9370463337875615" type="WagonQueue">
+                    <param id="0" name="Axis">0</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="7444043582527287" type="DispatchFrame">
+                    <param id="0" name="Instance variable">currentUID</param>
+                    <param id="1" name="Value">WagonQueue.At(WagonQueue.Width-1)</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="3465825346058649" type="DispatchFrame">
+                    <param id="0" name="Instance variable">isWagonVisible</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Pick the wagon and bring it to the window, scaled appropriately.</comment>
+                <event-block sid="9799994520277705">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="9488037872904452" type="Wagon">
+                            <param id="0" name="Unique ID">DispatchFrame.currentUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="2341859942836752" type="Wagon">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="3675949476842474" type="Wagon">
+                            <param id="0" name="Width">DispatchFrame.Height*0.7</param>
+                        </action>
+                        <action id="-6" name="Set height" sid="1593732239187832" type="Wagon">
+                            <param id="0" name="Height">Wagon.Width</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="9082744300536515" type="Wagon">
+                            <param id="0" name="X">DispatchFrame.X+DispatchFrame.Height/2-Wagon.Width/2</param>
+                            <param id="1" name="Y">DispatchFrame.Y+DispatchFrame.Height/2-Wagon.Height/2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="Parameter 0 is Wagon ID. Param 1 is 1 if it is returning - the wagon alert only sounds on returning going 0-&gt;1" sid="80010123957977" title="Insert into Wagon Queue" />
+        <event-block sid="6034333213248609">
+            <conditions>
+                <condition id="0" name="On function" sid="44713668377183" type="Function">
+                    <param id="0" name="Name">&quot;QueueInsert&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="8148783116158357">
+                    <conditions>
+                        <condition id="7" name="Compare size" sid="2576895942029062" type="WagonQueue">
+                            <param id="0" name="Axis">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="1" name="Compare parameter" sid="5981709739984357" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="768374408367015" type="Audio">
+                            <param id="0" name="Audio file">alert</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Push it into the queue, update the queue size, and make that and the frame visible.</comment>
+                <event-block sid="367086529441479">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="2931257775493882" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Push" sid="1114015686439031" type="WagonQueue">
+                            <param id="0" name="Where">1</param>
+                            <param id="1" name="Value">Function.Param(0)</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4634885299138875" type="QueueSize">
+                            <param id="0" name="Text">WagonQueue.Width</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="4650135425190751" type="DispatchFrame">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="5199962723331642" type="QueueSize">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

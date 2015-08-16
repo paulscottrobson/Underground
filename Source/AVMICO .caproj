@@ -332,9 +332,13 @@
         </object-type>
         <object-type name="DispatchFrame" sid="8206136977911194">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="True when wagon displayed in queue space" name="isWagonVisible" sid="65200567568674" type="boolean" />
+                <instance-variable comment="UID of displayed wagon, if any" name="currentUID" sid="35953533068547" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3114858451971554" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.502564" original-source="C:\Construct2\Underground\Graphics\blueframe.png">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Construct2\Underground\Graphics\blueframe.png">
                         <collision-poly>
                             <point x="0.0166667" y="0.025641" />
                             <point x="0.983333" y="0.025641" />
@@ -405,6 +409,7 @@
         <event-sheet>Interface.xml</event-sheet>
         <event-sheet>Test Code.xml</event-sheet>
         <event-sheet>Globals.xml</event-sheet>
+        <event-sheet>Queuing.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="1" />
