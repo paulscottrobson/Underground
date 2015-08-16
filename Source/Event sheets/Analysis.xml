@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Analysis</name>
+    <events>
+        <event-group description="" sid="6873349857584862" title="Analyse Map contents" />
+        <event-block sid="9820621273677623">
+            <conditions>
+                <condition id="0" name="On function" sid="57236154227269" type="Function">
+                    <param id="0" name="Name">&quot;AnalyseMap&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="coal" sid="4873879855121832" static="0" type="number">0</variable>
+                <variable constant="0" name="diamond" sid="5368711617667741" static="0" type="number">0</variable>
+                <variable constant="0" name="silver" sid="3531774031393365" static="0" type="number">0</variable>
+                <variable constant="0" name="gold" sid="4636960370404961" static="0" type="number">0</variable>
+                <event-block sid="5193632327498439">
+                    <conditions>
+                        <condition id="-10" name="For" sid="7895859243450902" type="System">
+                            <param id="0" name="Name">&quot;x&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">MAPWIDTH-1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="tile" sid="8241592531267971" static="0" type="number">0</variable>
+                        <event-block sid="4990650164023391">
+                            <conditions>
+                                <condition id="-10" name="For" sid="5038526808308817" type="System">
+                                    <param id="0" name="Name">&quot;y&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">MAPHEIGHT-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="21351343475768" type="System">
+                                    <param id="0" name="Variable">tile</param>
+                                    <param id="1" name="Value">Map.TileAt(loopindex(&quot;x&quot;),loopindex(&quot;y&quot;))</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="6539452820293725">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="1253750794467483" type="System">
+                                            <param id="0" name="Variable">tile</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">TILE_DIAMOND</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="5716234766373142" type="System">
+                                            <param id="0" name="Variable">diamond</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8720516602374437">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="2507206171801655" type="System">
+                                            <param id="0" name="Variable">tile</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">TILE_GOLD</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="1328126695706299" type="System">
+                                            <param id="0" name="Variable">silver</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6513469659966352">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="4876975427913453" type="System">
+                                            <param id="0" name="Variable">tile</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">TILE_SILVER</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="4680344200456067" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1055691755658344">
+                                    <conditions>
+                                        <condition id="-21" name="Is between values" sid="6185640892626381" type="System">
+                                            <param id="0" name="Value">tile</param>
+                                            <param id="1" name="Lower bound">TILE_EARTH+1</param>
+                                            <param id="2" name="Upper bound">TILE_EARTH+15</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="2486209386159872" type="System">
+                                            <param id="0" name="Variable">coal</param>
+                                            <param id="1" name="Value">round((tile-TILE_EARTH)*9/15)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="7972568432793322">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="4844900239984469" type="System" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Set text" sid="153347920381552" type="DebugText">
+                            <param id="0" name="Text">&quot;Coal=&quot; &amp; coal &amp; &quot; Silver=&quot; &amp; silver &amp; &quot; Gold=&quot;&amp;gold &amp; &quot; Diamond=&quot; &amp; diamond</param>
+                        </action>
+                        <action id="14" name="Log" sid="5055941825307195" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">&quot;Coal=&quot; &amp; coal &amp; &quot; Silver=&quot; &amp; silver &amp; &quot; Gold=&quot;&amp;gold &amp; &quot; Diamond=&quot; &amp; diamond</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -7,6 +7,8 @@
         <comment>Control movement of wagons</comment>
         <variable comment="Non zero when wagons moving" constant="0" name="wagonsOperating" sid="2631595452320521" static="0" type="number">0</variable>
         <comment>Amount of money</comment>
-        <variable comment="Amount of money held" constant="0" name="money" sid="4308221904963265" static="0" type="number">12050</variable>
+        <variable comment="Amount of money held" constant="0" name="money" sid="4308221904963265" static="0" type="number">0</variable>
+        <comment>Difficulty level - scales return on sold items</comment>
+        <variable comment="Difficulty level" constant="0" name="difficulty" sid="8849992278662411" static="0" type="number">1</variable>
     </events>
 </c2eventsheet>

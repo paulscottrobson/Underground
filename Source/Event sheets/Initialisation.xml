@@ -61,10 +61,6 @@
                     <param id="0" name="Name">&quot;SetupMap&quot;</param>
                     <param id="1" name="Parameter {n}">Map.UID{###}Visibility.UID</param>
                 </action>
-                <action id="0" name="Call function" sid="8577465935578816" type="Function">
-                    <param id="0" name="Name">&quot;OpenDemoMap&quot;</param>
-                    <param id="1" name="Parameter {n}">Map.UID{###}Visibility.UID</param>
-                </action>
                 <action id="0" name="Call function" sid="6766052860064406" type="Function">
                     <param id="0" name="Name">&quot;HomeMap&quot;</param>
                     <param id="1" name="Parameter {n}"></param>

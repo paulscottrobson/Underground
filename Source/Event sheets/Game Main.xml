@@ -11,6 +11,7 @@
         <include>Open View</include>
         <include>Route Finder</include>
         <include>Miscellaneous Functions</include>
+        <include>Analysis</include>
         <event-group description="" sid="301999407816765" title="Main Code" />
         <include>Initialisation</include>
         <include>Wagon Creator</include>
