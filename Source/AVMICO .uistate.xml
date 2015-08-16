@@ -17,12 +17,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="4">Wagon Creator</event-sheet>
         <event-sheet order="5">Test Code</event-sheet>
         <event-sheet order="6">Globals</event-sheet>
-        <event-sheet order="7">Wagon Common Code</event-sheet>
+        <event-sheet active="1" order="7">Wagon Common Code</event-sheet>
         <event-sheet order="8">Explorer Wagon</event-sheet>
         <event-sheet order="9">Layer Wagon</event-sheet>
         <event-sheet order="10">Driller Wagon</event-sheet>
-        <event-sheet active="1" order="11">Miner Wagon</event-sheet>
+        <event-sheet order="11">Miner Wagon</event-sheet>
         <event-sheet order="12">Route Finder</event-sheet>
+        <event-sheet order="13">Collector Wagon</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />

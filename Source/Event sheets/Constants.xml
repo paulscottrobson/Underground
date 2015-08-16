@@ -34,20 +34,24 @@
         <comment>Scanner constants</comment>
         <variable comment="Scanner size in pixels" constant="1" name="SCANNERSIZE" sid="1858841115936616" static="0" type="number">140</variable>
         <variable comment="Edge of scanner frame" constant="1" name="SCANNEREDGE" sid="558450712995821" static="0" type="number">3</variable>
-        <variable comment="Margin to edges of scanner" constant="1" name="SCANNERMARGIN" sid="9270387359814699" static="0" type="number">48</variable>
+        <variable comment="Margin to edges of scanner" constant="1" name="SCANNERMARGIN" sid="9270387359814699" static="0" type="number">24</variable>
         <comment>Velocity of different wagons in tiles / second.</comment>
         <variable constant="1" name="SPEED_EXPLORER" sid="2557836657153157" static="0" type="number">1</variable>
         <variable constant="1" name="SPEED_MINER" sid="2080616196859356" static="0" type="number">0.7</variable>
         <variable constant="1" name="SPEED_DRILLER" sid="3770401544099554" static="0" type="number">0.8</variable>
-        <variable constant="1" name="SPEED_COLLECTOR" sid="8854725308273691" static="0" type="number">0.5</variable>
+        <variable constant="1" name="SPEED_COLLECTOR" sid="8854725308273691" static="0" type="number">1.2</variable>
         <variable constant="1" name="SPEED_LAYER" sid="1220072748682177" static="0" type="number">0.5</variable>
-        <variable constant="1" name="SPEED_EXPLODER" sid="6477945144098845" static="0" type="number">0.5</variable>
+        <variable constant="1" name="SPEED_EXPLODER" sid="6477945144098845" static="0" type="number">1</variable>
         <comment>Action times for different wagons, in seconds</comment>
         <variable constant="1" name="ATIME_EXPLORER" sid="4210469517269063" static="0" type="number">1.5</variable>
         <variable constant="1" name="ATIME_LAYER" sid="8406476225002218" static="0" type="number">7</variable>
         <variable constant="1" name="ATIME_DRILLER" sid="5151709224107925" static="0" type="number">4</variable>
         <variable constant="1" name="ATIME_MINER_PRECIOUS" sid="693865269639101" static="0" type="number">9</variable>
         <variable constant="1" name="ATIME_MINER_COAL" sid="5804679637192669" static="0" type="number">2</variable>
+        <variable constant="1" name="ATIME_PICKUP" sid="495315786330681" static="0" type="number">1</variable>
+        <variable constant="1" name="ATIME_EXPLODER" sid="631376177003002" static="0" type="number">1</variable>
+        <comment>How much coal can a wagon carry ?</comment>
+        <variable constant="1" name="WAGON_COAL_CAPACITY" sid="2251462661176934" static="0" type="number">15</variable>
         <event-group description="These refer to things in the code" sid="6072579222464355" title="Program Constants" />
         <comment>Class Names - note if you change the names you must also change the Wagon Handler Function names, and also you should change the names of the Wagon event files to match the new names.</comment>
         <variable constant="1" name="CLASS_EXPLORER" sid="6562619556947548" static="0" type="text">Explorer</variable>

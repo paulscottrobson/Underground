@@ -202,7 +202,7 @@
                                                         <event-block sid="5829335697376847">
                                                             <conditions>
                                                                 <condition id="0" name="Compare tile at" sid="1132534139385217" type="Maps">
-                                                                    <param id="0" name="Tile X">int(Wagon.xPos-Wagon.direction/2)</param>
+                                                                    <param id="0" name="Tile X">int(Wagon.xPos-Wagon.xDirection/2)</param>
                                                                     <param id="1" name="Tile Y">int(Wagon.yPos)</param>
                                                                     <param id="2" name="Comparison">0</param>
                                                                     <param id="3" name="Tile">TILE_TRACK</param>
@@ -348,7 +348,7 @@
                                             <actions>
                                                 <action id="-11" name="Add to" sid="557978308303726" type="Wagon">
                                                     <param id="0" name="Instance variable">xTarget</param>
-                                                    <param id="1" name="Value">Wagon.direction</param>
+                                                    <param id="1" name="Value">Wagon.xDirection</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -592,7 +592,7 @@
                                     <param id="1" name="Value">0</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="9396662343680669" type="Wagon">
-                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="0" name="Instance variable">xDirection</param>
                                     <param id="1" name="Value">(Function.Param(1) &gt; MAPXSHAFT) ? 1 : -1</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="1808023895467632" type="Wagon">
@@ -669,6 +669,12 @@
                                 <action id="-10" name="Set value" sid="8206922743942528" type="Wagon">
                                     <param id="0" name="Instance variable">yTarget</param>
                                     <param id="1" name="Value">Wagon.yPos</param>
+                                </action>
+                                <action id="0" name="Play" sid="4825708276909343" type="Audio">
+                                    <param id="0" name="Audio file">return</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -769,7 +775,7 @@
                         <event-block sid="6105233016715087">
                             <conditions>
                                 <condition id="0" name="Compare tile at" sid="7728231254562951" type="Maps">
-                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.xDirection</param>
                                     <param id="1" name="Tile Y">Wagon.yPos</param>
                                     <param id="2" name="Comparison">0</param>
                                     <param id="3" name="Tile">TILE_GRANITE</param>
@@ -805,7 +811,7 @@
                     </conditions>
                     <actions>
                         <action id="1" name="Set tile" sid="3862973985460358" type="Maps">
-                            <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                            <param id="0" name="Tile X">Wagon.xPos+Wagon.xDirection</param>
                             <param id="1" name="Tile Y">Wagon.yPos</param>
                             <param id="2" name="Tile">TILE_TRACK</param>
                             <param id="3" name="State">0</param>

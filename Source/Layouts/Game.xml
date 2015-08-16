@@ -264,24 +264,24 @@
                 </instance>
                 <instance type="MoneyText" uid="17">
                     <properties>
-                        <character-width>64</character-width>
-                        <character-height>96</character-height>
+                        <character-width>48</character-width>
+                        <character-height>64</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
-                        <text>100,000</text>
-                        <scale>0.4</scale>
+                        <text>999,999</text>
+                        <scale>1</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Right</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
                         <hotspot>Top-left</hotspot>
                         <wrapping>Word</wrapping>
-                        <character-spacing>0</character-spacing>
+                        <character-spacing>-25</character-spacing>
                         <line-height>0</line-height>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>438</x>
-                        <y>891</y>
+                        <y>894</y>
                         <z>0</z>
                         <width>194</width>
                         <height>66</height>
@@ -355,7 +355,7 @@
                         <name></name>
                         <state>0</state>
                         <isOneShot>false</isOneShot>
-                        <direction>0</direction>
+                        <xDirection>0</xDirection>
                         <viewDistance>0</viewDistance>
                         <actionMaxCount>0</actionMaxCount>
                         <xPos>0</xPos>

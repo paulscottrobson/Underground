@@ -29,7 +29,7 @@
                         <event-block sid="3579630523345544">
                             <conditions>
                                 <condition id="0" name="Compare tile at" sid="2649653506118844" type="Maps">
-                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.xDirection</param>
                                     <param id="1" name="Tile Y">Wagon.yPos</param>
                                     <param id="2" name="Comparison">0</param>
                                     <param id="3" name="Tile">TILE_EARTH</param>
@@ -45,7 +45,7 @@
                         <event-block sid="2943937992282227">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="9078122708379865" type="System">
-                                    <param id="0" name="First value">Function.Call(&quot;IsTunnel&quot;,Map.UID,Wagon.xPos+Wagon.direction,Wagon.yPos)</param>
+                                    <param id="0" name="First value">Function.Call(&quot;IsTunnel&quot;,Map.UID,Wagon.xPos+Wagon.xDirection,Wagon.yPos)</param>
                                     <param id="1" name="Comparison">1</param>
                                     <param id="2" name="Second value">0</param>
                                 </condition>
@@ -85,7 +85,7 @@
                         <event-block sid="5353337607048804">
                             <conditions>
                                 <condition id="0" name="Compare tile at" sid="5443588598253284" type="Maps">
-                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.xDirection</param>
                                     <param id="1" name="Tile Y">Wagon.yPos</param>
                                     <param id="2" name="Comparison">0</param>
                                     <param id="3" name="Tile">TILE_EARTH</param>
@@ -93,7 +93,7 @@
                             </conditions>
                             <actions>
                                 <action id="1" name="Set tile" sid="1482032267884772" type="Maps">
-                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.direction</param>
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.xDirection</param>
                                     <param id="1" name="Tile Y">Wagon.yPos</param>
                                     <param id="2" name="Tile">TILE_OPEN</param>
                                     <param id="3" name="State">0</param>

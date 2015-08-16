@@ -165,7 +165,7 @@
                 <instance-variable comment="Wagon type as name" name="name" sid="7993548234149065" type="string" />
                 <instance-variable comment="Current state" name="state" sid="3830311470458503" type="number" />
                 <instance-variable comment="True if one use only wagon" name="isOneShot" sid="8286062212234086" type="boolean" />
-                <instance-variable comment="Outward movement direction" name="direction" sid="1336523755717222" type="number" />
+                <instance-variable comment="Outward movement direction" name="xDirection" sid="1336523755717222" type="number" />
                 <instance-variable comment="How far wagon can &apos;see&apos;" name="viewDistance" sid="2293607140549509" type="number" />
                 <instance-variable comment="Number of times action can be performed" name="actionMaxCount" sid="3280654290877003" type="number" />
                 <instance-variable comment="x position" name="xPos" sid="4673558434009142" type="number" />
@@ -285,7 +285,7 @@
         </object-type>
         <object-type name="MoneyText" sid="350404195160497">
             <plugin id="Spritefont2" />
-            <texture original-source="C:\Construct2\Underground\Graphics\font.png" />
+            <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
         </object-type>
         <object-type name="Coin" sid="9745151358095071">
             <plugin id="Sprite" />
@@ -351,6 +351,7 @@
             <event-sheet>Layer Wagon.xml</event-sheet>
             <event-sheet>Driller Wagon.xml</event-sheet>
             <event-sheet>Miner Wagon.xml</event-sheet>
+            <event-sheet>Collector Wagon.xml</event-sheet>
         </event-folder>
         <event-sheet>Constants.xml</event-sheet>
         <event-sheet>Game Main.xml</event-sheet>
@@ -398,6 +399,10 @@
         <file name="mine.ogg" />
         <file name="kerching.m4a" />
         <file name="kerching.ogg" />
+        <file name="digging.m4a" />
+        <file name="digging.ogg" />
+        <file name="return.m4a" />
+        <file name="return.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

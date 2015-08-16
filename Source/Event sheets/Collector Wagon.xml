@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Collector Wagon</name>
+    <events>
+        <event-group description="Collectors can only pass through open spaces, they pick up mined coal." sid="5989764024704576" title="Collector Wagon" />
+        <event-block sid="9397960128660419">
+            <conditions>
+                <condition id="0" name="On function" sid="7642673659307643" type="Function">
+                    <param id="0" name="Name">&quot;WagonCheckCollector&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="8354374619578636" type="Function">
+                    <param id="0" name="Value">-1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Find the Wagon</comment>
+                <event-block sid="8061120460857398">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="9085257179751268" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>If it is a tunnel move straight through no work</comment>
+                        <event-block sid="8732728268762685">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="1705170444145612" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;IsTunnel&quot;,Map.UID,Wagon.xPos+Wagon.xDirection,Wagon.yPos)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="8086638951705968" type="Function">
+                                    <param id="0" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>If there is ore waiting delay to pick it up</comment>
+                        <event-block sid="7213799479577133">
+                            <conditions>
+                                <condition id="-21" name="Is between values" sid="3782812091422914" type="System">
+                                    <param id="0" name="Value">Maps.TileAt(Wagon.xPos+Wagon.xDirection,Wagon.yPos)</param>
+                                    <param id="1" name="Lower bound">TILE_OPEN+1</param>
+                                    <param id="2" name="Upper bound">TILE_OPEN+9</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="6808191879357355" type="Function">
+                                    <param id="0" name="Value">ATIME_PICKUP</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>If Wagon is full return to base</comment>
+                        <event-block sid="9663558723387705">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="596026296168251" type="Wagon">
+                                    <param id="0" name="Instance variable">coalCount</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">WAGON_COAL_CAPACITY</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="5039904766437506" type="Function">
+                                    <param id="0" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2783937547623456">
+            <conditions>
+                <condition id="0" name="On function" sid="1256927086847381" type="Function">
+                    <param id="0" name="Name">&quot;WagonExecuteCollector&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="2627442725269589" type="Function">
+                    <param id="0" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Find the wagon</comment>
+                <variable constant="0" name="tile" sid="1573676995607001" static="0" type="number">0</variable>
+                <variable constant="0" name="toCollect" sid="6831855469273166" static="0" type="number">0</variable>
+                <event-block sid="7065694359538317">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="797746726494928" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3372602015449816" type="System">
+                            <param id="0" name="Variable">tile</param>
+                            <param id="1" name="Value">Map.TileAt(Wagon.xPos+Wagon.xDirection,Wagon.yPos)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>If coal to be picked up, work out how much to pick up. Update the map and coal count, and the wagon graphic</comment>
+                        <event-block sid="2794188803216136">
+                            <conditions>
+                                <condition id="-21" name="Is between values" sid="316718522552135" type="System">
+                                    <param id="0" name="Value">tile</param>
+                                    <param id="1" name="Lower bound">TILE_OPEN+1</param>
+                                    <param id="2" name="Upper bound">TILE_OPEN+9</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="834611830581328" type="System">
+                                    <param id="0" name="Variable">toCollect</param>
+                                    <param id="1" name="Value">min(tile-TILE_OPEN,WAGON_COAL_CAPACITY-Wagon.coalCount)</param>
+                                </action>
+                                <action id="1" name="Set tile" sid="1044499909888395" type="Map">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.xDirection</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Tile">tile - toCollect</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                                <action id="-11" name="Add to" sid="9734626400009452" type="Wagon">
+                                    <param id="0" name="Instance variable">coalCount</param>
+                                    <param id="1" name="Value">toCollect</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="1800396307527313" type="Wagon">
+                                    <param id="0" name="Frame number">min(round(Wagon.coalCount*9/WAGON_COAL_CAPACITY),9)</param>
+                                </action>
+                                <action id="2" name="Stop" sid="6108149204495292" type="Wagon" />
+                                <action id="0" name="Play" sid="5511259774303908" type="Audio">
+                                    <param id="0" name="Audio file">digging</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

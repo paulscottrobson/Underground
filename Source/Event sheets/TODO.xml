@@ -4,12 +4,9 @@
     <name>TODO</name>
     <events>
         <event-group description="" sid="8190978599001988" title="Outstanding stuff" />
-        <comment>Set different wagons default velocities</comment>
         <comment>Extend return to requeue object and valuate contents</comment>
         <event-group description="" sid="2471969235798241" title="Forwards" />
-        <comment>Collector</comment>
-        <comment>Exploder</comment>
+        <comment>Exploder + sfx</comment>
         <comment>Consider changing opening to 7 x 5 rather than 5 x 5 ?</comment>
-        <comment>Add sound effects for collector / exploder</comment>
     </events>
 </c2eventsheet>
