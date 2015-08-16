@@ -176,6 +176,10 @@
                                             <param id="2" name="X">Wagon.X+Wagon.Width/2</param>
                                             <param id="3" name="Y">Wagon.Y+Wagon.Height/2+loopindex*MAPTILESIZE</param>
                                         </action>
+                                        <action id="0" name="Call function" sid="3791098746010658" type="Function">
+                                            <param id="0" name="Name">&quot;OpenView&quot;</param>
+                                            <param id="1" name="Parameter {n}">Visibility.UID{###}Wagon.xPos{###}Wagon.yPos+loopindex{###}1</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
@@ -207,6 +211,218 @@
                             <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <variable constant="0" name="isBlocked" sid="8802516088780482" static="0" type="number">0</variable>
+                        <variable constant="0" name="x" sid="9016696924789184" static="0" type="number">0</variable>
+                        <variable constant="0" name="y" sid="1028906983239198" static="0" type="number">0</variable>
+                        <variable constant="0" name="tile" sid="7701154503386419" static="0" type="number">0</variable>
+                        <comment>Work vertically left to right</comment>
+                        <event-block sid="7947557047986935">
+                            <conditions>
+                                <condition id="-10" name="For" sid="5829189220042418" type="System">
+                                    <param id="0" name="Name">&quot;xi2&quot;</param>
+                                    <param id="1" name="Start index">-EXPLODE_CAVE_RADIUS</param>
+                                    <param id="2" name="End index">EXPLODE_CAVE_RADIUS</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="9953109500373141" type="System">
+                                    <param id="0" name="Variable">isBlocked</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="575183747674034" type="System">
+                                    <param id="0" name="Variable">x</param>
+                                    <param id="1" name="Value">Wagon.xPos+loopindex(&quot;xi2&quot;)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <comment>Can only explode above open tunnel</comment>
+                                <event-block sid="8974406343185731">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="2649412431094055" type="System">
+                                            <param id="0" name="First value">Function.Call(&quot;IsTunnel&quot;,Map.UID,Wagon.xPos+loopindex(&quot;xi2&quot;),Wagon.yPos)</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <comment>Scan vertically up</comment>
+                                        <event-block sid="5526278464728156">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="8106040118155909" type="System">
+                                                    <param id="0" name="Name">&quot;yi2&quot;</param>
+                                                    <param id="1" name="Start index">1</param>
+                                                    <param id="2" name="End index">abs(loopindex(&quot;xi2&quot;)) = EXPLODE_CAVE_RADIUS ? EXPLODE_CAVE_HEIGHT-1 :EXPLODE_CAVE_HEIGHT</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="2091228359575946" type="System">
+                                                    <param id="0" name="Variable">y</param>
+                                                    <param id="1" name="Value">Wagon.yPos-loopindex(&quot;yi2&quot;)</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="3796915666162271" type="System">
+                                                    <param id="0" name="Variable">tile</param>
+                                                    <param id="1" name="Value">Map.TileAt(x,y)</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <comment>Precious metals are lost</comment>
+                                                <event-block any="1" sid="7976672655539927">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="6296263871561853" type="System">
+                                                            <param id="0" name="Variable">tile</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">TILE_DIAMOND</param>
+                                                        </condition>
+                                                        <condition id="-14" name="Compare variable" sid="1202215367258484" type="System">
+                                                            <param id="0" name="Variable">tile</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">TILE_GOLD</param>
+                                                        </condition>
+                                                        <condition id="-14" name="Compare variable" sid="3207553717767569" type="System">
+                                                            <param id="0" name="Variable">tile</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">TILE_SILVER</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="1" name="Set tile" sid="4386185773429478" type="Map">
+                                                            <param id="0" name="Tile X">x</param>
+                                                            <param id="1" name="Tile Y">y</param>
+                                                            <param id="2" name="Tile">TILE_EXPLODEDSPACE</param>
+                                                            <param id="3" name="State">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>Track, Shaft, Granite, Rock all block it</comment>
+                                                <event-block any="1" sid="4531066064607209">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="4075916506012968" type="System">
+                                                            <param id="0" name="Variable">tile</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">TILE_SHAFT</param>
+                                                        </condition>
+                                                        <condition id="-14" name="Compare variable" sid="1514575621595754" type="System">
+                                                            <param id="0" name="Variable">tile</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">TILE_GRANITE</param>
+                                                        </condition>
+                                                        <condition id="-14" name="Compare variable" sid="1084806180907497" type="System">
+                                                            <param id="0" name="Variable">tile</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">TILE_ROCK</param>
+                                                        </condition>
+                                                        <condition id="-14" name="Compare variable" sid="4268354328671891" type="System">
+                                                            <param id="0" name="Variable">tile</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">TILE_TRACK</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Set value" sid="6956287350301229" type="System">
+                                                            <param id="0" name="Variable">isBlocked</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>An already open passageway blocks it</comment>
+                                                <event-block sid="5602179076035349">
+                                                    <conditions>
+                                                        <condition id="-21" name="Is between values" sid="4258961056219173" type="System">
+                                                            <param id="0" name="Value">tile</param>
+                                                            <param id="1" name="Lower bound">TILE_OPEN</param>
+                                                            <param id="2" name="Upper bound">TILE_OPEN+9</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Set value" sid="4249667397384817" type="System">
+                                                            <param id="0" name="Variable">isBlocked</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>If the tile is not blocked, replace with exploded space</comment>
+                                                <event-block sid="3263265682797442">
+                                                    <conditions>
+                                                        <condition id="-14" name="Compare variable" sid="3622076582813081" type="System">
+                                                            <param id="0" name="Variable">isBlocked</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="262267214415165" type="Function">
+                                                            <param id="0" name="Name">&quot;OpenView&quot;</param>
+                                                            <param id="1" name="Parameter {n}">Visibility.UID{###}x{###}y{###}1</param>
+                                                        </action>
+                                                        <action id="1" name="Set tile" sid="918313875356697" type="Map">
+                                                            <param id="0" name="Tile X">x</param>
+                                                            <param id="1" name="Tile Y">y</param>
+                                                            <param id="2" name="Tile">TILE_EXPLODEDSPACE</param>
+                                                            <param id="3" name="State">0</param>
+                                                        </action>
+                                                        <action id="-3" name="Create object" sid="3798574496786357" type="System">
+                                                            <param id="0" name="Object to create">Explosion</param>
+                                                            <param id="1" name="Layer">3</param>
+                                                            <param id="2" name="X">Wagon.X+Wagon.Width/2+loopindex(&quot;xi2&quot;)*MAPTILESIZE</param>
+                                                            <param id="3" name="Y">Wagon.Y+Wagon.Height/2-loopindex(&quot;yi2&quot;)*MAPTILESIZE</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <comment>Check if it is mineable</comment>
+                                                        <variable constant="0" name="initCoal" sid="7786480374714103" static="0" type="number">0</variable>
+                                                        <event-block sid="8832761915204041">
+                                                            <conditions>
+                                                                <condition id="-21" name="Is between values" sid="4966940534805927" type="System">
+                                                                    <param id="0" name="Value">tile</param>
+                                                                    <param id="1" name="Lower bound">TILE_EARTH+1</param>
+                                                                    <param id="2" name="Upper bound">TILE_EARTH+15</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <comment>Get how much is there already</comment>
+                                                                <event-block sid="2879977707930495">
+                                                                    <conditions>
+                                                                        <condition id="-21" name="Is between values" sid="4225054952917393" type="System">
+                                                                            <param id="0" name="Value">Map.TileAt(x,Wagon.yPos)</param>
+                                                                            <param id="1" name="Lower bound">TILE_OPEN</param>
+                                                                            <param id="2" name="Upper bound">TILE_OPEN+9</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-9" name="Set value" sid="8945372251258385" type="System">
+                                                                            <param id="0" name="Variable">initCoal</param>
+                                                                            <param id="1" name="Value">Map.TileAt(x,Wagon.yPos)-TILE_OPEN</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                                <comment>Add the coal to what is there already</comment>
+                                                                <event-block sid="1414683480136655">
+                                                                    <conditions>
+                                                                        <condition id="-1" name="Every tick" sid="4345041099615056" type="System" />
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="1" name="Set tile" sid="5928963339394732" type="Map">
+                                                                            <param id="0" name="Tile X">x</param>
+                                                                            <param id="1" name="Tile Y">Wagon.yPos</param>
+                                                                            <param id="2" name="Tile">min(9,initCoal+tile-TILE_EARTH)+TILE_OPEN</param>
+                                                                            <param id="3" name="State">0</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>

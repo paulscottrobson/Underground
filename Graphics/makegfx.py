@@ -41,6 +41,7 @@ for i in range(0,6):
 	addTile("block"+str(i)+".png")
 addTile("granite.png")
 addTile("target.png")
+addTile("explodedspace.png")
 
 # write out at 48x48
 im.save("tiles.png")

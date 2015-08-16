@@ -506,7 +506,7 @@
                     </conditions>
                     <actions>
                         <action id="-16" name="Set opacity" sid="9835168224759223" type="Covers">
-                            <param id="0" name="Opacity">44</param>
+                            <param id="0" name="Opacity">64</param>
                         </action>
                     </actions>
                     <sub-events>

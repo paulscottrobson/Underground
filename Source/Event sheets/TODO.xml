@@ -6,7 +6,6 @@
         <event-group description="" sid="8190978599001988" title="Outstanding stuff" />
         <comment>Extend return to requeue object and valuate contents</comment>
         <event-group description="" sid="2471969235798241" title="Forwards" />
-        <comment>Exploder consequences</comment>
         <comment>Consider changing opening to 7 x 5 rather than 5 x 5 ?</comment>
     </events>
 </c2eventsheet>

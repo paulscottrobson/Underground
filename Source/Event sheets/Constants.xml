@@ -41,7 +41,7 @@
         <variable constant="1" name="SPEED_DRILLER" sid="3770401544099554" static="0" type="number">0.8</variable>
         <variable constant="1" name="SPEED_COLLECTOR" sid="8854725308273691" static="0" type="number">1.2</variable>
         <variable constant="1" name="SPEED_LAYER" sid="1220072748682177" static="0" type="number">0.5</variable>
-        <variable constant="1" name="SPEED_EXPLODER" sid="6477945144098845" static="0" type="number">8</variable>
+        <variable constant="1" name="SPEED_EXPLODER" sid="6477945144098845" static="0" type="number">1.1</variable>
         <comment>Action times for different wagons, in seconds</comment>
         <variable constant="1" name="ATIME_EXPLORER" sid="4210469517269063" static="0" type="number">1.5</variable>
         <variable constant="1" name="ATIME_LAYER" sid="8406476225002218" static="0" type="number">7</variable>
@@ -54,6 +54,9 @@
         <variable constant="1" name="WAGON_COAL_CAPACITY" sid="2251462661176934" static="0" type="number">15</variable>
         <comment>How far down does a shaft explosion go ?</comment>
         <variable constant="1" name="EXPLODE_SHAFT_DISTANCE" sid="3133926960995155" static="0" type="number">3</variable>
+        <comment>Radius and height of a cave explosion</comment>
+        <variable constant="1" name="EXPLODE_CAVE_RADIUS" sid="3147515189931807" static="0" type="number">3</variable>
+        <variable constant="1" name="EXPLODE_CAVE_HEIGHT" sid="5861039548998492" static="0" type="number">2</variable>
         <event-group description="These refer to things in the code" sid="6072579222464355" title="Program Constants" />
         <comment>Class Names - note if you change the names you must also change the Wagon Handler Function names, and also you should change the names of the Wagon event files to match the new names.</comment>
         <variable constant="1" name="CLASS_EXPLORER" sid="6562619556947548" static="0" type="text">Explorer</variable>
@@ -72,7 +75,7 @@
         <variable comment="Gold tile" constant="1" name="TILE_GOLD" sid="1133847689277997" static="0" type="number">30</variable>
         <variable comment="Diamond tile" constant="1" name="TILE_DIAMOND" sid="973985994842656" static="0" type="number">31</variable>
         <variable comment="Railway track tile" constant="1" name="TILE_TRACK" sid="8937044653044898" static="0" type="number">32</variable>
-        <variable comment="Cavern left by explosion" constant="1" name="TILE_EXPLODEDSPACE" sid="9691264375887396" static="0" type="number">33</variable>
+        <variable comment="Cavern left by explosion" constant="1" name="TILE_EXPLODEDSPACE" sid="9691264375887396" static="0" type="number">41</variable>
         <variable comment="Granite (border) tile" constant="1" name="TILE_GRANITE" sid="6022472535688801" static="0" type="number">39</variable>
         <variable comment="Closed view" constant="1" name="TILEV_CLOSED" sid="4294628819594149" static="0" type="number">38</variable>
         <variable comment="Open view" constant="1" name="TILEV_OPEN" sid="4163337818335031" static="0" type="number">33</variable>
