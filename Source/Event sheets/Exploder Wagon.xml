@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Exploder Wagon</name>
+    <events>
+        <event-group description="Either explodes down for blasting rock in a shaft, or extracts coal from an area above" sid="7748055274768334" title="Exploder Wagon" />
+        <event-block sid="7867904754891635">
+            <conditions>
+                <condition id="0" name="On function" sid="1615411438861036" type="Function">
+                    <param id="0" name="Name">&quot;WagonCheckExploder&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="7269003801400264" type="Function">
+                    <param id="0" name="Value">ATIME_EXPLODER</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Investigates what to do - either drill down (handler1 set to 1) or explode cavern (handler1 set to 0)</comment>
+                <event-block sid="3518467976871168">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="3696903614900952" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="5449914778105432" type="Wagon">
+                            <param id="0" name="Instance variable">handler1</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="9181654655273224">
+                            <conditions>
+                                <condition id="0" name="Compare tile at" sid="2758662203982745" type="Map">
+                                    <param id="0" name="Tile X">Wagon.xPos+Wagon.xDirection</param>
+                                    <param id="1" name="Tile Y">Wagon.yPos</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Tile">TILE_SHAFT</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="8078436801961099" type="Wagon">
+                                    <param id="0" name="Instance variable">handler1</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="6041214597050304">
+            <conditions>
+                <condition id="0" name="On function" sid="9126105045340748" type="Function">
+                    <param id="0" name="Name">&quot;WagonExecuteExploder&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="796797568033368" type="Function">
+                    <param id="0" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="3198980950685577">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="917868518258632" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="643541191331814" type="Audio">
+                            <param id="0" name="Audio file">bomb</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="5660665428719303" type="System">
+                            <param id="0" name="Object to create">Explosion</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">Wagon.X+Wagon.Width/2</param>
+                            <param id="3" name="Y">Wagon.Y+Wagon.Height/2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

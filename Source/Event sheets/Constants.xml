@@ -108,6 +108,7 @@
             <actions>
                 <action id="-9" name="Destroy" sid="4835280072826112" type="Wagon" />
                 <action id="-9" name="Destroy" sid="9425339538646706" type="WagonMarker" />
+                <action id="-9" name="Destroy" sid="6555862207739668" type="Explosion" />
             </actions>
         </event-block>
     </events>

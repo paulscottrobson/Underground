@@ -15,6 +15,7 @@
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
@@ -98,6 +99,10 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="Explosion" sid="9376917756812598">
+                <plugin id="Particles" />
+                <texture original-source="C:\Construct2\Underground\Graphics\small rock.png" />
+            </object-type>
         </object-folder>
         <object-type name="Function" sid="2471661111899119">
             <plugin id="Function" />
@@ -179,7 +184,8 @@
                 <instance-variable comment="Amount of gold" name="goldCount" sid="7291124184604904" type="number" />
                 <instance-variable comment="Amount of diamond" name="diamondCount" sid="5321086963826262" type="number" />
                 <instance-variable comment="Wait time when &apos;actioning&apos;" name="waitTime" sid="4358576442487681" type="number" />
-                <instance-variable name="markerUID" sid="477060529975164" type="number" />
+                <instance-variable comment="UID of the WagonMarker object for this wagon on the scanner" name="markerUID" sid="477060529975164" type="number" />
+                <instance-variable comment="Variable for handler" name="handler1" sid="3396343150226803" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Fade" sid="8121128834412644">
@@ -352,6 +358,7 @@
             <event-sheet>Driller Wagon.xml</event-sheet>
             <event-sheet>Miner Wagon.xml</event-sheet>
             <event-sheet>Collector Wagon.xml</event-sheet>
+            <event-sheet>Exploder Wagon.xml</event-sheet>
         </event-folder>
         <event-sheet>Constants.xml</event-sheet>
         <event-sheet>Game Main.xml</event-sheet>

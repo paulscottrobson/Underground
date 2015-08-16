@@ -19,6 +19,7 @@
         <event-group description="" sid="6755322213865293" title="Wagon Handlers" />
         <include>Collector Wagon</include>
         <include>Driller Wagon</include>
+        <include>Exploder Wagon</include>
         <include>Explorer Wagon</include>
         <include>Layer Wagon</include>
         <include>Miner Wagon</include>
