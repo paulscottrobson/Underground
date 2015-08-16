@@ -10,6 +10,7 @@
     <unique-id>26z9p3iu9dapl</unique-id>
     <saved-with-version>20600</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
@@ -328,6 +329,28 @@
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="DispatchFrame" sid="8206136977911194">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3114858451971554" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.502564" original-source="C:\Construct2\Underground\Graphics\blueframe.png">
+                        <collision-poly>
+                            <point x="0.0166667" y="0.025641" />
+                            <point x="0.983333" y="0.025641" />
+                            <point x="0.976667" y="0.964103" />
+                            <point x="0.0233333" y="0.964103" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="QueueSize" sid="5425375579457637">
+            <plugin id="Spritefont2" />
+            <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
+        </object-type>
+        <object-type name="WagonQueue" sid="3153587966499852">
+            <plugin id="Arr" />
         </object-type>
     </object-folder>
     <families>

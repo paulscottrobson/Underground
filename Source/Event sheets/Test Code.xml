@@ -100,7 +100,7 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="2154845878061213">
+        <event-block disabled="1" sid="2154845878061213">
             <conditions>
                 <condition id="-1" name="Every tick" sid="5414007182721712" type="System" />
             </conditions>
