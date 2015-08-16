@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Wagon Returner</name>
+    <events>
+        <event-group description="All external happenings in relation to a wagon returning, e.g. outside its controlling FSM" sid="6641205766615878" title="Handles Wagon Return" />
+        <event-block sid="9488373749347922">
+            <conditions>
+                <condition id="0" name="On function" sid="6906499050438553" type="Function">
+                    <param id="0" name="Name">&quot;WagonHasReturned&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="total" sid="2039081021281832" static="0" type="number">0</variable>
+                <event-block sid="8839505558373056">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="2037900352804449" type="Wagon">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="8152747105610312" type="System">
+                            <param id="0" name="Variable">total</param>
+                            <param id="1" name="Value">round(Wagon.coalCount*difficulty*VALUE_COAL)</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="4066984568954458" type="System">
+                            <param id="0" name="Variable">total</param>
+                            <param id="1" name="Value">round(Wagon.silverCount*difficulty*VALUE_SILVER)</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="4700870777301149" type="System">
+                            <param id="0" name="Variable">total</param>
+                            <param id="1" name="Value">round(Wagon.goldCount*difficulty*VALUE_GOLD)</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="8437044567075959" type="System">
+                            <param id="0" name="Variable">total</param>
+                            <param id="1" name="Value">round(Wagon.diamondCount*difficulty*VALUE_DIAMOND)</param>
+                        </action>
+                        <action id="0" name="Call function" sid="7952477646363154" type="Function">
+                            <param id="0" name="Name">&quot;AddToMoney&quot;</param>
+                            <param id="1" name="Parameter {n}">total</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

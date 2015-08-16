@@ -38,5 +38,101 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-group description="" sid="9687365703189388" title="Add to the money" />
+        <event-block sid="2447535032933146">
+            <conditions>
+                <condition id="0" name="On function" sid="7132811385936159" type="Function">
+                    <param id="0" name="Name">&quot;AddToMoney&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="7203917448202307">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="5813634272506437" type="System">
+                            <param id="0" name="First value">Function.Param(0)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6961695243867026">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="9824453068958561" type="System">
+                                    <param id="0" name="First value">floor(money/250)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">floor(&#x0D;&#x0A;(money+Function.Param(0))/250)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="5514869657360935" type="Audio">
+                                    <param id="0" name="Audio file">bell</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6320058828621827">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="2554446663380606" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="7331117858008659" type="System">
+                                    <param id="0" name="Variable">money</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                                <action id="0" name="Call function" sid="4171757720744899" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateMoney&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action behavior="Timer" id="0" name="Start timer" sid="8809764983440688" type="MoneyText">
+                                    <param id="0" name="Duration">MONEY_PULSE_TIME</param>
+                                    <param id="1" name="Type">0</param>
+                                    <param id="2" name="Tag">&quot;pulsemoney&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="879540817495871" type="MoneyText">
+                                    <param id="0" name="Instance variable">startTime</param>
+                                    <param id="1" name="Value">time</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="9987499926033165" type="MoneyText">
+                                    <param id="0" name="Instance variable">isPulsing</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8558296502019351">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="769303115770756" type="MoneyText">
+                    <param id="0" name="Tag">&quot;pulsemoney&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="3078591207253186" type="MoneyText">
+                    <param id="0" name="Instance variable">isPulsing</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set scale" sid="5218213080174048" type="MoneyText">
+                    <param id="0" name="Scale">1.0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2812689154045839">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="201340013406114" type="MoneyText">
+                    <param id="0" name="Instance variable">isPulsing</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="2" name="Set scale" sid="2873365544555674" type="MoneyText">
+                    <param id="0" name="Scale">1+sin((time-MoneyText.startTime)/MONEY_PULSE_TIME*180)/14</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

@@ -15,6 +15,7 @@
         <event-group description="" sid="301999407816765" title="Main Code" />
         <include>Initialisation</include>
         <include>Wagon Creator</include>
+        <include>Wagon Returner</include>
         <include>Wagon Common Code</include>
         <include>Interface</include>
         <event-group description="" sid="6755322213865293" title="Wagon Handlers" />

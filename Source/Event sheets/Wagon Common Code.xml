@@ -107,6 +107,10 @@
                                                                 <action id="-15" name="Set visible" sid="2142894310219494" type="Wagon">
                                                                     <param id="0" name="Visibility">0</param>
                                                                 </action>
+                                                                <action id="0" name="Call function" sid="8591778099980133" type="Function">
+                                                                    <param id="0" name="Name">&quot;WagonHasReturned&quot;</param>
+                                                                    <param id="1" name="Parameter {n}">Wagon.UID</param>
+                                                                </action>
                                                             </actions>
                                                             <sub-events>
                                                                 <event-block sid="8659606666837381">

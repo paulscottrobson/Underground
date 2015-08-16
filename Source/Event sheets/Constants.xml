@@ -57,6 +57,11 @@
         <comment>Radius and height of a cave explosion</comment>
         <variable constant="1" name="EXPLODE_CAVE_RADIUS" sid="3147515189931807" static="0" type="number">3</variable>
         <variable constant="1" name="EXPLODE_CAVE_HEIGHT" sid="5861039548998492" static="0" type="number">2</variable>
+        <comment>Value of hauls</comment>
+        <variable comment="Value of coal unit" constant="1" name="VALUE_COAL" sid="3377460680082778" static="0" type="number">8</variable>
+        <variable comment="Value of silver unit" constant="1" name="VALUE_SILVER" sid="9206876059768164" static="0" type="number">100</variable>
+        <variable comment="Value of gold unit" constant="1" name="VALUE_GOLD" sid="2110561371379178" static="0" type="number">250</variable>
+        <variable comment="Value of diamond unit" constant="1" name="VALUE_DIAMOND" sid="6550169903071921" static="0" type="number">1000</variable>
         <event-group description="These refer to things in the code" sid="6072579222464355" title="Program Constants" />
         <comment>Class Names - note if you change the names you must also change the Wagon Handler Function names, and also you should change the names of the Wagon event files to match the new names.</comment>
         <variable constant="1" name="CLASS_EXPLORER" sid="6562619556947548" static="0" type="text">Explorer</variable>
@@ -89,6 +94,8 @@
         <variable comment="Completed actions" constant="1" name="WST_DONE" sid="8860186377497569" static="0" type="number">6</variable>
         <variable comment="Return to top" constant="1" name="WST_RETURN" sid="9432838279169009" static="0" type="number">7</variable>
         <variable comment="Wagon has been destroyed" constant="1" name="WST_DESTROYED" sid="803153078415725" static="0" type="number">8</variable>
+        <comment>Time money is pulsed for</comment>
+        <variable comment="Pulse time in seconds" constant="1" name="MONEY_PULSE_TIME" sid="8339303441741872" static="0" type="number">0.6</variable>
         <comment>Set up calculated constants</comment>
         <event-block sid="685173727322585">
             <conditions>

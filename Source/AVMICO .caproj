@@ -25,6 +25,7 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
     <used-effects>
@@ -298,6 +299,15 @@
         </object-type>
         <object-type name="MoneyText" sid="350404195160497">
             <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable comment="True if pulsing" name="isPulsing" sid="5180808623287613" type="boolean" />
+                <instance-variable name="startTime" sid="6980792962640935" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Timer" sid="630182629327406">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
             <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
         </object-type>
         <object-type name="Coin" sid="9745151358095071">
@@ -364,6 +374,7 @@
             <event-sheet>Miner Wagon.xml</event-sheet>
             <event-sheet>Collector Wagon.xml</event-sheet>
             <event-sheet>Exploder Wagon.xml</event-sheet>
+            <event-sheet>Wagon Returner.xml</event-sheet>
         </event-folder>
         <event-sheet>Constants.xml</event-sheet>
         <event-sheet>Game Main.xml</event-sheet>
@@ -416,6 +427,8 @@
         <file name="digging.ogg" />
         <file name="return.m4a" />
         <file name="return.ogg" />
+        <file name="bell.m4a" />
+        <file name="bell.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>
