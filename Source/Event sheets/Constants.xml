@@ -5,7 +5,7 @@
     <events>
         <event-group description="These constants control the way the game plays or looks" sid="273374172890719" title="Constants" />
         <comment>Starting objects</comment>
-        <variable comment="List of wagon objects" constant="1" name="STARTLIST" sid="6036910876479793" static="0" type="text">Explorer=2;Miner=1;Collecter=1;Driller=1;Layer=1;Exploder=1</variable>
+        <variable comment="List of wagon objects" constant="1" name="STARTLIST" sid="6036910876479793" static="0" type="text">Explorer=1;Miner=1;Collector=1;Driller=1;Layer=1;Exploder=1</variable>
         <comment>Size of game area</comment>
         <variable comment="Width of map in units" constant="1" name="MAPWIDTH" sid="8459146280043049" static="0" type="number">40</variable>
         <variable comment="Height of map in Units" constant="1" name="MAPHEIGHT" sid="2091957348147479" static="0" type="number">40</variable>

@@ -637,6 +637,10 @@
                                 <action id="-26" name="Move to layer" sid="8080108062716754" type="Wagon">
                                     <param id="0" name="Layer">2</param>
                                 </action>
+                                <action id="-7" name="Set size" sid="2674705152687213" type="Wagon">
+                                    <param id="0" name="Width">MAPTILESIZE</param>
+                                    <param id="1" name="Height">MAPTILESIZE</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>

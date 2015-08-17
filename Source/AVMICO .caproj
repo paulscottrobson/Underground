@@ -378,6 +378,19 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="DispatchLayerOpacityController" sid="7322440580273102">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="1710582647898905">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8250343183746256" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Maps" plugin-id="Tilemap" sid="964271431457324">

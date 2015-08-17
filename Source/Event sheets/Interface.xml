@@ -144,21 +144,63 @@
                     </conditions>
                     <actions />
                     <sub-events>
-                        <comment>Check if Recycling button hit</comment>
+                        <comment>Check if Clicked Dispatch Frame when marker set, and wagon visible.</comment>
                         <event-block sid="8521976848970498">
                             <conditions>
                                 <condition id="-36" name="Pick overlapping point" sid="5404701617030155" type="System">
+                                    <param id="0" name="Object">DispatchFrame</param>
+                                    <param id="1" name="X">Touch.X</param>
+                                    <param id="2" name="Y">Touch.Y</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="5843340821720249" type="Marker">
+                                    <param id="0" name="Instance variable">isVisible</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="9800813323525745" type="DispatchFrame">
+                                    <param id="0" name="Instance variable">isWagonVisible</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="36296247483937" type="Function">
+                                    <param id="0" name="Name">&quot;QueueDispatch&quot;</param>
+                                    <param id="1" name="Parameter {n}">Marker.xTile{###}Marker.yTile</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="6190694689800558" type="System">
+                                    <param id="0" name="Variable">processed</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="7299827487984333" type="Marker">
+                                    <param id="0" name="Instance variable">isVisible</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="1074654514748592" type="Marker">
+                                    <param id="0" name="Instance variable">xTile</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="6734401060304816" type="Marker">
+                                    <param id="0" name="Instance variable">yTile</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="3717498708535422" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateMarker&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Check if Recycling button hit</comment>
+                        <event-block sid="5222520396215792">
+                            <conditions>
+                                <condition id="-36" name="Pick overlapping point" sid="458803294398362" type="System">
                                     <param id="0" name="Object">BackOfQueue</param>
                                     <param id="1" name="X">Touch.X</param>
                                     <param id="2" name="Y">Touch.Y</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Call function" sid="36296247483937" type="Function">
+                                <action id="0" name="Call function" sid="2341722851205155" type="Function">
                                     <param id="0" name="Name">&quot;QueueRecycle&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
-                                <action id="-9" name="Set value" sid="6190694689800558" type="System">
+                                <action id="-9" name="Set value" sid="1195540198785711" type="System">
                                     <param id="0" name="Variable">processed</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
