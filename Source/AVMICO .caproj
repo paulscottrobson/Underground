@@ -21,6 +21,7 @@
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
@@ -495,6 +496,15 @@
         </object-type>
         <object-type name="LabelText" sid="8915692337060015">
             <plugin id="Text" />
+        </object-type>
+        <object-type name="TitleFade" sid="4280972358835021">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Fade" sid="4944154674803835">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <texture />
         </object-type>
     </object-folder>
     <families>

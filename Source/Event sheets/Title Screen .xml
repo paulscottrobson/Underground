@@ -3,6 +3,27 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Title Screen </name>
     <events>
+        <event-group description="" sid="7739504847754511" title="Title Screen" />
+        <comment>At the start, set the fade up and update the build label</comment>
+        <event-block sid="5444786737088571">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2550789416540447" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="3401919049962262" type="BuildLabel">
+                    <param id="0" name="Text">&quot;Build:&quot; &amp; BUILD_NUMBER</param>
+                </action>
+                <action id="-3" name="Set position" sid="3097770579955321" type="TitleFade">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">0</param>
+                </action>
+                <action id="-7" name="Set size" sid="7837304275223536" type="TitleFade">
+                    <param id="0" name="Width">LayoutWidth</param>
+                    <param id="1" name="Height">LayoutHeight</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Process taps</comment>
         <event-block sid="1476261769984887">
             <conditions>
                 <condition id="14" name="On tap" sid="1225054637153836" type="Touch" />
@@ -13,8 +34,8 @@
                     <conditions>
                         <condition id="-21" name="Is between values" sid="9368096188504102" type="System">
                             <param id="0" name="Value">Touch.Y</param>
-                            <param id="1" name="Lower bound">Scale.Y-128</param>
-                            <param id="2" name="Upper bound">Scale.Y+128</param>
+                            <param id="1" name="Lower bound">Scale.Y-96</param>
+                            <param id="2" name="Upper bound">Scale.Y+96</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -61,16 +82,6 @@
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
-        <event-block sid="5444786737088571">
-            <conditions>
-                <condition id="-2" name="On start of layout" sid="2550789416540447" type="System" />
-            </conditions>
-            <actions>
-                <action id="0" name="Set text" sid="3401919049962262" type="BuildLabel">
-                    <param id="0" name="Text">&quot;Build:&quot; &amp; BUILD_NUMBER</param>
-                </action>
-            </actions>
         </event-block>
     </events>
 </c2eventsheet>
