@@ -19,6 +19,7 @@
         <include>Wagon Common Code</include>
         <include>Interface</include>
         <include>Queuing</include>
+        <include>Shop</include>
         <event-group description="" sid="6755322213865293" title="Wagon Handlers" />
         <include>Collector Wagon</include>
         <include>Driller Wagon</include>

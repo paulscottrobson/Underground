@@ -373,6 +373,32 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <event-block sid="3080158108527638">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3130716164293564" type="System">
+                                    <param id="0" name="Variable">useTestMine</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="6571028507253387" type="Function">
+                                    <param id="0" name="Name">&quot;OpenDemoMap&quot;</param>
+                                    <param id="1" name="Parameter {n}">Function.Param(0){###}Function.Param(1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4177582599872318">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="3843018042309472" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="7813475644784324" type="Function">
+                                    <param id="0" name="Name">&quot;AddStandardPassages&quot;</param>
+                                    <param id="1" name="Parameter {n}">Function.Param(0){###}Function.Param(1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
             </sub-events>
@@ -549,6 +575,58 @@
                                     </sub-events>
                                 </event-block>
                             </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="8053212878729763" title="Add the standard 2 passages left and right" />
+        <event-block sid="9973002808862089">
+            <conditions>
+                <condition id="0" name="On function" sid="1929433569683489" type="Function">
+                    <param id="0" name="Name">&quot;AddStandardPassages&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="998973576484911">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="5460323409709054" type="Maps">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7502471553789636">
+                            <conditions>
+                                <condition id="-10" name="For" sid="4146918836044137" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set tile" sid="1757327142248797" type="Maps">
+                                    <param id="0" name="Tile X">20-loopindex</param>
+                                    <param id="1" name="Tile Y">8</param>
+                                    <param id="2" name="Tile">TILE_OPEN</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                                <action id="1" name="Set tile" sid="4766424759102756" type="Maps">
+                                    <param id="0" name="Tile X">21+loopindex</param>
+                                    <param id="1" name="Tile Y">5</param>
+                                    <param id="2" name="Tile">TILE_OPEN</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="4757198817856293" type="Function">
+                                    <param id="0" name="Name">&quot;OpenView&quot;</param>
+                                    <param id="1" name="Parameter {n}">Function.Param(1){###}20-loopindex{###}8{###}1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="4934956753554081" type="Function">
+                                    <param id="0" name="Name">&quot;OpenView&quot;</param>
+                                    <param id="1" name="Parameter {n}">Function.Param(1){###}21+loopindex{###}5{###}1</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>

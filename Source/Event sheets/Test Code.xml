@@ -17,10 +17,6 @@
                     <param id="0" name="Name">&quot;AnalyseMap&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="0" name="Call function" sid="9718038374291099" type="Function">
-                    <param id="0" name="Name">&quot;OpenDemoMap&quot;</param>
-                    <param id="1" name="Parameter {n}">Map.UID{###}Visibility.UID</param>
-                </action>
             </actions>
             <sub-events>
                 <variable constant="0" name="id" sid="4774493993015134" static="0" type="number">0</variable>

@@ -10,10 +10,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="1">Game</layout>
+        <layout active="1" order="1">Game</layout>
         <event-sheet order="0">Constants</event-sheet>
         <event-sheet order="2">Game Main</event-sheet>
-        <event-sheet active="1" order="3">TODO</event-sheet>
+        <event-sheet order="3">TODO</event-sheet>
         <event-sheet order="4">Wagon Creator</event-sheet>
         <event-sheet order="5">Test Code</event-sheet>
         <event-sheet order="6">Globals</event-sheet>
@@ -21,6 +21,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="8">Queuing</event-sheet>
         <event-sheet order="9">Wagon Returner</event-sheet>
         <event-sheet order="10">Interface</event-sheet>
+        <event-sheet order="11">Map Creation</event-sheet>
+        <event-sheet order="12">Shop</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -54,5 +56,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/DispatchFrame/" />
         <folder expanded="1" path="animation-folder/BackOfQueue/" />
         <folder expanded="1" path="animation-folder/DispatchLayerOpacityController/" />
+        <folder expanded="1" path="animation-folder/ShopController/" />
+        <folder expanded="1" path="animation-folder/BuyButton/" />
+        <folder expanded="1" path="animation-folder/ShopCoin/" />
     </folders-expanded>
 </c2uistate>

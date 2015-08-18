@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Shop</name>
+    <events>
+        <event-group description="" sid="727563162292449" title="Shop Handler" />
+        <event-block sid="4129357548448898">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7922286812409218" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="9290422943317824" type="ShopFrame">
+                    <param id="0" name="Instance variable">actualHeight</param>
+                    <param id="1" name="Value">ShopFrame.Height</param>
+                </action>
+                <action id="-10" name="Set value" sid="2601015523916938" type="ShopFrame">
+                    <param id="0" name="Instance variable">actualWidth</param>
+                    <param id="1" name="Value">ShopFrame.Width</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="9200635188504814" type="ShopController">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Touched the shop frame, return.</comment>
+        <event-block sid="9983501052302739">
+            <conditions>
+                <condition id="3" name="On touched object" sid="6883841143551351" type="Touch">
+                    <param id="0" name="Object">ShopFrame</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="5792538516576392" type="System">
+                    <param id="0" name="Variable">shopOperating</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Fade" id="2" name="Set fade-in time" sid="9967929420864058" type="ShopController">
+                    <param id="0" name="Fade-in time">0</param>
+                </action>
+                <action behavior="Fade" id="4" name="Set fade-out time" sid="1429679376335262" type="ShopController">
+                    <param id="0" name="Fade-out time">1.3</param>
+                </action>
+                <action behavior="Fade" id="0" name="Restart fade" sid="6250497475961445" type="ShopController" />
+                <action id="0" name="Call function" sid="3575721328157995" type="Function">
+                    <param id="0" name="Name">&quot;ResumeGame&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1900650823048494">
+            <conditions>
+                <condition id="0" name="On function" sid="2985024334415842" type="Function">
+                    <param id="0" name="Name">&quot;OpenShop&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Fade" id="2" name="Set fade-in time" sid="5571361015191582" type="ShopController">
+                    <param id="0" name="Fade-in time">1.3</param>
+                </action>
+                <action behavior="Fade" id="4" name="Set fade-out time" sid="1348318561860512" type="ShopController">
+                    <param id="0" name="Fade-out time">0</param>
+                </action>
+                <action behavior="Fade" id="0" name="Restart fade" sid="4697706714067162" type="ShopController" />
+            </actions>
+            <sub-events>
+                <variable constant="0" name="count" sid="613045274333514" static="0" type="number">0</variable>
+                <event-block sid="9458793362447235">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="381150367169467" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="7599620886932106" type="System">
+                            <param id="0" name="Variable">count</param>
+                            <param id="1" name="Value">tokencount(PRICELIST,&quot;;&quot;)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <variable constant="0" name="y" sid="8279375048862688" static="0" type="number">0</variable>
+                        <variable constant="0" name="desc" sid="4861956635343767" static="0" type="text"></variable>
+                        <event-block sid="5709844879064533">
+                            <conditions>
+                                <condition id="-10" name="For" sid="4826178526193755" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">count-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="4353404641459009" type="System">
+                                    <param id="0" name="Variable">y</param>
+                                    <param id="1" name="Value">ShopFrame.actualHeight/2+(loopindex-floor(count)/2+0.5)*(ShopFrame.actualHeight-200)/(count+1)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7154593652757283" type="System">
+                                    <param id="0" name="Variable">desc</param>
+                                    <param id="1" name="Value">tokenat(PRICELIST,loopindex,&quot;;&quot;)</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="5257387207943095" type="System">
+                                    <param id="0" name="Object to create">ShopCoin</param>
+                                    <param id="1" name="Layer">5</param>
+                                    <param id="2" name="X">130</param>
+                                    <param id="3" name="Y">y</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="4194887166249873" type="System">
+                                    <param id="0" name="Object to create">ShopLabel</param>
+                                    <param id="1" name="Layer">5</param>
+                                    <param id="2" name="X">160</param>
+                                    <param id="3" name="Y">y</param>
+                                </action>
+                                <action id="0" name="Set text" sid="736647940601809" type="ShopLabel">
+                                    <param id="0" name="Text">tokenat(desc,1,&quot;=&quot;)</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="5607780802723422" type="System">
+                                    <param id="0" name="Object to create">Wagon</param>
+                                    <param id="1" name="Layer">5</param>
+                                    <param id="2" name="X">230</param>
+                                    <param id="3" name="Y">y-MAPTILESIZE*0.7</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="4911691824661406" type="Wagon">
+                                    <param id="0" name="Animation">tokenat(desc,0,&quot;=&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="2" name="Stop" sid="6539043529612054" type="Wagon" />
+                                <action id="-3" name="Create object" sid="2121745976587528" type="System">
+                                    <param id="0" name="Object to create">ShopLabel</param>
+                                    <param id="1" name="Layer">5</param>
+                                    <param id="2" name="X">310</param>
+                                    <param id="3" name="Y">y</param>
+                                </action>
+                                <action id="0" name="Set text" sid="9042387112121784" type="ShopLabel">
+                                    <param id="0" name="Text">tokenat(desc,0,&quot;=&quot;)</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="8228387534989302" type="System">
+                                    <param id="0" name="Object to create">BuyButton</param>
+                                    <param id="1" name="Layer">5</param>
+                                    <param id="2" name="X">500</param>
+                                    <param id="3" name="Y">y</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="184816221543637" type="BuyButton">
+                                    <param id="0" name="Width">(ShopFrame.actualHeight-200)/(count+1)*0.85</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="4380455425776313" type="BuyButton">
+                                    <param id="0" name="Height">BuyButton.Width</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Adjust the shop display appropriately</comment>
+        <event-block sid="7631772971548256">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="6077386082124004" type="System">
+                    <param id="0" name="First value">ShopFrame.lastOpacity</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Second value">ShopController.Opacity</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-18" name="Set layer opacity" sid="2167424490250201" type="System">
+                    <param id="0" name="Layer">5</param>
+                    <param id="1" name="Opacity">min(100,ShopController.Opacity*2)</param>
+                </action>
+                <action id="-6" name="Set height" sid="9838256703152226" type="ShopFrame">
+                    <param id="0" name="Height">ShopFrame.actualHeight*min(1,ShopController.Opacity/50)</param>
+                </action>
+                <action id="-5" name="Set width" sid="3269130046971934" type="ShopFrame">
+                    <param id="0" name="Width">ShopFrame.actualWidth*min(1,ShopController.Opacity/50)</param>
+                </action>
+                <action id="-3" name="Set position" sid="248561923576595" type="ShopFrame">
+                    <param id="0" name="X">LayoutWidth/2-ShopFrame.Width/2</param>
+                    <param id="1" name="Y">ShopFrame.actualHeight/2-ShopFrame.Height/2</param>
+                </action>
+                <action id="-10" name="Set value" sid="1502585646419518" type="ShopFrame">
+                    <param id="0" name="Instance variable">lastOpacity</param>
+                    <param id="1" name="Value">ShopController.Opacity</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="op" sid="9779218844981261" static="0" type="number">0</variable>
+                <event-block sid="109658554444096">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="2241245863454515" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="7916765087868473" type="System">
+                            <param id="0" name="Variable">op</param>
+                            <param id="1" name="Value">(ShopController.Opacity &lt; 50) ? 0 : (ShopController.Opacity-50)*2</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="8997607600869015" type="ShopLabel">
+                            <param id="0" name="Opacity">op</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="5787350607716426" type="BuyButton">
+                            <param id="0" name="Opacity">op</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="1480219268030323" type="ShopCoin">
+                            <param id="0" name="Opacity">op</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="2553841988159121">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="5028875957043637" type="System">
+                                    <param id="0" name="Object">Wagon</param>
+                                    <param id="1" name="Expression">Wagon.LayerName=&quot;Shop&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="6237222174164321" type="Wagon">
+                                    <param id="0" name="Opacity">op</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

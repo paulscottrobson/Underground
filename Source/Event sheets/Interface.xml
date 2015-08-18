@@ -187,20 +187,25 @@
                             </actions>
                         </event-block>
                         <comment>Check if Recycling button hit</comment>
-                        <event-block sid="5222520396215792">
+                        <event-block sid="2130175486392034">
                             <conditions>
-                                <condition id="-36" name="Pick overlapping point" sid="458803294398362" type="System">
+                                <condition id="-36" name="Pick overlapping point" sid="9332792646345613" type="System">
                                     <param id="0" name="Object">BackOfQueue</param>
                                     <param id="1" name="X">Touch.X</param>
                                     <param id="2" name="Y">Touch.Y</param>
                                 </condition>
+                                <condition id="-14" name="Compare variable" sid="2399708873945721" type="System">
+                                    <param id="0" name="Variable">processed</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Call function" sid="2341722851205155" type="Function">
+                                <action id="0" name="Call function" sid="1280904799675717" type="Function">
                                     <param id="0" name="Name">&quot;QueueRecycle&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
-                                <action id="-9" name="Set value" sid="1195540198785711" type="System">
+                                <action id="-9" name="Set value" sid="3869349483827719" type="System">
                                     <param id="0" name="Variable">processed</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
@@ -213,6 +218,11 @@
                                     <param id="0" name="Object">Scanner</param>
                                     <param id="1" name="X">Touch.X</param>
                                     <param id="2" name="Y">Touch.Y</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="5559347815551165" type="System">
+                                    <param id="0" name="Variable">processed</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -250,6 +260,51 @@
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
+                        </event-block>
+                        <comment>Check if money or coin hit</comment>
+                        <event-block any="1" sid="5222520396215792">
+                            <conditions>
+                                <condition id="-36" name="Pick overlapping point" sid="458803294398362" type="System">
+                                    <param id="0" name="Object">MoneyText</param>
+                                    <param id="1" name="X">Touch.X</param>
+                                    <param id="2" name="Y">Touch.Y</param>
+                                </condition>
+                                <condition id="-36" name="Pick overlapping point" sid="4616968104969128" type="System">
+                                    <param id="0" name="Object">Coin</param>
+                                    <param id="1" name="X">Touch.X</param>
+                                    <param id="2" name="Y">Touch.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="5588996671453449">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="3088430407153407" type="System">
+                                            <param id="0" name="Variable">processed</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="7785329352531046" type="System">
+                                            <param id="0" name="Variable">wagonsOperating</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="3087568210367972" type="System">
+                                            <param id="0" name="Variable">shopOperating</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="1636777997835135" type="Function">
+                                            <param id="0" name="Name">&quot;OpenShop&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="1195540198785711" type="System">
+                                            <param id="0" name="Variable">processed</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <comment>If nothing clicked, treat as if whole screen clicked</comment>
                         <event-block sid="6855379411955802">
@@ -481,6 +536,24 @@
                 <action id="0" name="Call function" sid="1111206359137569" type="Function">
                     <param id="0" name="Name">&quot;UpdateMarker&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="7091009009046363" title="Resume game after shop closed" />
+        <event-block sid="5987146296873476">
+            <conditions>
+                <condition id="0" name="On function" sid="104352527564825" type="Function">
+                    <param id="0" name="Name">&quot;ResumeGame&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="2199879540840413" type="System">
+                    <param id="0" name="Variable">wagonsOperating</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="5984452792314296" type="System">
+                    <param id="0" name="Variable">shopOperating</param>
+                    <param id="1" name="Value">0</param>
                 </action>
             </actions>
         </event-block>
