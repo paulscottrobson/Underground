@@ -38,7 +38,7 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-group description="" sid="9687365703189388" title="Add to the money" />
+        <event-group description="Also sounds a bell when you get 250 more gps" sid="9687365703189388" title="Add or Subtract to/from the money" />
         <event-block sid="2447535032933146">
             <conditions>
                 <condition id="0" name="On function" sid="7132811385936159" type="Function">
@@ -51,7 +51,7 @@
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="5813634272506437" type="System">
                             <param id="0" name="First value">Function.Param(0)</param>
-                            <param id="1" name="Comparison">4</param>
+                            <param id="1" name="Comparison">1</param>
                             <param id="2" name="Second value">0</param>
                         </condition>
                     </conditions>
@@ -63,6 +63,11 @@
                                     <param id="0" name="First value">floor(money/250)</param>
                                     <param id="1" name="Comparison">1</param>
                                     <param id="2" name="Second value">floor(&#x0D;&#x0A;(money+Function.Param(0))/250)</param>
+                                </condition>
+                                <condition id="1" name="Compare parameter" sid="9647971261962495" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>

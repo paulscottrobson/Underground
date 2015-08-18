@@ -133,6 +133,32 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="7188981501618498">
+            <conditions>
+                <condition id="0" name="On function" sid="9441896733512228" type="Function">
+                    <param id="0" name="Name">&quot;InsertWagonType&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="id" sid="4327781144945053" static="0" type="number">0</variable>
+                <event-block sid="5563711383837149">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="4479062045025697" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="8895360915456586" type="System">
+                            <param id="0" name="Variable">id</param>
+                            <param id="1" name="Value">Function.Call(&quot;CreateWagon&quot;,Function.Param(0))</param>
+                        </action>
+                        <action id="0" name="Call function" sid="5265792321063748" type="Function">
+                            <param id="0" name="Name">&quot;QueueInsert&quot;</param>
+                            <param id="1" name="Parameter {n}">id{###}0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-group description="Parameter 0 is Wagon ID. Param 1 is 1 if it is returning - the wagon alert only sounds on returning going 0-&gt;1" sid="80010123957977" title="Insert into Wagon Queue" />
         <event-block sid="6034333213248609">
             <conditions>

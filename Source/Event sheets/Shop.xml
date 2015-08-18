@@ -22,32 +22,6 @@
                 </action>
             </actions>
         </event-block>
-        <comment>Touched the shop frame, return.</comment>
-        <event-block sid="9983501052302739">
-            <conditions>
-                <condition id="3" name="On touched object" sid="6883841143551351" type="Touch">
-                    <param id="0" name="Object">ShopFrame</param>
-                </condition>
-                <condition id="-14" name="Compare variable" sid="5792538516576392" type="System">
-                    <param id="0" name="Variable">shopOperating</param>
-                    <param id="1" name="Comparison">1</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Fade" id="2" name="Set fade-in time" sid="9967929420864058" type="ShopController">
-                    <param id="0" name="Fade-in time">0</param>
-                </action>
-                <action behavior="Fade" id="4" name="Set fade-out time" sid="1429679376335262" type="ShopController">
-                    <param id="0" name="Fade-out time">1.3</param>
-                </action>
-                <action behavior="Fade" id="0" name="Restart fade" sid="6250497475961445" type="ShopController" />
-                <action id="0" name="Call function" sid="3575721328157995" type="Function">
-                    <param id="0" name="Name">&quot;ResumeGame&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="1900650823048494">
             <conditions>
                 <condition id="0" name="On function" sid="2985024334415842" type="Function">
@@ -142,6 +116,18 @@
                                 <action id="-6" name="Set height" sid="4380455425776313" type="BuyButton">
                                     <param id="0" name="Height">BuyButton.Width</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="5520202454536886" type="BuyButton">
+                                    <param id="0" name="Instance variable">itemName</param>
+                                    <param id="1" name="Value">tokenat(desc,0,&quot;=&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="2868408905024728" type="BuyButton">
+                                    <param id="0" name="Instance variable">itemCost</param>
+                                    <param id="1" name="Value">int(tokenat(desc,1,&quot;=&quot;))</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="5708475198104508" type="BuyButton">
+                                    <param id="0" name="Instance variable">isAffordable</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
@@ -209,6 +195,139 @@
                             <actions>
                                 <action id="-16" name="Set opacity" sid="6237222174164321" type="Wagon">
                                     <param id="0" name="Opacity">op</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Buttons continually monitor and update their state</comment>
+        <event-block sid="3195362166296461">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="2490575923990914" type="System">
+                    <param id="0" name="Variable">shopOperating</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5153610824637159">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="7354424948807143" type="System">
+                            <param id="0" name="Object">BuyButton</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3401311689893057">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="3519494748684872" type="BuyButton">
+                                    <param id="0" name="Instance variable">itemCost</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">money</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="2995449010990428" type="BuyButton">
+                                    <param id="0" name="Instance variable">isAffordable</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="2661232816450307" type="BuyButton">
+                                    <param id="0" name="Animation">&quot;Yes&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5013796575790424">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="3389034874146598" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="8006352671971637" type="BuyButton">
+                                    <param id="0" name="Animation">&quot;No&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="3078047894835138" type="BuyButton">
+                                    <param id="0" name="Instance variable">isAffordable</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Touched the shop frame, buy if overlaps buy button else return</comment>
+        <event-block sid="4887041762088194">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="9667660361470735" type="System">
+                    <param id="0" name="Variable">shopOperating</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9983501052302739">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="6883841143551351" type="Touch">
+                            <param id="0" name="Object">ShopFrame</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9732442052686815">
+                            <conditions>
+                                <condition id="-36" name="Pick overlapping point" sid="2969419675053957" type="System">
+                                    <param id="0" name="Object">BuyButton</param>
+                                    <param id="1" name="X">Touch.X</param>
+                                    <param id="2" name="Y">Touch.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="4725501392542611">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="2549471550124458" type="BuyButton">
+                                            <param id="0" name="Instance variable">isAffordable</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="133615790590735" type="Function">
+                                            <param id="0" name="Name">&quot;AddToMoney&quot;</param>
+                                            <param id="1" name="Parameter {n}">-BuyButton.itemCost</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="6791162166781288" type="Audio">
+                                            <param id="0" name="Audio file">kerching</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="1530307559588081" type="BuyButton">
+                                            <param id="0" name="Instance variable">isAffordable</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3832107082983161">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6471488878374857" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Fade" id="2" name="Set fade-in time" sid="9967929420864058" type="ShopController">
+                                    <param id="0" name="Fade-in time">0</param>
+                                </action>
+                                <action behavior="Fade" id="4" name="Set fade-out time" sid="1429679376335262" type="ShopController">
+                                    <param id="0" name="Fade-out time">1.3</param>
+                                </action>
+                                <action behavior="Fade" id="0" name="Restart fade" sid="6250497475961445" type="ShopController" />
+                                <action id="0" name="Call function" sid="3575721328157995" type="Function">
+                                    <param id="0" name="Name">&quot;ResumeGame&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
                         </event-block>

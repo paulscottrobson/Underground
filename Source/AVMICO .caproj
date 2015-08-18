@@ -111,6 +111,53 @@
                 <plugin id="Audio" />
             </object-type>
         </object-folder>
+        <object-folder name="Shop">
+            <object-type name="ShopCoin" sid="2604626243097103">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3563501474869369" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\coin.png">
+                            <collision-poly>
+                                <point x="0.1375" y="0.1375" />
+                                <point x="0.5" y="0" />
+                                <point x="0.85" y="0.15" />
+                                <point x="1" y="0.5" />
+                                <point x="0.85" y="0.85" />
+                                <point x="0.5" y="1" />
+                                <point x="0.15" y="0.85" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ShopController" sid="5774690994299983">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="9209986925558779">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3834760502461741" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ShopLabel" sid="2638880406292184">
+                <plugin id="Spritefont2" />
+                <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
+            </object-type>
+            <object-type name="ShopFrame" sid="3342609810197409">
+                <plugin id="NinePatch" />
+                <instance-variables>
+                    <instance-variable name="actualHeight" sid="4071871134851931" type="number" />
+                    <instance-variable name="actualWidth" sid="8404077239715686" type="number" />
+                    <instance-variable name="lastOpacity" sid="1969607583899904" type="number" />
+                </instance-variables>
+                <texture />
+            </object-type>
+        </object-folder>
         <object-type name="Function" sid="2471661111899119">
             <plugin id="Function" />
         </object-type>
@@ -388,32 +435,6 @@
             <plugin id="NinePatch" />
             <texture />
         </object-type>
-        <object-type name="ShopFrame" sid="3342609810197409">
-            <plugin id="NinePatch" />
-            <instance-variables>
-                <instance-variable name="actualHeight" sid="4071871134851931" type="number" />
-                <instance-variable name="actualWidth" sid="8404077239715686" type="number" />
-                <instance-variable name="lastOpacity" sid="1969607583899904" type="number" />
-            </instance-variables>
-            <texture />
-        </object-type>
-        <object-type name="ShopController" sid="5774690994299983">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Fade" sid="9209986925558779">
-                    <behavior id="Fade" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3834760502461741" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="ShopLabel" sid="2638880406292184">
-            <plugin id="Spritefont2" />
-            <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
-        </object-type>
         <object-type name="BuyButton" sid="836810569305421">
             <plugin id="Sprite" />
             <instance-variables>
@@ -422,28 +443,11 @@
                 <instance-variable comment="Can the item be bought ?" name="isAffordable" sid="6808420532490446" type="boolean" />
             </instance-variables>
             <animation-folder>
-                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6977200702238741" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                <animation framecount="1" loop="0" name="Yes" pingpong="0" repeatcount="1" repeatto="0" sid="6977200702238741" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="ShopCoin" sid="2604626243097103">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3563501474869369" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\coin.png">
-                        <collision-poly>
-                            <point x="0.1375" y="0.1375" />
-                            <point x="0.5" y="0" />
-                            <point x="0.85" y="0.15" />
-                            <point x="1" y="0.5" />
-                            <point x="0.85" y="0.85" />
-                            <point x="0.5" y="1" />
-                            <point x="0.15" y="0.85" />
-                            <point x="0" y="0.5" />
-                        </collision-poly>
-                    </frame>
+                <animation framecount="1" loop="0" name="No" pingpong="0" repeatcount="1" repeatto="0" sid="9219681934268221" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>

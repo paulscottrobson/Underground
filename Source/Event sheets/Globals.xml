@@ -9,7 +9,7 @@
         <comment>Control shop</comment>
         <variable comment="Control shop" constant="0" name="shopOperating" sid="5888081452152404" static="0" type="number">0</variable>
         <comment>Amount of money</comment>
-        <variable comment="Amount of money held" constant="0" name="money" sid="4308221904963265" static="0" type="number">0</variable>
+        <variable comment="Amount of money held" constant="0" name="money" sid="4308221904963265" static="0" type="number">150</variable>
         <comment>Difficulty level - scales return on sold items</comment>
         <variable comment="Difficulty level" constant="0" name="difficulty" sid="8849992278662411" static="0" type="number">1</variable>
         <comment>Set to 1 to use &quot;premade mine&quot;</comment>
