@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Title Screen </name>
+    <events>
+        <event-block sid="1476261769984887">
+            <conditions>
+                <condition id="14" name="On tap" sid="1225054637153836" type="Touch" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="8424882675771173">
+                    <conditions>
+                        <condition id="-21" name="Is between values" sid="9368096188504102" type="System">
+                            <param id="0" name="Value">Touch.Y</param>
+                            <param id="1" name="Lower bound">Scale.Y-128</param>
+                            <param id="2" name="Upper bound">Scale.Y+128</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="8821971157175699" type="System">
+                            <param id="0" name="Variable">difficulty</param>
+                            <param id="1" name="Value">(Touch.X-Scale.BBoxLeft)/(Scale.Width)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4472614627973652" type="System">
+                            <param id="0" name="Variable">difficulty</param>
+                            <param id="1" name="Value">max(0,min(1,difficulty))</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="2911939420455206" type="ScaleMarker">
+                            <param id="0" name="X">difficulty*Scale.Width+Scale.BBoxLeft</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2769736843846629" type="System">
+                            <param id="0" name="Variable">difficulty</param>
+                            <param id="1" name="Value">1.5-difficulty</param>
+                        </action>
+                        <action disabled="1" id="0" name="Set text" sid="3974088711378812" type="TitleLabel">
+                            <param id="0" name="Text">difficulty</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7702656931052514">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="3950733934374668" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3756605335378543" type="System">
+                            <param id="0" name="Variable">money</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9673203223731799" type="System">
+                            <param id="0" name="Variable">wagonsOperating</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2448622230247346" type="System">
+                            <param id="0" name="Variable">shopOperating</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="8683988830931874" type="System">
+                            <param id="0" name="Layout">Game</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -26,6 +26,7 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
@@ -110,6 +111,26 @@
             <object-type name="Audio" sid="5373462422087792">
                 <plugin id="Audio" />
             </object-type>
+            <object-type name="WagonMarker" sid="6025180208099209">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1926355023792774" speed="5">
+                        <frame duration="1" hotspotX="0.6" hotspotY="0.6" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ViewMarker" sid="4646286692723867">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2871619071663636" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Scanner" sid="3908640310835385">
+                <plugin id="NinePatch" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="Shop">
             <object-type name="ShopCoin" sid="2604626243097103">
@@ -157,6 +178,131 @@
                 </instance-variables>
                 <texture />
             </object-type>
+            <object-type name="BuyButton" sid="836810569305421">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable comment="Name of item" name="itemName" sid="8572583463227684" type="string" />
+                    <instance-variable comment="Cost of item" name="itemCost" sid="1184115317408784" type="number" />
+                    <instance-variable comment="Can the item be bought ?" name="isAffordable" sid="6808420532490446" type="boolean" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Yes" pingpong="0" repeatcount="1" repeatto="0" sid="6977200702238741" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="No" pingpong="0" repeatcount="1" repeatto="0" sid="9219681934268221" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="GUI">
+            <object-type name="Coin" sid="9745151358095071">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5984948066881169" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\coin.png">
+                            <collision-poly>
+                                <point x="0.1375" y="0.1375" />
+                                <point x="0.5" y="0" />
+                                <point x="0.85" y="0.15" />
+                                <point x="1" y="0.5" />
+                                <point x="0.85" y="0.85" />
+                                <point x="0.5" y="1" />
+                                <point x="0.15" y="0.85" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="DispatchLayerOpacityController" sid="7322440580273102">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="1710582647898905">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8250343183746256" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="DispatchFrame" sid="8206136977911194">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable comment="True when wagon displayed in queue space" name="isWagonVisible" sid="65200567568674" type="boolean" />
+                    <instance-variable comment="UID of displayed wagon, if any" name="currentUID" sid="35953533068547" type="number" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3114858451971554" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Construct2\Underground\Graphics\blueframe.png">
+                            <collision-poly>
+                                <point x="0.0166667" y="0.025641" />
+                                <point x="0.983333" y="0.025641" />
+                                <point x="0.976667" y="0.964103" />
+                                <point x="0.0233333" y="0.964103" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="BackOfQueue" sid="6332511175207631">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="565711419082223" speed="5">
+                        <frame duration="1" hotspotX="0.506849" hotspotY="0.505495" original-source="C:\Construct2\Underground\Graphics\backqueue.png">
+                            <collision-poly>
+                                <point x="0.232877" y="0.186813" />
+                                <point x="0.493151" y="0.0659341" />
+                                <point x="0.767123" y="0.186813" />
+                                <point x="1" y="0.494505" />
+                                <point x="0.767123" y="0.813187" />
+                                <point x="0.493151" y="0.934066" />
+                                <point x="0.232877" y="0.813187" />
+                                <point x="0" y="0.494505" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Marker" sid="6970199031761931">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable comment="Marker X position" name="xTile" sid="6151138481902275" type="number" />
+                    <instance-variable comment="Marker Y position" name="yTile" sid="1523682528630553" type="number" />
+                    <instance-variable comment="Marker visible" name="isVisible" sid="4232240122617776" type="boolean" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="264410313167269" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\target.png">
+                            <collision-poly>
+                                <point x="0.125" y="0.125" />
+                                <point x="0.5" y="0.333333" />
+                                <point x="0.854167" y="0.145833" />
+                                <point x="0.645833" y="0.5" />
+                                <point x="0.854167" y="0.854167" />
+                                <point x="0.5" y="0.645833" />
+                                <point x="0.145833" y="0.854167" />
+                                <point x="0.333333" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="MoneyText" sid="350404195160497">
+                <plugin id="Spritefont2" />
+                <instance-variables>
+                    <instance-variable comment="True if pulsing" name="isPulsing" sid="5180808623287613" type="boolean" />
+                    <instance-variable name="startTime" sid="6980792962640935" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Timer" sid="630182629327406">
+                        <behavior id="Timer" />
+                    </behavior-type>
+                </behaviors>
+                <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
+            </object-type>
         </object-folder>
         <object-type name="Function" sid="2471661111899119">
             <plugin id="Function" />
@@ -179,44 +325,8 @@
             <texture original-source="C:\Construct2\Underground\Graphics\tiles.png" />
             <tiles />
         </object-type>
-        <object-type name="Scanner" sid="3908640310835385">
-            <plugin id="NinePatch" />
-            <texture />
-        </object-type>
-        <object-type name="ViewMarker" sid="4646286692723867">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2871619071663636" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="Touch" sid="2130410356740054">
             <plugin id="Touch" />
-        </object-type>
-        <object-type name="Marker" sid="6970199031761931">
-            <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable comment="Marker X position" name="xTile" sid="6151138481902275" type="number" />
-                <instance-variable comment="Marker Y position" name="yTile" sid="1523682528630553" type="number" />
-                <instance-variable comment="Marker visible" name="isVisible" sid="4232240122617776" type="boolean" />
-            </instance-variables>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="264410313167269" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\target.png">
-                        <collision-poly>
-                            <point x="0.125" y="0.125" />
-                            <point x="0.5" y="0.333333" />
-                            <point x="0.854167" y="0.145833" />
-                            <point x="0.645833" y="0.5" />
-                            <point x="0.854167" y="0.854167" />
-                            <point x="0.5" y="0.645833" />
-                            <point x="0.145833" y="0.854167" />
-                            <point x="0.333333" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
         </object-type>
         <object-type name="Wagon" sid="6479762037597863">
             <plugin id="Sprite" />
@@ -333,65 +443,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="WagonMarker" sid="6025180208099209">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1926355023792774" speed="5">
-                    <frame duration="1" hotspotX="0.6" hotspotY="0.6" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="MoneyText" sid="350404195160497">
-            <plugin id="Spritefont2" />
-            <instance-variables>
-                <instance-variable comment="True if pulsing" name="isPulsing" sid="5180808623287613" type="boolean" />
-                <instance-variable name="startTime" sid="6980792962640935" type="number" />
-            </instance-variables>
-            <behaviors>
-                <behavior-type name="Timer" sid="630182629327406">
-                    <behavior id="Timer" />
-                </behavior-type>
-            </behaviors>
-            <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
-        </object-type>
-        <object-type name="Coin" sid="9745151358095071">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5984948066881169" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Construct2\Underground\Graphics\coin.png">
-                        <collision-poly>
-                            <point x="0.1375" y="0.1375" />
-                            <point x="0.5" y="0" />
-                            <point x="0.85" y="0.15" />
-                            <point x="1" y="0.5" />
-                            <point x="0.85" y="0.85" />
-                            <point x="0.5" y="1" />
-                            <point x="0.15" y="0.85" />
-                            <point x="0" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="DispatchFrame" sid="8206136977911194">
-            <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable comment="True when wagon displayed in queue space" name="isWagonVisible" sid="65200567568674" type="boolean" />
-                <instance-variable comment="UID of displayed wagon, if any" name="currentUID" sid="35953533068547" type="number" />
-            </instance-variables>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3114858451971554" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Construct2\Underground\Graphics\blueframe.png">
-                        <collision-poly>
-                            <point x="0.0166667" y="0.025641" />
-                            <point x="0.983333" y="0.025641" />
-                            <point x="0.976667" y="0.964103" />
-                            <point x="0.0233333" y="0.964103" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="QueueSize" sid="5425375579457637">
             <plugin id="Spritefont2" />
             <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
@@ -399,54 +450,42 @@
         <object-type name="WagonQueue" sid="3153587966499852">
             <plugin id="Arr" />
         </object-type>
-        <object-type name="BackOfQueue" sid="6332511175207631">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="565711419082223" speed="5">
-                    <frame duration="1" hotspotX="0.506849" hotspotY="0.505495" original-source="C:\Construct2\Underground\Graphics\backqueue.png">
-                        <collision-poly>
-                            <point x="0.232877" y="0.186813" />
-                            <point x="0.493151" y="0.0659341" />
-                            <point x="0.767123" y="0.186813" />
-                            <point x="1" y="0.494505" />
-                            <point x="0.767123" y="0.813187" />
-                            <point x="0.493151" y="0.934066" />
-                            <point x="0.232877" y="0.813187" />
-                            <point x="0" y="0.494505" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="DispatchLayerOpacityController" sid="7322440580273102">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Fade" sid="1710582647898905">
-                    <behavior id="Fade" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8250343183746256" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="Frame" sid="3530617408819088">
             <plugin id="NinePatch" />
             <texture />
         </object-type>
-        <object-type name="BuyButton" sid="836810569305421">
+        <object-type name="Logo" sid="7569782612762128">
             <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable comment="Name of item" name="itemName" sid="8572583463227684" type="string" />
-                <instance-variable comment="Cost of item" name="itemCost" sid="1184115317408784" type="number" />
-                <instance-variable comment="Can the item be bought ?" name="isAffordable" sid="6808420532490446" type="boolean" />
-            </instance-variables>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Yes" pingpong="0" repeatcount="1" repeatto="0" sid="6977200702238741" speed="5">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4211079540364692" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501182" original-source="C:\Construct2\Underground\Graphics\logo.PNG" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LabelText" sid="8915692337060015">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="TitleLabel" sid="8441302275703754">
+            <plugin id="Spritefont2" />
+            <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
+        </object-type>
+        <object-type name="Scale" sid="126689535823421">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8178565344341857" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
-                <animation framecount="1" loop="0" name="No" pingpong="0" repeatcount="1" repeatto="0" sid="9219681934268221" speed="5">
+            </animation-folder>
+        </object-type>
+        <object-type name="ScaleMarker" sid="3177176999026727">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="9391704484856291">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3902018172641695" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -474,6 +513,7 @@
     <layout-folder>
         <layout>Test Layout.xml</layout>
         <layout>Game.xml</layout>
+        <layout>Title.xml</layout>
     </layout-folder>
     <event-folder>
         <event-folder name="Functions">
@@ -486,6 +526,7 @@
         <event-folder name="Miscellany">
             <event-sheet>Test Layout Events.xml</event-sheet>
             <event-sheet>TODO.xml</event-sheet>
+            <event-sheet>Title Screen .xml</event-sheet>
         </event-folder>
         <event-folder name="Wagons">
             <event-sheet>Wagon Creator.xml</event-sheet>

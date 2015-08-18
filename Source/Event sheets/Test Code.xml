@@ -4,7 +4,7 @@
     <name>Test Code</name>
     <events>
         <event-group description="Temporary testing code goes here" sid="9875618218056287" title="Test code" />
-        <event-block sid="2023412850406356">
+        <event-block disabled="1" sid="2023412850406356">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="3204710564411308" type="System" />
             </conditions>

@@ -278,6 +278,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <comment>Check if tapped a buy button</comment>
                         <event-block sid="9732442052686815">
                             <conditions>
                                 <condition id="-36" name="Pick overlapping point" sid="2969419675053957" type="System">
@@ -288,6 +289,7 @@
                             </conditions>
                             <actions />
                             <sub-events>
+                                <comment>Buy it if it is affordable</comment>
                                 <event-block sid="4725501392542611">
                                     <conditions>
                                         <condition id="-8" name="Is boolean instance variable set" sid="2549471550124458" type="BuyButton">
@@ -298,6 +300,10 @@
                                         <action id="0" name="Call function" sid="133615790590735" type="Function">
                                             <param id="0" name="Name">&quot;AddToMoney&quot;</param>
                                             <param id="1" name="Parameter {n}">-BuyButton.itemCost</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="7712538741679726" type="Function">
+                                            <param id="0" name="Name">&quot;AddPurchasedWagon&quot;</param>
+                                            <param id="1" name="Parameter {n}">BuyButton.itemName</param>
                                         </action>
                                         <action id="0" name="Play" sid="6791162166781288" type="Audio">
                                             <param id="0" name="Audio file">kerching</param>
@@ -313,6 +319,7 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <comment>Otherwise return to main game.</comment>
                         <event-block sid="3832107082983161">
                             <conditions>
                                 <condition id="-22" name="Else" sid="6471488878374857" type="System" />
