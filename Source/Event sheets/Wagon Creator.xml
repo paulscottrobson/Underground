@@ -32,6 +32,9 @@
                     <param id="0" name="Animation">Wagon.name</param>
                     <param id="1" name="From">1</param>
                 </action>
+                <action id="5" name="Set frame" sid="4514463590094847" type="Wagon">
+                    <param id="0" name="Frame number">0</param>
+                </action>
                 <action id="2" name="Stop" sid="6386646918996856" type="Wagon" />
                 <action id="-15" name="Set visible" sid="9762840781216245" type="Wagon">
                     <param id="0" name="Visibility">0</param>

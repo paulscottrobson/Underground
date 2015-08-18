@@ -6,6 +6,7 @@
         <event-group description="" sid="4711578671914793" title="Constants and Globals" />
         <include>Constants</include>
         <include>Globals</include>
+        <include>Builds</include>
         <event-group description="" sid="5176079425161773" title="Functions" />
         <include>Map Creation</include>
         <include>Open View</include>

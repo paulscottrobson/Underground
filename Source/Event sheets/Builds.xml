@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Builds</name>
+    <events>
+        <event-group description="" sid="6378027982584966" title="Build Information / Changes / Fixes" />
+        <variable constant="1" name="BUILD_NUMBER" sid="9207653965890483" static="0" type="text">1 : 18-08-15</variable>
+        <comment>Build 1 : 18th August 2015 : First working version</comment>
+    </events>
+</c2eventsheet>

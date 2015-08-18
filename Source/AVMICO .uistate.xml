@@ -14,13 +14,15 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <layout order="9">Title</layout>
         <event-sheet order="0">Constants</event-sheet>
         <event-sheet order="2">Game Main</event-sheet>
-        <event-sheet order="3">TODO</event-sheet>
+        <event-sheet active="1" order="3">TODO</event-sheet>
         <event-sheet order="4">Wagon Creator</event-sheet>
         <event-sheet order="5">Test Code</event-sheet>
         <event-sheet order="6">Globals</event-sheet>
         <event-sheet order="7">Interface</event-sheet>
         <event-sheet order="8">Miscellaneous Functions</event-sheet>
-        <event-sheet active="1" order="10">Title Screen </event-sheet>
+        <event-sheet order="10">Title Screen </event-sheet>
+        <event-sheet order="11">Queuing</event-sheet>
+        <event-sheet order="12">Builds</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -38,6 +40,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="object-folder/Miscellany/" />
         <folder expanded="1" path="object-folder/Shop/" />
         <folder expanded="1" path="object-folder/GUI/" />
+        <folder expanded="1" path="object-folder/Title/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="1" path="event-folder/Functions/" />
@@ -58,9 +61,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/DispatchFrame/" />
         <folder expanded="1" path="animation-folder/BackOfQueue/" />
         <folder expanded="1" path="animation-folder/Marker/" />
-        <folder expanded="1" path="animation-folder/Wagon/" />
         <folder expanded="1" path="animation-folder/Logo/" />
-        <folder expanded="1" path="animation-folder/Scale/" />
         <folder expanded="1" path="animation-folder/ScaleMarker/" />
+        <folder expanded="1" path="animation-folder/Scale/" />
+        <folder expanded="1" path="animation-folder/Wagon/" />
     </folders-expanded>
 </c2uistate>

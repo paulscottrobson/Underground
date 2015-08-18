@@ -62,5 +62,15 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-block sid="5444786737088571">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2550789416540447" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="3401919049962262" type="BuildLabel">
+                    <param id="0" name="Text">&quot;Build:&quot; &amp; BUILD_NUMBER</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

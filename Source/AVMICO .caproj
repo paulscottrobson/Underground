@@ -304,6 +304,45 @@
                 <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
             </object-type>
         </object-folder>
+        <object-folder name="Title">
+            <object-type name="BuildLabel" sid="6982064367694727">
+                <plugin id="Spritefont2" />
+                <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
+            </object-type>
+            <object-type name="Logo" sid="7569782612762128">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4211079540364692" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.501182" original-source="C:\Construct2\Underground\Graphics\logo.PNG" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ScaleMarker" sid="3177176999026727">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Sine" sid="9391704484856291">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3902018172641695" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Scale" sid="126689535823421">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8178565344341857" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="TitleLabel" sid="8441302275703754">
+                <plugin id="Spritefont2" />
+                <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
+            </object-type>
+        </object-folder>
         <object-type name="Function" sid="2471661111899119">
             <plugin id="Function" />
         </object-type>
@@ -454,41 +493,8 @@
             <plugin id="NinePatch" />
             <texture />
         </object-type>
-        <object-type name="Logo" sid="7569782612762128">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4211079540364692" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.501182" original-source="C:\Construct2\Underground\Graphics\logo.PNG" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="LabelText" sid="8915692337060015">
             <plugin id="Text" />
-        </object-type>
-        <object-type name="TitleLabel" sid="8441302275703754">
-            <plugin id="Spritefont2" />
-            <texture original-source="C:\Construct2\Underground\Graphics\firabold.png" />
-        </object-type>
-        <object-type name="Scale" sid="126689535823421">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8178565344341857" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="ScaleMarker" sid="3177176999026727">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Sine" sid="9391704484856291">
-                    <behavior id="Sin" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3902018172641695" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
         </object-type>
     </object-folder>
     <families>
@@ -527,6 +533,7 @@
             <event-sheet>Test Layout Events.xml</event-sheet>
             <event-sheet>TODO.xml</event-sheet>
             <event-sheet>Title Screen .xml</event-sheet>
+            <event-sheet>Builds.xml</event-sheet>
         </event-folder>
         <event-folder name="Wagons">
             <event-sheet>Wagon Creator.xml</event-sheet>

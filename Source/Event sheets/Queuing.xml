@@ -122,6 +122,10 @@
                             <param id="1" name="Y">DispatchFrame.Y+DispatchFrame.Height/2-Wagon.Height/2</param>
                         </action>
                         <action behavior="InterfaceFade" id="0" name="Restart fade" sid="8022097434429457" type="Wagon" />
+                        <action id="5" name="Set frame" sid="542684484990907" type="Wagon">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="2" name="Stop" sid="1087550132519083" type="Wagon" />
                     </actions>
                 </event-block>
             </sub-events>
